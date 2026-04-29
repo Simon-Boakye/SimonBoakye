@@ -19,7 +19,6 @@
     --ink:      #0b1f16;
     --muted:    #4a6558;
     --border:   #c5ddd3;
-    --gold:     #c9a84c;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
@@ -82,20 +81,27 @@
   .hero-title em { font-style: italic; color: var(--g-bright); }
   .hero-sub {
     font-size: 1.1rem; color: rgba(255,255,255,0.85);
-    line-height: 1.7; max-width: 600px; margin-bottom: 2.4rem;
+    line-height: 1.7; max-width: 600px; margin-bottom: 2.8rem;
     font-style: italic;
   }
-  .hero-ctas { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+  
+  /* Polished Hero CTAs with increased spacing */
+  .hero-ctas { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
   
   .btn-tab {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    padding: 0.6rem 1.2rem; background: rgba(255,255,255,0.08); 
-    color: var(--white); font-weight: 500; font-size: 0.82rem;
-    border-radius: 50px; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); 
-    transition: 0.3s;
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    padding: 0.75rem 1.4rem; background: rgba(255,255,255,0.06); 
+    color: var(--white); font-weight: 500; font-size: 0.85rem;
+    border-radius: 50px; text-decoration: none; border: 1px solid rgba(255,255,255,0.12); 
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
   }
-  .btn-tab:hover { background: rgba(255,255,255,0.15); border-color: var(--g-bright); }
-  .btn-tab svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; }
+  .btn-tab:hover { background: rgba(255,255,255,0.12); border-color: var(--g-bright); transform: translateY(-2px); }
+  .btn-tab svg { width: 18px; height: 18px; fill: none; stroke: var(--g-bright); stroke-width: 2; }
+  
+  .btn-tab.primary-cta { background: var(--g-bright); color: var(--g-deep); border-color: var(--g-bright); font-weight: 600; }
+  .btn-tab.primary-cta svg { stroke: var(--g-deep); }
+  .btn-tab.primary-cta:hover { background: var(--white); border-color: var(--white); }
 
   .hero-right { position: relative; z-index: 2; display: flex; justify-content: center; }
   .hero-card {
@@ -134,34 +140,48 @@
   }
 
   /* ── ABOUT ── */
-  .about-container { max-width: 900px; margin-top: 3rem; }
+  .about-container { max-width: 950px; margin-top: 3rem; }
   .about-text p { font-size: 1.05rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.8rem; }
   .about-highlight {
     border-left: 4px solid var(--g-bright); padding: 1.5rem; background: var(--g-pale);
-    font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--g-deep); font-style: italic; margin: 2.5rem 0;
+    font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--g-deep); font-style: italic; margin: 2.5rem 0;
+    line-height: 1.6;
   }
 
-  .cv-social-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .cv-social-row { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; }
   .social-icon-btn {
-    width: 46px; height: 46px; border-radius: 50%;
+    width: 48px; height: 48px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     background: var(--off); border: 1px solid var(--border);
-    color: var(--g-deep); transition: 0.2s; text-decoration: none;
+    color: var(--g-deep); transition: 0.3s; text-decoration: none;
   }
-  .social-icon-btn:hover { background: var(--g-bright); color: var(--white); border-color: var(--g-bright); }
-  .social-icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
+  .social-icon-btn:hover { background: var(--g-bright); color: var(--white); border-color: var(--g-bright); transform: translateY(-3px); }
+  .social-icon-btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+  /* Expanded CV Action Button */
+  .btn-cv-full {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    padding: 0.85rem 1.8rem; background: var(--g-deep);
+    color: var(--white); border-radius: 50px; text-decoration: none;
+    font-size: 0.9rem; font-weight: 600; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(8, 42, 28, 0.15);
+  }
+  .btn-cv-full:hover { background: var(--g-accent); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(8, 42, 28, 0.2); }
+  .btn-cv-full svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.5; }
 
   /* ── BLOG & PROJECTS ── */
   #blog { background: var(--off); }
   .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1rem; }
-  .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: 0.3s; }
+  .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
   .blog-card-img { height: 140px; background: var(--g-dark); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
   .blog-card-body { padding: 1.5rem; }
   .blog-card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--g-deep); }
-  .blog-card-excerpt { font-size: 0.9rem; color: var(--muted); }
+  .blog-card-excerpt { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
 
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1rem; }
-  .project-card { border: 1px solid var(--border); padding: 2rem; border-radius: 12px; background: var(--white); }
+  .project-card { border: 1px solid var(--border); padding: 2rem; border-radius: 12px; background: var(--white); transition: 0.3s; }
+  .project-card:hover { border-color: var(--g-bright); }
   .project-card h3 { color: var(--g-deep); margin-bottom: 0.8rem; font-family: 'Playfair Display', serif; }
 
   /* ── CONTACT ── */
@@ -178,6 +198,7 @@
     #hero { grid-template-columns: 1fr; text-align: center; padding-top: 140px; }
     .hero-sub { margin-left: auto; margin-right: auto; }
     .hero-ctas { justify-content: center; }
+    .cv-social-row { justify-content: center; }
   }
 </style>
 </head>
@@ -203,11 +224,11 @@
     <div class="hero-badge">Public Health · Global Health</div>
     <h1 class="hero-title">Global Health <br><em>Innovation</em></h1>
     <p class="hero-sub">
-      Licensed Public Health Officer and currently a Master of Global Health student at the University of Geneva, dedicated to contributing to the advancement of global public health including strengthening immunisation systems, disease surveillance, and health policy through evidence-based practices.
+      Licensed Public Health Officer and Master of Global Health candidate at the University of Geneva, dedicated to strengthening immunisation systems, disease surveillance, and evidence-based health policy.
     </p>
     
     <div class="hero-ctas">
-      <a href="#blog" class="btn-tab">
+      <a href="#blog" class="btn-tab primary-cta">
         <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
         Read My Blog
       </a>
@@ -256,8 +277,12 @@
       </div>
       
       <div class="cv-social-row">
-        <a href="https://www.linkedin.com/in/simon-boakye-a8283416b/" target="_blank" class="social-icon-btn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-        <a href="mailto:boakyesimon04@gmail.com" class="social-icon-btn"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099l3.83-3.104 5.612 8.818h-18.879l5.613-8.813zm9.201-1.259l4.623-3.746v9.458l-4.623-5.712z"/></svg></a>
+        <a href="Simon_Boakye_CV.pdf" download class="btn-cv-full">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download Full CV
+        </a>
+        <a href="https://www.linkedin.com/in/simon-boakye-a8283416b/" target="_blank" class="social-icon-btn" title="LinkedIn Profile"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+        <a href="mailto:boakyesimon04@gmail.com" class="social-icon-btn" title="Email Me"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099l3.83-3.104 5.612 8.818h-18.879l5.613-8.813zm9.201-1.259l4.623-3.746v9.458l-4.623-5.712z"/></svg></a>
       </div>
     </div>
   </div>
@@ -273,14 +298,14 @@
       <div class="blog-card-img">💉</div>
       <div class="blog-card-body">
         <div class="blog-card-title">Cold Chain Failures and Vaccine Potency</div>
-        <p class="blog-card-excerpt">An operational account of cold-chain monitoring challenges during national campaigns.</p>
+        <p class="blog-card-excerpt">An operational account of cold-chain monitoring challenges during national campaigns in resource-limited settings.</p>
       </div>
     </div>
     <div class="blog-card">
       <div class="blog-card-img">🔬</div>
       <div class="blog-card-body">
         <div class="blog-card-title">Lassa Fever in West Africa</div>
-        <p class="blog-card-excerpt">Examining surveillance gaps and integrated outbreak response realities.</p>
+        <p class="blog-card-excerpt">Examining surveillance gaps and integrated outbreak response realities through an epidemiological lens.</p>
       </div>
     </div>
   </div>
@@ -294,11 +319,11 @@
   <div class="projects-grid">
     <div class="project-card">
       <h3>Hepatitis B Birth-Dose Application</h3>
-      <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">Produced geospatial vaccine coverage maps using QGIS for the formal introduction application in Ghana.</p>
+      <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">Produced geospatial vaccine coverage maps using QGIS for the formal introduction application in Ghana (2025).</p>
     </div>
     <div class="project-card">
       <h3>Ghana SSB Tax Initiative</h3>
-      <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">Coordinating policy documentation for advocacy engagement with government and public health stakeholders.</p>
+      <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">Coordinating policy documentation for advocacy engagement with government, civil society, and public health stakeholders.</p>
     </div>
   </div>
 </section>
