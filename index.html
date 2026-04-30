@@ -1,206 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Simon Boakye — Licenced Public Health Officer & Master of Global Health Candidate </title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --g-deep:   #082a1c;
-    --g-dark:   #0d3d2b;
-    --g-mid:    #155c3f;
-    --g-accent: #1e7d54;
-    --g-bright: #2aa86e;
-    --g-light:  #d4ede2;
-    --g-pale:   #f0faf5;
-    --white:    #ffffff;
-    --off:      #f7f9f7;
-    --ink:      #0b1f16;
-    --muted:    #4a6558;
-    --border:   #c5ddd3;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
-  body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); overflow-x: hidden; width: 100%; }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5vw; height: 68px;
-    background: var(--g-deep);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem; font-weight: 700;
-    color: var(--white); text-decoration: none;
-  }
-  .nav-logo img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--g-bright); }
-  .nav-logo span { color: var(--g-bright); }
-  .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
-  .nav-links a {
-    color: rgba(255,255,255,0.78); font-size: 0.82rem;
-    font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-    text-decoration: none; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--g-bright); }
-  .nav-cta {
-    padding: 0.45rem 1.2rem; background: var(--g-bright); color: var(--g-deep) !important;
-    border-radius: 50px; font-weight: 600 !important;
-  }
-
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    background: linear-gradient(145deg, var(--g-deep) 0%, var(--g-dark) 50%, #0f4a30 100%);
-    display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center;
-    padding: 100px 8% 60px; position: relative; overflow: hidden;
-  }
-  .hero-grid-lines {
-    position: absolute; inset: 0; opacity: 0.04;
-    background-image: linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-  .hero-left { position: relative; z-index: 2; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(42,168,110,0.18); border: 1px solid rgba(42,168,110,0.35);
-    color: var(--g-bright); font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    padding: 0.35rem 0.9rem; border-radius: 50px; margin-bottom: 1.5rem;
-  }
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
-    font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1.2rem;
-  }
-  .hero-title em { font-style: italic; color: var(--g-bright); }
-  .hero-sub {
-    font-size: 1.1rem; color: rgba(255,255,255,0.85);
-    line-height: 1.7; max-width: 600px; margin-bottom: 2.8rem;
-    font-style: italic;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  /* Polished Hero CTAs with increased spacing */
-  .hero-ctas { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+  <title>Simon Boakye — Licensed Public Health Officer & Master of Global Health Candidate</title>
+  <meta name="description" content="Portfolio of Simon Boakye, Licensed Public Health Officer and Master of Global Health candidate specializing in immunization systems and health equity." />
+  <link rel="canonical" href="https://simonboakye.com/" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
   
-  .btn-tab {
-    display: inline-flex; align-items: center; gap: 0.8rem;
-    padding: 0.75rem 1.4rem; background: rgba(255,255,255,0.06); 
-    color: var(--white); font-weight: 500; font-size: 0.85rem;
-    border-radius: 50px; text-decoration: none; border: 1px solid rgba(255,255,255,0.12); 
-    transition: all 0.3s ease;
-    backdrop-filter: blur(4px);
-  }
-  .btn-tab:hover { background: rgba(255,255,255,0.12); border-color: var(--g-bright); transform: translateY(-2px); }
-  .btn-tab svg { width: 18px; height: 18px; fill: none; stroke: var(--g-bright); stroke-width: 2; }
-  
-  .btn-tab.primary-cta { background: var(--g-bright); color: var(--g-deep); border-color: var(--g-bright); font-weight: 600; }
-  .btn-tab.primary-cta svg { stroke: var(--g-deep); }
-  .btn-tab.primary-cta:hover { background: var(--white); border-color: var(--white); }
+  <style>
+    :root {
+      --g-deep:   #082a1c;
+      --g-dark:   #0d3d2b;
+      --g-mid:    #155c3f;
+      --g-accent: #1e7d54;
+      --g-bright: #2aa86e;
+      --g-light:  #d4ede2;
+      --g-pale:   #f0faf5;
+      --white:    #ffffff;
+      --off:      #f7f9f7;
+      --ink:      #0b1f16;
+      --muted:    #4a6558;
+      --border:   #c5ddd3;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); overflow-x: hidden; width: 100%; }
 
-  .hero-right { position: relative; z-index: 2; display: flex; justify-content: center; }
-  .hero-card {
-    background: rgba(255,255,255,0.06); backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 24px; padding: 2.5rem;
-    max-width: 380px; width: 100%;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-    text-align: center;
-  }
-  .hero-card-avatar {
-    width: 110px; height: 110px; border-radius: 50%;
-    margin: 0 auto 1.5rem; border: 3px solid var(--g-bright);
-    object-fit: cover; display: block;
-  }
-  .hero-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 0.3rem; }
-  .hero-card p { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 2rem; line-height: 1.4; }
-  
-  /* ── SECTION BASE ── */
-  section { padding: 100px 8%; width: 100%; }
-  .section-label {
-    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--g-accent);
-    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;
-  }
-  .section-label::before { content: ''; display: block; width: 35px; height: 2px; background: var(--g-accent); }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700; line-height: 1.2; color: var(--g-deep);
-    margin-bottom: 0.5rem;
-  }
-  .section-subtitle-italics {
-    font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--g-accent);
-    font-style: italic; margin-bottom: 2rem; display: block;
-  }
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 68px;
+      background: var(--g-deep);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--g-bright); }
+    .nav-logo span { color: var(--g-bright); }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.78); font-size: 0.82rem;
+      font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--g-bright); }
+    .nav-cta {
+      padding: 0.45rem 1.2rem; background: var(--g-bright); color: var(--g-deep) !important;
+      border-radius: 50px; font-weight: 600 !important;
+    }
 
-  /* ── ABOUT ── */
-  .about-container { max-width: 950px; margin-top: 3rem; }
-  .about-text p { font-size: 1.05rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.8rem; }
-  .about-highlight {
-    border-left: 4px solid var(--g-bright); padding: 1.5rem; background: var(--g-pale);
-    font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--g-deep); font-style: italic; margin: 2.5rem 0;
-    line-height: 1.6;
-  }
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(145deg, var(--g-deep) 0%, var(--g-dark) 50%, #0f4a30 100%);
+      display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center;
+      padding: 100px 8% 60px; position: relative; overflow: hidden;
+    }
+    .hero-grid-lines {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-left { position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(42,168,110,0.18); border: 1px solid rgba(42,168,110,0.35);
+      color: var(--g-bright); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 50px; margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 1.2rem;
+    }
+    .hero-title em { font-style: italic; color: var(--g-bright); }
+    .hero-sub {
+      font-size: 1.1rem; color: rgba(255,255,255,0.85);
+      line-height: 1.7; max-width: 600px; margin-bottom: 2.8rem;
+      font-style: italic;
+    }
+    
+    .hero-ctas { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+    
+    .btn-tab {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      padding: 0.75rem 1.4rem; background: rgba(255,255,255,0.06); 
+      color: var(--white); font-weight: 500; font-size: 0.85rem;
+      border-radius: 50px; text-decoration: none; border: 1px solid rgba(255,255,255,0.12); 
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+    .btn-tab:hover { background: rgba(255,255,255,0.12); border-color: var(--g-bright); transform: translateY(-2px); }
+    .btn-tab svg { width: 18px; height: 18px; fill: none; stroke: var(--g-bright); stroke-width: 2; }
+    
+    .btn-tab.primary-cta { background: var(--g-bright); color: var(--g-deep); border-color: var(--g-bright); font-weight: 600; }
+    .btn-tab.primary-cta svg { stroke: var(--g-deep); }
+    .btn-tab.primary-cta:hover { background: var(--white); border-color: var(--white); }
 
-  .cv-social-row { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; }
-  .social-icon-btn {
-    width: 48px; height: 48px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--off); border: 1px solid var(--border);
-    color: var(--g-deep); transition: 0.3s; text-decoration: none;
-  }
-  .social-icon-btn:hover { background: var(--g-bright); color: var(--white); border-color: var(--g-bright); transform: translateY(-3px); }
-  .social-icon-btn svg { width: 20px; height: 20px; fill: currentColor; }
+    .hero-right { position: relative; z-index: 2; display: flex; justify-content: center; }
+    .hero-card {
+      background: rgba(255,255,255,0.06); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px; padding: 2.5rem;
+      max-width: 380px; width: 100%;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .hero-card-avatar {
+      width: 110px; height: 110px; border-radius: 50%;
+      margin: 0 auto 1.5rem; border: 3px solid var(--g-bright);
+      object-fit: cover; display: block;
+    }
+    .hero-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 0.3rem; }
+    .hero-card p { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 2rem; line-height: 1.4; }
+    
+    /* ── SECTION BASE ── */
+    section { padding: 100px 8%; width: 100%; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--g-accent);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;
+    }
+    .section-label::before { content: ''; display: block; width: 35px; height: 2px; background: var(--g-accent); }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; line-height: 1.2; color: var(--g-deep);
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle-italics {
+      font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--g-accent);
+      font-style: italic; margin-bottom: 2rem; display: block;
+    }
 
-  /* Expanded CV Action Button */
-  .btn-cv-full {
-    display: inline-flex; align-items: center; gap: 0.8rem;
-    padding: 0.85rem 1.8rem; background: var(--g-deep);
-    color: var(--white); border-radius: 50px; text-decoration: none;
-    font-size: 0.9rem; font-weight: 600; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(8, 42, 28, 0.15);
-  }
-  .btn-cv-full:hover { background: var(--g-accent); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(8, 42, 28, 0.2); }
-  .btn-cv-full svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+    /* ── ABOUT ── */
+    .about-container { max-width: 950px; margin-top: 3rem; }
+    .about-text p { font-size: 1.05rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.8rem; }
+    .about-highlight {
+      border-left: 4px solid var(--g-bright); padding: 1.5rem; background: var(--g-pale);
+      font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--g-deep); font-style: italic; margin: 2.5rem 0;
+      line-height: 1.6;
+    }
 
-  /* ── BLOG & PROJECTS ── */
-  #blog { background: var(--off); }
-  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1rem; }
-  .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: 0.3s; }
-  .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-  .blog-card-img { height: 140px; background: var(--g-dark); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
-  .blog-card-body { padding: 1.5rem; }
-  .blog-card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--g-deep); }
-  .blog-card-excerpt { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+    .cv-social-row { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; }
+    .social-icon-btn {
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--off); border: 1px solid var(--border);
+      color: var(--g-deep); transition: 0.3s; text-decoration: none;
+    }
+    .social-icon-btn:hover { background: var(--g-bright); color: var(--white); border-color: var(--g-bright); transform: translateY(-3px); }
+    .social-icon-btn svg { width: 20px; height: 20px; fill: currentColor; }
 
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1rem; }
-  .project-card { border: 1px solid var(--border); padding: 2rem; border-radius: 12px; background: var(--white); transition: 0.3s; }
-  .project-card:hover { border-color: var(--g-bright); }
-  .project-card h3 { color: var(--g-deep); margin-bottom: 0.8rem; font-family: 'Playfair Display', serif; }
+    .btn-cv-full {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      padding: 0.85rem 1.8rem; background: var(--g-deep);
+      color: var(--white); border-radius: 50px; text-decoration: none;
+      font-size: 0.9rem; font-weight: 600; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(8, 42, 28, 0.15);
+    }
+    .btn-cv-full:hover { background: var(--g-accent); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(8, 42, 28, 0.2); }
+    .btn-cv-full svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.5; }
 
-  /* ── CONTACT ── */
-  #contact { background: var(--g-deep); color: var(--white); text-align: center; }
-  #contact .section-label { color: var(--g-bright); justify-content: center; }
-  #contact .section-label::before { background: var(--g-bright); }
-  #contact .section-title { color: var(--white); }
-  .contact-sub-italics { font-style: italic; color: rgba(255,255,255,0.7); max-width: 600px; margin: 1rem auto 3rem; }
-  .contact-footer-links { display: flex; justify-content: center; gap: 2rem; }
+    /* ── BLOG & PROJECTS ── */
+    #blog { background: var(--off); }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1rem; }
+    .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: 0.3s; }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .blog-card-img { height: 140px; background: var(--g-dark); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+    .blog-card-body { padding: 1.5rem; }
+    .blog-card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--g-deep); }
+    .blog-card-excerpt { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
 
-  footer { padding: 40px 8%; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); background: var(--white); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1rem; }
+    .project-card { border: 1px solid var(--border); padding: 2rem; border-radius: 12px; background: var(--white); transition: 0.3s; }
+    .project-card:hover { border-color: var(--g-bright); }
+    .project-card h3 { color: var(--g-deep); margin-bottom: 0.8rem; font-family: 'Playfair Display', serif; }
 
-  @media (max-width: 1024px) {
-    #hero { grid-template-columns: 1fr; text-align: center; padding-top: 140px; }
-    .hero-sub { margin-left: auto; margin-right: auto; }
-    .hero-ctas { justify-content: center; }
-    .cv-social-row { justify-content: center; }
-  }
-</style>
+    /* ── CONTACT ── */
+    #contact { background: var(--g-deep); color: var(--white); text-align: center; }
+    #contact .section-label { color: var(--g-bright); justify-content: center; }
+    #contact .section-label::before { background: var(--g-bright); }
+    #contact .section-title { color: var(--white); }
+    .contact-sub-italics { font-style: italic; color: rgba(255,255,255,0.7); max-width: 600px; margin: 1rem auto 3rem; }
+    .contact-footer-links { display: flex; justify-content: center; gap: 2rem; }
+
+    footer { padding: 40px 8%; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); background: var(--white); }
+
+    @media (max-width: 1024px) {
+      #hero { grid-template-columns: 1fr; text-align: center; padding-top: 140px; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-ctas { justify-content: center; }
+      .cv-social-row { justify-content: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -224,7 +227,7 @@
     <div class="hero-badge">Public Health · Global Health</div>
     <h1 class="hero-title">Global Health <br><em>Innovation</em></h1>
     <p class="hero-sub">
-      Licensed Public Health Officer and Master of Global Health candidate at the University of Geneva. I offer 3+ years of field experience in Ghana, specializing in strengthening immunization systems, disease surveillance, programmatic support, and the delivery of routine vaccine programmes accross Ghana, in collaboration with government health directorates and NGOs, CSOs and development partners.
+      Licensed Public Health Officer and Master of Global Health candidate at the University of Geneva. I offer 3+ years of field experience in Ghana, specializing in strengthening immunization systems, disease surveillance, programmatic support, and the delivery of routine vaccine programmes across Ghana.
     </p>
     
     <div class="hero-ctas">
@@ -266,9 +269,9 @@
   <h2 class="section-title">A Mission Rooted in<br><em>Health Equity and Science</em></h2>
   <div class="about-container">
     <div class="about-text">
-      <p>I'm <strong>Simon Boakye</strong>, a Public Health Professional with over three years of experience in public health practice, driving immunization, surveillance programmes and programmatic support in Ghana. My work has centered on the frontline delivery of routine vaccines across regions and districts in Ghana, in partnership with government health directorates, CSOs, NGOs, and development partners. I am looking to transition my field experience to contribute to the mission of organization supporting programmatic and strategic efforts that protect vulnerable populations worldwide.</p>
+      <p>I'm <strong>Simon Boakye</strong>, a Public Health Professional with over three years of experience driving immunization, surveillance programmes and programmatic support in Ghana. My work has centered on the frontline delivery of routine vaccines across Ghana, in partnership with government health directorates, CSOs, NGOs, and development partners. I am looking to transition my field experience to contribute to strategic efforts that protect vulnerable populations worldwide.</p>
       
-      <p>Currently pursuing a <strong>Master of Science in Global Health</strong> at the University of Geneva. As the Founder of EquiHealth Academy, he pioneered a curriculum that goes beyond disease treatment to integrate psychosocial support, compassionate leadership, and practical field skills. Simon's work systematically addresses the disparity in professional opportunities, empowering students, young professionals, and individuals from diverse backgrounds and underserved communities to contribute meaningfully to global public health security and community resilience. He believes that the strength of a health system depends on the diversity of its leaders; therefore, he works to ensure that professional development is accessible to everyone anywhere.</p>
+      <p>Currently pursuing a <strong>Master of Science in Global Health</strong> at the University of Geneva. As the Founder of EquiHealth Academy, I pioneered a curriculum that goes beyond disease treatment to integrate psychosocial support, compassionate leadership, and practical field skills. I believe that the strength of a health system depends on the diversity of its leaders.</p>
 
       <div class="about-highlight">
         "Geography, socioeconomic background, and access to opportunity should never determine the quality of one's contribution to global public health and human dignity."
