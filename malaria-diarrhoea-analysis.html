@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Comparison of Malaria and Diarrhoeal Deaths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.8;
+      background: #f5f7fa;
+      color: #1f2937;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: -60px auto 80px;
+      background: white;
+      border-radius: 24px;
+      padding: 60px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      margin-top: 50px;
+      margin-bottom: 18px;
+      font-size: 2rem;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    h3 {
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-size: 1.35rem;
+      color: #1e3a8a;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      color: #374151;
+    }
+
+    .highlight-box {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 25px;
+      border-radius: 14px;
+      margin: 30px 0;
+    }
+
+    .figure {
+      margin: 45px 0;
+      text-align: center;
+    }
+
+    .figure img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .figure-caption {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+
+    ul {
+      padding-left: 25px;
+      margin-bottom: 25px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: #374151;
+    }
+
+    .footer {
+      margin-top: 70px;
+      padding-top: 35px;
+      border-top: 1px solid #e5e7eb;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+
+    .author-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #f9fafb;
+      padding: 25px;
+      border-radius: 18px;
+      margin-top: 50px;
+    }
+
+    .author-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #1e3a8a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .toc {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 30px;
+      margin: 40px 0;
+    }
+
+    .toc h3 {
+      margin-top: 0;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .toc li {
+      margin-bottom: 12px;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: 500;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 30px 25px;
+        margin: -40px 15px 40px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Global Comparison of Malaria and Diarrhoeal Deaths in Children Aged 1–59 Months</h1>
+    <p>Public Health Data Analysis Using 2020 Gapminder Data</p>
+  </section>
+
+  <main class="container">
+
+    <div class="badge">Global Health • Child Mortality • Data Analysis</div>
+
+    <p>
+      This project explores the global burden of malaria and diarrhoeal deaths among children aged 1–59 months using 2020 Gapminder data. The analysis highlights geographic disparities, identifies high-burden countries, and examines the relationship between the two leading causes of child mortality.
+    </p>
+
+    <div class="author-card">
+      <div class="author-avatar">SB</div>
+      <div>
+        <strong>Simon Boakye</strong><br>
+        Public Health Research & Data Analysis<br>
+        Published: January 2026
+      </div>
+    </div>
+
+    <div class="toc">
+      <h3>Table of Contents</h3>
+      <ul>
+        <li><a href="#overview">1. Overview</a></li>
+        <li><a href="#methods">2. Data and Methods</a></li>
+        <li><a href="#results">3. Results</a></li>
+        <li><a href="#relationship">4. Relationship Between Indicators</a></li>
+        <li><a href="#conclusion">5. Conclusion and Policy Recommendations</a></li>
+      </ul>
+    </div>
+
+    <section id="overview">
+      <h2>1. Overview</h2>
+
+      <p>
+        Malaria and diarrhoeal diseases remain among the leading causes of mortality among children under five years globally, particularly in low- and middle-income countries. Understanding the geographic distribution and relationship between these diseases is essential for designing targeted public health interventions.
+      </p>
+
+      <p>
+        This analysis used Gapminder data to compare malaria and diarrhoeal deaths among children aged 1–59 months across countries in 2020. The study used world maps and scatterplots to visualize patterns and identify countries with the greatest burden.
+      </p>
+
+      <div class="highlight-box">
+        <strong>Key Finding:</strong> Countries with high malaria deaths frequently also experience high diarrhoeal deaths, suggesting overlapping structural determinants such as poverty, weak health systems, and limited access to sanitation and clean water.
+      </div>
+    </section>
+
+    <section id="methods">
+      <h2>2. Data and Methods</h2>
+
+      <p>
+        Two datasets were used in this analysis:
+      </p>
+
+      <ul>
+        <li>Malaria deaths among children aged 1–59 months</li>
+        <li>Diarrhoeal deaths among children aged 1–59 months</li>
+      </ul>
+
+      <p>
+        The datasets covered 192 countries between 2000 and 2021. However, this analysis focused specifically on the year 2020 to provide a recent global comparison.
+      </p>
+
+      <p>
+        To improve interpretability and account for skewed distributions, values were log-transformed where appropriate. World maps and scatterplots were generated to visualize disease burden and relationships between indicators.
+      </p>
+    </section>
+
+    <section id="results">
+      <h2>3. Results</h2>
+
+      <h3>3.1 Malaria Deaths in Children Aged 1–59 Months</h3>
+
+      <p>
+        Malaria deaths were heavily concentrated in sub-Saharan Africa, where many countries continue to face major challenges related to prevention, treatment access, and healthcare infrastructure.
+      </p>
+
+      <p>
+        The countries with the highest malaria burden included Nigeria, the Democratic Republic of Congo, Niger, Mozambique, and Burkina Faso.
+      </p>
+
+      <div class="figure">
+        <img src="images/malaria-map.png" alt="World map showing malaria deaths">
+        <div class="figure-caption">
+          Figure 1. Global distribution of malaria deaths among children aged 1–59 months.
+        </div>
+      </div>
+
+      <h3>3.2 Diarrhoeal Deaths in Children Aged 1–59 Months</h3>
+
+      <p>
+        Diarrhoeal deaths also showed substantial concentration in sub-Saharan Africa, although major burdens were additionally observed in parts of South Asia.
+      </p>
+
+      <p>
+        Countries with the highest diarrhoeal mortality included Nigeria, India, the Democratic Republic of Congo, Pakistan, and Niger.
+      </p>
+
+      <div class="figure">
+        <img src="images/diarrhoea-map.png" alt="World map showing diarrhoeal deaths">
+        <div class="figure-caption">
+          Figure 2. Global distribution of diarrhoeal deaths among children aged 1–59 months.
+        </div>
+      </div>
+    </section>
+
+    <section id="relationship">
+      <h2>4. Relationship Between Malaria and Diarrhoeal Deaths</h2>
+
+      <p>
+        The scatterplot analysis revealed a moderate-to-strong positive relationship between malaria and diarrhoeal deaths among children aged 1–59 months.
+      </p>
+
+      <p>
+        Countries with higher malaria mortality also tended to experience higher diarrhoeal mortality.
+      </p>
+
+      <div class="highlight-box">
+        <strong>Pearson Correlation:</strong> r = 0.66
+      </div>
+
+      <div class="figure">
+        <img src="images/scatterplot.png" alt="Scatterplot relationship between malaria and diarrhoeal deaths">
+        <div class="figure-caption">
+          Figure 3. Relationship between malaria deaths and diarrhoeal deaths among children aged 1–59 months.
+        </div>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <h2>5. Conclusion and Policy Recommendations</h2>
+
+      <p>
+        Malaria and diarrhoeal deaths frequently co-occur, particularly in sub-Saharan Africa. The findings suggest shared structural determinants, including poverty, weak healthcare systems, poor sanitation, and limited access to clean water.
+      </p>
+
+      <p>
+        Countries such as Nigeria, the Democratic Republic of Congo, Niger, Mozambique, India, and Pakistan contribute substantially to the global burden and should remain priority targets for intervention.
+      </p>
+
+      <h3>Policy Recommendations</h3>
+
+      <ul>
+        <li>Strengthen integrated child health programs in high-burden countries.</li>
+        <li>Expand access to sanitation and safe drinking water.</li>
+        <li>Improve malaria prevention and treatment services.</li>
+        <li>Invest in primary healthcare systems and maternal-child health infrastructure.</li>
+        <li>Increase surveillance and data-driven policy interventions.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <p>
+        © 2026 Simon Boakye • Public Health Research & Data Analysis Portfolio
+      </p>
+    </div>
+
+  </main>
+
+</body>
+</html>
