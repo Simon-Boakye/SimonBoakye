@@ -3,569 +3,411 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analysis of Job Posting for Data Analyst position – Simon Boakye</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+  <title>Analysis of Job Postings for Data Analyst Positions – Simon Boakye</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --ink: #1a1612;
-      --ink-soft: #4a4540;
-      --ink-muted: #8a837a;
-      --paper: #faf8f4;
-      --cream: #f3efe8;
-      --accent: #c0392b;
-      --accent-light: #f9e8e7;
-      --rule: #d8d1c7;
-      --highlight: #f5c842;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
 
     body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-weight: 300;
-      line-height: 1.85;
-      font-size: 18px;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.8;
+      background: #f5f7fa;
+      color: #1f2937;
     }
 
-    /* ── HEADER ── */
-    header {
-      background: var(--ink);
-      color: var(--paper);
-      padding: 3rem 2rem 2.5rem;
+    .hero {
+      background: linear-gradient(135deg, #022c22, #047857);
+      color: white;
+      padding: 100px 20px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 12px,
-        rgba(255,255,255,0.025) 12px,
-        rgba(255,255,255,0.025) 13px
-      );
     }
 
-    .header-label {
-      display: inline-block;
-      font-family: 'Source Serif 4', serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--highlight);
-      margin-bottom: 1rem;
-      position: relative;
-    }
-
-    header h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      font-weight: 700;
+    .hero h1 {
+      font-size: 3rem;
+      max-width: 900px;
+      margin: 0 auto 20px;
       line-height: 1.2;
-      max-width: 680px;
-      margin: 0 auto 1.25rem;
-      position: relative;
+      font-weight: 800;
     }
 
-    .byline {
-      font-size: 0.9rem;
-      color: rgba(250,248,244,0.6);
-      letter-spacing: 0.05em;
-      position: relative;
+    .hero p {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #ffffff;
+      opacity: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
-    .byline strong { color: rgba(250,248,244,0.9); font-weight: 400; }
 
-    /* ── LAYOUT ── */
     .container {
-      max-width: 740px;
-      margin: 0 auto;
-      padding: 3.5rem 1.5rem 5rem;
+      max-width: 950px;
+      margin: -60px auto 80px;
+      background: white;
+      border-radius: 24px;
+      padding: 60px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     }
 
-    /* ── TOC ── */
-    .toc {
-      background: var(--cream);
-      border-left: 3px solid var(--accent);
-      border-radius: 2px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 3rem;
-    }
-    .toc-title {
-      font-family: 'Source Serif 4', serif;
-      font-size: 0.68rem;
+    .badge {
+      display: inline-block;
+      background: #d1fae5; 
+      color: #047857;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
       font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
+      margin-bottom: 25px;
     }
-    .toc ol { padding-left: 1.25rem; }
-    .toc li { margin: 0.3rem 0; font-size: 0.92rem; }
-    .toc a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px dotted var(--rule); transition: color 0.2s; }
-    .toc a:hover { color: var(--accent); }
-
-    /* ── SECTIONS ── */
-    section { margin-bottom: 3.5rem; }
 
     h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.7rem;
+      margin-top: 50px;
+      margin-bottom: 18px;
+      font-size: 2rem;
+      color: #022c22;
       font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 0.4rem;
-      margin-top: 0.25rem;
-      line-height: 1.25;
     }
 
     h3 {
-      font-family: 'Source Serif 4', serif;
-      font-size: 1rem;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-size: 1.35rem;
+      color: #047857;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      color: #374151;
+    }
+
+    .highlight-box {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 25px;
+      border-radius: 14px;
+      margin: 30px 0;
+    }
+
+    /* Download Section Styling */
+    .download-section {
+      background: #f0fdf4;
+      border: 1px dashed #10b981;
+      padding: 30px;
+      border-radius: 16px;
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .download-section h4 {
+      color: #022c22;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      background: #047857;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
+      margin-top: 15px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
 
-    .section-number {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      display: block;
-      margin-bottom: 0.4rem;
+    .download-btn:hover {
+      background: #065f46;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
-    hr.rule {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 0.75rem 0 1.5rem;
-    }
-
-    p { margin-bottom: 1.2rem; color: var(--ink-soft); }
-    p:last-child { margin-bottom: 0; }
-
-    /* ── STAT CARDS ── */
     .stat-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1rem;
-      margin: 1.75rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
     }
+    
     .stat-card {
-      background: var(--cream);
-      border-top: 3px solid var(--accent);
-      padding: 1.25rem 1rem 1rem;
-      border-radius: 2px;
+      background: #f9fafb;
+      border-top: 4px solid #10b981;
+      padding: 20px;
+      border-radius: 12px;
       text-align: center;
     }
+
     .stat-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: var(--ink);
       display: block;
-      line-height: 1;
-      margin-bottom: 0.3rem;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #022c22;
     }
+
     .stat-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
+      font-size: 0.85rem;
       text-transform: uppercase;
-      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+      color: #6b7280;
     }
 
-    /* ── FIGURE ── */
-    .figure-wrap {
-      margin: 2rem 0;
-      background: white;
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    /* ── SALARY CHART ── */
-    .chart-area {
-      padding: 1.75rem 1.5rem 1rem;
-    }
-    .chart-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 700;
+    .figure {
+      margin: 45px 0;
       text-align: center;
-      margin-bottom: 0.25rem;
-    }
-    .chart-subtitle {
-      font-size: 0.78rem;
-      text-align: center;
-      color: var(--ink-muted);
-      margin-bottom: 1.5rem;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 10px;
     }
 
-    /* Bar chart */
-    .bar-chart { width: 100%; }
+    .figure img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .figure-caption {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    .bar-chart { margin-top: 25px; }
     .bar-row {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.9rem;
+      gap: 15px;
+      margin-bottom: 12px;
     }
-    .bar-lang {
-      width: 60px;
-      font-size: 0.75rem;
+    .bar-lang { width: 70px; font-weight: 600; font-size: 0.9rem; color: #374151; }
+    .bar-track { flex: 1; background: #f3f4f6; height: 35px; border-radius: 6px; overflow: hidden; }
+    .bar-fill { 
+      height: 100%; 
+      background: #10b981; 
+      display: flex; 
+      align-items: center; 
+      padding-left: 12px; 
+      color: white; 
+      font-size: 0.85rem; 
       font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      text-align: right;
-      flex-shrink: 0;
+      transition: width 1.5s ease-out;
     }
-    .bar-track {
-      flex: 1;
-      background: var(--cream);
-      height: 32px;
-      border-radius: 2px;
-      overflow: hidden;
-      position: relative;
+
+    blockquote {
+      border-left: 4px solid #fbbf24;
+      background: #fffbeb;
+      padding: 20px;
+      margin: 30px 0;
+      font-style: italic;
+      border-radius: 0 12px 12px 0;
     }
-    .bar-fill {
-      height: 100%;
+
+    .author-card {
       display: flex;
       align-items: center;
-      padding-left: 10px;
-      border-radius: 2px;
-      width: 0%;
-      transition: width 1s cubic-bezier(.16,1,.3,1);
-    }
-    .bar-fill.both    { background: var(--ink); }
-    .bar-fill.python  { background: #3a6db5; }
-    .bar-fill.neither { background: #7a8b72; }
-    .bar-fill.r       { background: #b5763a; }
-
-    .bar-amount {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: white;
-      white-space: nowrap;
+      gap: 20px;
+      background: #f9fafb;
+      padding: 25px;
+      border-radius: 18px;
+      margin-top: 50px;
     }
 
-    /* Scatter callout */
-    .scatter-note {
-      background: var(--accent-light);
-      border-left: 3px solid var(--accent);
-      padding: 0.85rem 1.1rem;
-      margin: 1.5rem 0;
-      font-size: 0.9rem;
-      border-radius: 0 2px 2px 0;
+    img.author-avatar {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #047857;
     }
 
-    .corr-badge {
-      display: inline-block;
-      background: var(--ink);
-      color: var(--paper);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      padding: 0.4rem 0.9rem;
-      border-radius: 3px;
-      margin-right: 0.5rem;
-      vertical-align: middle;
+    .toc {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 30px;
+      margin: 40px 0;
     }
 
-    /* ── CAPTION ── */
-    .figure-caption {
-      font-size: 0.78rem;
-      font-style: italic;
-      color: var(--ink-muted);
+    .toc h3 { margin-top: 0; color: #022c22; }
+    .toc ul { list-style: none; padding-left: 0; }
+    .toc li { margin-bottom: 12px; }
+    .toc a { text-decoration: none; color: #059669; font-weight: 500; }
+    .toc a:hover { text-decoration: underline; }
+    
+    .footer {
+      margin-top: 70px;
+      padding-top: 35px;
+      border-top: 1px solid #e5e7eb;
+      color: #6b7280;
+      font-size: 0.95rem;
       text-align: center;
-      padding: 0.6rem 1rem 0.9rem;
-      border-top: 1px solid var(--rule);
     }
 
-    /* ── QUOTE ── */
-    blockquote {
-      border-left: 4px solid var(--highlight);
-      padding: 0.75rem 1.25rem;
-      margin: 1.75rem 0;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--ink);
-      background: rgba(245,200,66,0.08);
-    }
-
-    /* ── CONCLUSION ── */
-    .conclusion-box {
-      background: var(--ink);
-      color: var(--paper);
-      padding: 2rem 2rem 1.75rem;
-      border-radius: 3px;
-    }
-    .conclusion-box h2 { color: var(--paper); margin-bottom: 0.25rem; }
-    .conclusion-box hr.rule { border-color: rgba(255,255,255,0.15); }
-    .conclusion-box p { color: rgba(250,248,244,0.75); margin-bottom: 0.9rem; }
-    .conclusion-box .key-point {
-      display: flex;
-      gap: 0.75rem;
-      align-items: flex-start;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .conclusion-box .key-point:last-child { border-bottom: none; }
-    .dot { width: 8px; height: 8px; background: var(--highlight); border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
-    .key-text { font-size: 0.93rem; color: rgba(250,248,244,0.8); }
-
-    /* ── REFLECTION ── */
-    .reflection-wrap {
-      background: var(--cream);
-      border-radius: 3px;
-      padding: 2rem;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      border-top: 1px solid var(--rule);
-      font-size: 0.8rem;
-      color: var(--ink-muted);
-      letter-spacing: 0.05em;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .container > * {
-      animation: fadeUp 0.6s ease both;
-    }
-    .container > *:nth-child(1) { animation-delay: 0.05s; }
-    .container > *:nth-child(2) { animation-delay: 0.12s; }
-    .container > *:nth-child(3) { animation-delay: 0.20s; }
-    .container > *:nth-child(4) { animation-delay: 0.28s; }
-    .container > *:nth-child(5) { animation-delay: 0.36s; }
-
-    @media (max-width: 600px) {
-      header { padding: 2rem 1.25rem 1.75rem; }
-      .container { padding: 2.5rem 1rem 4rem; }
-      .stat-grid { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .container { padding: 30px 25px; margin: -40px 15px 40px; }
+      .author-card { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══ HEADER ══ -->
-<header>
-  <span class="header-label">Research &amp; Analysis · Data Science</span>
-  <h1>Analysis of Job Postings for Data Analyst Positions</h1>
-  <p class="byline"><strong>Simon Boakye</strong> &nbsp;·&nbsp; 3 February 2025</p>
-</header>
-
-<!-- ══ CONTENT ══ -->
-<div class="container">
-
-  <!-- TOC -->
-  <nav class="toc">
-    <p class="toc-title">Contents</p>
-    <ol>
-      <li><a href="#intro">Introduction</a></li>
-      <li><a href="#experience">Years of Experience Analysis</a></li>
-      <li><a href="#languages">Programming Language Analysis</a></li>
-      <li><a href="#conclusion">Conclusion</a></li>
-      <li><a href="#reflection">Reflection on Using Julius AI</a></li>
-    </ol>
-  </nav>
-
-  <!-- ── 1. INTRODUCTION ── -->
-  <section id="intro">
-    <span class="section-number">Section 1.0</span>
-    <h2>Introduction</h2>
-    <hr class="rule" />
-    <p>
-      This analysis examines <strong>400 data analyst job postings</strong> to explore the relationship between required experience, programming language skills, and salary expectations. The dataset includes information on median salary estimates, minimum years of experience needed, and programming language requirements — R, Python, both, or neither.
-    </p>
-    <p>
-      Julius AI was used to assist with the analysis, allowing patterns in the data to surface efficiently while critical thinking guided the interpretation of results.
-    </p>
+  <section class="hero">
+    <h1>Analysis of Job Postings for Data Analyst Positions</h1>
+    <p>Examining Experience, Programming Languages, and Compensation Patterns</p>
   </section>
 
-  <!-- ── 2. EXPERIENCE ── -->
-  <section id="experience">
-    <span class="section-number">Section 2.0</span>
-    <h2>Years of Experience Analysis</h2>
-    <hr class="rule" />
-    <h3>2.1 &nbsp;Minimum Years Experience vs. Median Salary Estimate</h3>
+  <main class="container">
+
+    <div class="badge">Data Science • Labor Market Analysis • Data Analytics</div>
 
     <p>
-      The analysis reveals a <strong>weak relationship</strong> between years of experience and median salary for data analyst positions.
+      This analysis examines <strong>400 data analyst job postings</strong> to explore the relationship between required experience, programming language skills, and salary expectations. 
     </p>
 
-    <div class="scatter-note">
-      <span class="corr-badge">r = 0.052</span>
-      The correlation coefficient of <strong>0.052</strong> indicates virtually no linear association between minimum years of experience required and the median salary offered.
+    <div class="author-card">
+      <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/Passport.JPG" alt="Simon Boakye" class="author-avatar">
+      <div>
+        <strong>Simon Boakye</strong><br>
+        MScGH (C), BPH<br>
+        Published: May 12, 2026
+      </div>
     </div>
 
-    <p>
-      This finding is somewhat surprising — we might naturally expect higher salaries for positions requiring more experience. However, the wide spread of salaries at every experience level tells a different story.
-    </p>
+    <div class="toc">
+      <h3>Table of Contents</h3>
+      <ul>
+        <li><a href="#intro">1. Introduction</a></li>
+        <li><a href="#experience">2. Years of Experience Analysis</a></li>
+        <li><a href="#languages">3. Programming Language Analysis</a></li>
+        <li><a href="#conclusion">4. Conclusion</a></li>
+        <li><a href="#reflection">5. Reflection on Using Julius AI</a></li>
+      </ul>
+    </div>
 
-    <blockquote>
-      Other factors — industry, company size, location, or specific technical skills — likely play a far more significant role in determining compensation than years of experience alone.
-    </blockquote>
+    <section id="intro">
+      <h2>1. Introduction</h2>
+      <p>
+        In a rapidly evolving job market, understanding what drives compensation for Data Analysts is critical for both job seekers and recruiters. This study uses a dataset of 400 postings to evaluate how median salary estimates are impacted by minimum years of experience and specific technical requirements—namely proficiency in R and Python.
+      </p>
 
-    <div class="figure-wrap">
-      <div class="chart-area">
-        <p class="chart-title">Experience vs. Salary — at a Glance</p>
-        <p class="chart-subtitle">Salaries spread widely at every experience level, confirming the near-zero correlation</p>
-        <div class="stat-grid">
-          <div class="stat-card">
-            <span class="stat-value">400</span>
-            <span class="stat-label">Job Postings Analysed</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-value">0.052</span>
-            <span class="stat-label">Correlation Coefficient</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-value">~$40k–$140k</span>
-            <span class="stat-label">Salary Range Observed</span>
-          </div>
+      <div class="download-section">
+        <h4>Reproduce this Analysis</h4>
+        <p>Transparent data is the foundation of credible research. I have made the full dataset available. Access the raw data below to replicate my findings or conduct your own investigation.</p>
+        <a href="https://drive.google.com/file/d/1CLCXeXvcNgcRn49RZNzylk-9c6dMJTLG/view?usp=drive_link" target="_blank" class="download-btn">
+          Download Dataset (.csv)
+        </a>
+      </div>
+
+      <p>
+        Julius AI was utilized to assist with the computational aspects of this analysis, allowing for rapid pattern recognition while maintaining a focus on human-centric critical interpretation.
+      </p>
+    </section>
+
+    <section id="experience">
+      <h2>2. Years of Experience Analysis</h2>
+      <p>
+        One might assume that higher years of experience directly correlate with significantly higher pay. However, the analysis reveals a <strong>weak linear relationship</strong> between these two variables.
+      </p>
+
+      <div class="highlight-box">
+        <strong>Correlation Insight:</strong> The Pearson correlation coefficient (r) was calculated at <strong>0.052</strong>, indicating that minimum experience requirements explain very little of the variance in salary.
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <span class="stat-value">400</span>
+          <span class="stat-label">Postings Analyzed</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">0.052</span>
+          <span class="stat-label">Experience/Salary Correlation</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">~$40k-$140k</span>
+          <span class="stat-label">Salary Range Observed</span>
         </div>
       </div>
-      <img src="images/figure1.png" alt="Relationship between experience and salary" style="width:100%; display:block; padding: 1rem 1.5rem 0.5rem;" />
-      <p class="figure-caption"><em>Figure 1 — Relationship between Minimum Years of Experience vs. Median Salary Estimate</em></p>
-    </div>
-  </section>
 
-  <!-- ── 3. LANGUAGES ── -->
-  <section id="languages">
-    <span class="section-number">Section 3.0</span>
-    <h2>Programming Language Analysis</h2>
-    <hr class="rule" />
-    <h3>3.1 &nbsp;Median Salary Distribution by Programming Language</h3>
-
-    <p>
-      A notable difference in salary distributions across programming language requirements was identified. Roles requiring proficiency in <strong>both R and Python</strong> command the highest average salary ($75,762), followed closely by Python-only positions ($74,866). Jobs requiring neither programming language have a mean salary of $70,398, while R-only positions show the lowest average at $64,750.
-    </p>
-
-    <div class="figure-wrap">
-      <div class="chart-area">
-        <p class="chart-title">Average Salary by Programming Language Requirement</p>
-        <p class="chart-subtitle">Data Analyst positions — 400 job postings</p>
-        <div class="bar-chart">
-
-          <div class="bar-row">
-            <span class="bar-lang">Both</span>
-            <div class="bar-track">
-              <div class="bar-fill both" data-width="98%">
-                <span class="bar-amount">$75,762</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bar-row">
-            <span class="bar-lang">Python</span>
-            <div class="bar-track">
-              <div class="bar-fill python" data-width="96.8%">
-                <span class="bar-amount">$74,866</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bar-row">
-            <span class="bar-lang">Neither</span>
-            <div class="bar-track">
-              <div class="bar-fill neither" data-width="91%">
-                <span class="bar-amount">$70,398</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bar-row">
-            <span class="bar-lang">R only</span>
-            <div class="bar-track">
-              <div class="bar-fill r" data-width="83.7%">
-                <span class="bar-amount">$64,750</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
+      <div class="figure">
+        <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/images/figure1.png" alt="Experience vs Salary Scatterplot">
+        <div class="figure-caption">Figure 1: Relationship between Minimum Years of Experience and Median Salary Estimate.</div>
       </div>
-      <img src="images/figure2.png" alt="Salary distribution by programming language" style="width:100%; display:block; padding: 1rem 1.5rem 0.5rem;" />
-      <p class="figure-caption"><em>Figure 2 — Median Salary Distribution by Programming Language Requirement</em></p>
-    </div>
 
-    <p>
-      The findings suggest that proficiency in multiple programming languages — particularly Python, or both Python and R — <strong>is associated with higher compensation</strong> in the data analyst job market. Many roles did not explicitly list a programming language requirement at all.
-    </p>
-    <p>
-      The small sample size within individual language categories warrants some caution before drawing firm conclusions from specific salary figures.
-    </p>
-  </section>
-
-  <!-- ── 4. CONCLUSION ── -->
-  <section id="conclusion">
-    <div class="conclusion-box">
-      <span class="section-number" style="color:rgba(250,248,244,0.45)">Section 4.0</span>
-      <h2>Conclusion</h2>
-      <hr class="rule" />
-      <div class="key-point">
-        <div class="dot"></div>
-        <p class="key-text">There is a <strong style="color:#f5c842">weak relationship</strong> between years of experience and median salary for data analyst roles — experience alone is a poor predictor of pay.</p>
-      </div>
-      <div class="key-point">
-        <div class="dot"></div>
-        <p class="key-text">Roles asking for <strong style="color:#f5c842">both Python and R</strong> tend to offer higher average salaries than roles listing only R or neither language.</p>
-      </div>
-      <div class="key-point">
-        <div class="dot"></div>
-        <p class="key-text">Industry, location, and company size are likely the stronger drivers of salary variation in the data analyst market.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 5. REFLECTION ── -->
-  <section id="reflection">
-    <span class="section-number">Section 5.0</span>
-    <h2>Reflection on Using Julius AI</h2>
-    <hr class="rule" />
-    <div class="reflection-wrap">
-      <p>
-        While Julius could perform the analysis efficiently, critical thinking about <em>what to investigate</em> remained entirely my own responsibility.
-      </p>
-      <p>
-        One thing that surprised me was how quickly Julius could reveal patterns that might have taken much longer to identify manually. It was also striking to see how small changes in the way I framed a question could lead to very different insights — highlighting how important <strong>precision and clarity</strong> are in data analysis.
-      </p>
-      <blockquote style="margin-top:1rem;">
-        "Data analysis is not just about using software to produce results, but about critical thinking and decision-making throughout the process."
+      <blockquote>
+        "The wide spread of salaries at every experience level suggests that other factors—such as industry, location, and specialized technical expertise—are the primary drivers of compensation."
       </blockquote>
+    </section>
+
+    <section id="languages">
+      <h2>3. Programming Language Analysis</h2>
+      <p>
+        When examining technical stacks, a clearer pattern emerges. Roles requiring proficiency in modern data science languages, particularly Python, tend to offer higher average compensation.
+      </p>
+
+      <div class="bar-chart">
+        <div class="bar-row">
+          <span class="bar-lang">Both</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 98%; background: #065f46;">$75,762</div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lang">Python</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 96%; background: #10b981;">$74,866</div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lang">Neither</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 90%; background: #6b7280;">$70,398</div></div>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lang">R Only</span>
+          <div class="bar-track"><div class="bar-fill" style="width: 82%; background: #059669;">$64,750</div></div>
+        </div>
+      </div>
+
+      <div class="figure">
+        <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/images/figure2.png" alt="Salary Distribution by Language">
+        <div class="figure-caption">Figure 2: Median Salary Distribution by Programming Language Requirement.</div>
+      </div>
+
+      <p>
+        The findings suggest that being "bi-lingual" in data (R and Python) provides a competitive edge, though Python remains the most lucrative single-language requirement in this specific dataset.
+      </p>
+    </section>
+
+    <section id="conclusion">
+      <h2>4. Conclusion</h2>
+      <div class="highlight-box">
+        <ul>
+          <li>Experience alone is a <strong>poor predictor</strong> of a Data Analyst's salary in the current market.</li>
+          <li>Proficiency in <strong>Python</strong> or a combination of <strong>Python and R</strong> is associated with the highest salary tiers.</li>
+          <li>The lack of correlation with years of experience highlights a "skills-first" hiring environment where technical depth outstrips time spent in roles.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="reflection">
+      <h2>5. Reflection on Using Julius AI</h2>
+      <p>
+        Using Julius AI significantly accelerated the data cleaning and visualization phases of this project. It allowed for the rapid testing of multiple hypotheses—such as whether the R-only vs. Python-only gap was statistically significant.
+      </p>
+      <p>
+        However, the tool reinforces the need for <strong>precise prompting</strong> and critical verification. Data analysis remains a human endeavor; while AI provides the engine, the analyst provides the direction and the ethical interpretation of the results.
+      </p>
+    </section>
+
+    <div class="footer">
+      <p>© 2026 Simon Boakye • MScGH (C), BPH • Analysis of Data Analyst Job Postings</p>
     </div>
-  </section>
 
-</div>
+  </main>
 
-<footer>
-  <p>© 2025 Simon Boakye &nbsp;·&nbsp; Analysis of Data Analyst Job Postings</p>
-</footer>
-
-<script>
-  window.addEventListener('load', () => {
-    const fills = document.querySelectorAll('.bar-fill');
-    setTimeout(() => {
-      fills.forEach(el => {
-        el.style.width = el.dataset.width;
-      });
-    }, 400);
-  });
-</script>
 </body>
 </html>
