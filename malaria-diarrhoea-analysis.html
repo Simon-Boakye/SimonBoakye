@@ -23,7 +23,8 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      /* Updated to a professional dark green/emerald gradient */
+      background: linear-gradient(135deg, #022c22, #047857);
       color: white;
       padding: 100px 20px;
       text-align: center;
@@ -38,8 +39,12 @@
     }
 
     .hero p {
-      font-size: 1.1rem;
-      opacity: 0.9;
+      /* Made highly visible as requested */
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #ffffff;
+      opacity: 1; /* Removed opacity for clarity */
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Added text shadow for extra visibility */
     }
 
     .container {
@@ -53,8 +58,9 @@
 
     .badge {
       display: inline-block;
-      background: #dbeafe;
-      color: #1d4ed8;
+      /* Updated to match the green theme */
+      background: #d1fae5; 
+      color: #047857;
       padding: 8px 16px;
       border-radius: 999px;
       font-size: 0.9rem;
@@ -66,7 +72,7 @@
       margin-top: 50px;
       margin-bottom: 18px;
       font-size: 2rem;
-      color: #0f172a;
+      color: #022c22; /* Dark green */
       font-weight: 700;
     }
 
@@ -74,7 +80,7 @@
       margin-top: 35px;
       margin-bottom: 15px;
       font-size: 1.35rem;
-      color: #1e3a8a;
+      color: #047857; /* Emerald green */
     }
 
     p {
@@ -84,8 +90,9 @@
     }
 
     .highlight-box {
-      background: #eff6ff;
-      border-left: 5px solid #2563eb;
+      /* Updated to a light green highlight box */
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
       padding: 25px;
       border-radius: 14px;
       margin: 30px 0;
@@ -118,14 +125,6 @@
       color: #374151;
     }
 
-    .footer {
-      margin-top: 70px;
-      padding-top: 35px;
-      border-top: 1px solid #e5e7eb;
-      color: #6b7280;
-      font-size: 0.95rem;
-    }
-
     .author-card {
       display: flex;
       align-items: center;
@@ -136,17 +135,13 @@
       margin-top: 50px;
     }
 
-    .author-avatar {
-      width: 70px;
-      height: 70px;
+    img.author-avatar {
+      width: 80px; /* Slightly larger for better visibility */
+      height: 80px;
       border-radius: 50%;
-      background: #1e3a8a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.4rem;
-      font-weight: bold;
+      object-fit: cover;
+      border: 3px solid #047857; /* Professional green ring around the avatar */
+      background: #e5e7eb; /* Fallback background */
     }
 
     .toc {
@@ -158,6 +153,7 @@
 
     .toc h3 {
       margin-top: 0;
+      color: #022c22;
     }
 
     .toc ul {
@@ -171,12 +167,21 @@
 
     .toc a {
       text-decoration: none;
-      color: #2563eb;
+      color: #059669; /* Emerald green links */
       font-weight: 500;
     }
 
     .toc a:hover {
       text-decoration: underline;
+      color: #047857;
+    }
+    
+    .footer {
+      margin-top: 70px;
+      padding-top: 35px;
+      border-top: 1px solid #e5e7eb;
+      color: #6b7280;
+      font-size: 0.95rem;
     }
 
     @media (max-width: 768px) {
@@ -192,6 +197,11 @@
       h2 {
         font-size: 1.6rem;
       }
+      
+      .author-card {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -199,6 +209,7 @@
 
   <section class="hero">
     <h1>Global Comparison of Malaria and Diarrhoeal Deaths in Children Aged 1–59 Months</h1>
+    <!-- Subtitle text made highly visible through CSS updates -->
     <p>Public Health Data Analysis Using 2020 Gapminder Data</p>
   </section>
 
@@ -211,11 +222,12 @@
     </p>
 
     <div class="author-card">
-      <div class="author-avatar">SB</div>
+      <!-- Image URL changed to raw.githubusercontent to render the image properly -->
+      <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/Passport.JPG" alt="Simon Boakye" class="author-avatar">
       <div>
         <strong>Simon Boakye</strong><br>
-        Public Health Research & Data Analysis<br>
-        Published: January 2026
+        MScGH (C), BPH<br>
+        Published: May 11, 2026
       </div>
     </div>
 
@@ -259,7 +271,7 @@
       </ul>
 
       <p>
-        The datasets covered 192 countries between 2000 and 2021. However, this analysis focused specifically on the year 2020 to provide a recent global comparison.
+        The datasets covered 192 countries between 2000 and 2020. However, this analysis focused specifically on the year 2020 to provide a recent global comparison.
       </p>
 
       <p>
@@ -281,7 +293,7 @@
       </p>
 
       <div class="figure">
-        <img src="images/malaria-map.png" alt="World map showing malaria deaths">
+        <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/images/malaria-map.png" alt="World map showing malaria deaths">
         <div class="figure-caption">
           Figure 1. Global distribution of malaria deaths among children aged 1–59 months.
         </div>
@@ -298,7 +310,7 @@
       </p>
 
       <div class="figure">
-        <img src="images/diarrhoea-map.png" alt="World map showing diarrhoeal deaths">
+        <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/images/diarrhoea-map.png" alt="World map showing diarrhoeal deaths">
         <div class="figure-caption">
           Figure 2. Global distribution of diarrhoeal deaths among children aged 1–59 months.
         </div>
@@ -321,7 +333,7 @@
       </div>
 
       <div class="figure">
-        <img src="images/scatterplot.png" alt="Scatterplot relationship between malaria and diarrhoeal deaths">
+        <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/images/scatterplot.png" alt="Scatterplot relationship between malaria and diarrhoeal deaths">
         <div class="figure-caption">
           Figure 3. Relationship between malaria deaths and diarrhoeal deaths among children aged 1–59 months.
         </div>
@@ -352,7 +364,7 @@
 
     <div class="footer">
       <p>
-        © 2026 Simon Boakye • Public Health Research & Data Analysis Portfolio
+        © 2026 Simon Boakye • MScGH (C), BPH
       </p>
     </div>
 
