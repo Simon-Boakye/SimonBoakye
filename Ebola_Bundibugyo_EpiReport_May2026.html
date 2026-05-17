@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ebola Strain "Bundibugyo" Outbreak | Simon Boakye</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,17 +18,18 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'Georgia', 'serif'],
                     },
                     colors: {
                         brand: {
-                            50: '#f0fdf4',
+                            50:  '#f0fdf4',
                             100: '#dcfce7',
                             200: '#bbf7d0',
                             300: '#86efac',
                             400: '#4ade80',
                             500: '#22c55e',
                             600: '#16a34a',
-                            700: '#15803d', /* Primary Green matching site */
+                            700: '#15803d',
                             800: '#166534',
                             900: '#14532d',
                         }
@@ -37,447 +38,549 @@
             }
         }
     </script>
+
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
+
         body {
-            background-color: #f8fafc;
+            background-color: #f1f5f1;
+            font-family: 'Inter', sans-serif;
         }
-        .prose h1, .prose h2, .prose h3 {
-            color: #166534; /* brand-800 */
+
+        /* ── Article body text uses serif for readability ── */
+        .article-body p,
+        .article-body li,
+        .article-body ol li {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 0.97rem;
+            line-height: 1.9;
+            color: #374151;
         }
-        .prose a {
+
+        /* ── Section headings ── */
+        .section-heading {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: #166534;
+            border-bottom: 2px solid #bbf7d0;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.35rem;
+            letter-spacing: -0.01em;
+        }
+
+        .sub-heading {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #1f2937;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        /* ── TOC links ── */
+        .toc-link {
             color: #15803d;
             text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.15s;
         }
-        .prose a:hover {
+        .toc-link:hover { color: #14532d; text-decoration: underline; }
+
+        /* ── Inline links ── */
+        .article-body a {
+            color: #15803d;
             text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .article-body a:hover { color: #14532d; }
+
+        /* ── Sticky header scroll shadow ── */
+        header { position: sticky; top: 0; z-index: 50; }
+
+        /* ── Callout boxes ── */
+        .callout { border-radius: 0 0.5rem 0.5rem 0; }
+
+        /* ── Figure caption ── */
+        figcaption {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-top: 0.75rem;
+        }
+
+        /* ── Table ── */
+        .data-table th { font-family: 'Inter', sans-serif; font-size: 0.78rem; letter-spacing: 0.03em; }
+        .data-table td { font-family: 'Inter', sans-serif; font-size: 0.83rem; }
+
+        /* ── Numbered measure items ── */
+        .measure-item { border-left: 3px solid #bbf7d0; padding-left: 1rem; margin-bottom: 1.5rem; }
+        .measure-item:hover { border-left-color: #15803d; transition: border-color 0.2s; }
+
+        /* ── Tag pill ── */
+        .tag-pill {
+            display: inline-block;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.65rem;
+            border-radius: 999px;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* ── Print ── */
+        @media print {
+            header, footer { display: none; }
+            body { background: white; }
         }
     </style>
 </head>
-<body class="antialiased text-gray-800">
+<body class="antialiased">
 
-    <!-- Header / Navigation Bar Placeholder -->
-    <header class="bg-brand-800 text-white shadow-md">
+    <!-- ── Navigation ── -->
+    <header class="bg-brand-800 text-white shadow-lg">
         <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="font-bold text-xl tracking-tight">Simon Boakye</div>
+            <a href="https://simonboakye.com/" class="font-bold text-xl tracking-tight hover:text-brand-200 transition">Simon Boakye</a>
             <nav class="hidden md:flex space-x-6 text-sm font-medium text-brand-100">
                 <a href="https://simonboakye.com/" class="hover:text-white transition">Home</a>
-                <a href="https://simonboakye.com/blog" class="hover:text-white transition">Blog</a>
-                <a href="https://simonboakye.com/projects" class="hover:text-white transition">Projects</a>
             </nav>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 my-8 bg-white shadow-xl rounded-xl border border-gray-100">
-        
-        <!-- Article Header -->
-        <header class="mb-10">
-            <p class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-2">Epidemiological Report</p>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                EBOLA STRAIN "BUNDIBUGYO" OUTBREAK IN THE DEMOCRATIC REPUBLIC OF THE CONGO & UGANDA
-            </h1>
-            
-            <!-- Author Block -->
-            <div class="flex items-center gap-5 py-6 border-y border-brand-100 bg-brand-50/30 px-4 rounded-lg mt-8">
-                <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/Passport.JPG" 
-                     alt="Simon Boakye" 
-                     class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-brand-600 shadow-sm"
-                     onerror="this.src='https://ui-avatars.com/api/?name=Simon+Boakye&background=15803d&color=fff'">
-                <div class="flex flex-col">
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 m-0 leading-snug">Simon Boakye,</h3>
-                    <p class="text-sm sm:text-base font-semibold text-brand-700 m-0">MScGH (C), BPH</p>
-                    <p class="text-xs sm:text-sm text-gray-500 m-0 mt-1 font-medium">Published: May 17, 2026</p>
+    <!-- ── Page wrapper ── -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 my-8">
+
+        <!-- ── Article card ── -->
+        <main class="bg-white shadow-xl rounded-2xl border border-gray-100 overflow-hidden">
+
+            <!-- ── Hero / Article Header ── -->
+            <div class="bg-gradient-to-br from-brand-800 via-brand-700 to-brand-900 px-6 sm:px-10 pt-10 pb-12">
+                <!-- Tags -->
+                <div class="mb-5">
+                    <span class="tag-pill" style="background:rgba(255,255,255,0.15); color:#bbf7d0;">Epidemiological Report</span>
+                    <span class="tag-pill" style="background:rgba(255,255,255,0.15); color:#bbf7d0;">Public Health</span>
+                    <span class="tag-pill" style="background:rgba(255,255,255,0.15); color:#bbf7d0;">PHEIC 2026</span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight mb-3" style="font-family:'Inter',sans-serif;">
+                    Ebola Strain "Bundibugyo" Outbreak in the Democratic Republic of the Congo &amp; Uganda
+                </h1>
+                <p class="text-brand-200 font-semibold text-base sm:text-lg mb-1">Outbreak in DRC &amp; Uganda</p>
+                <p class="text-brand-300 text-sm sm:text-base italic">
+                    Documenting the Bundibugyo Outbreak — For Science, For Communities, For the World.
+                </p>
+
+                <!-- Author block -->
+                <div class="flex items-center gap-4 mt-8 bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-white/20">
+                    <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/Passport.JPG"
+                         alt="Simon Boakye"
+                         class="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-brand-300 shadow"
+                         onerror="this.src='https://ui-avatars.com/api/?name=Simon+Boakye&background=15803d&color=fff'">
+                    <div>
+                        <p class="text-white font-bold text-base sm:text-lg leading-snug mb-0">Simon Boakye</p>
+                        <p class="text-brand-200 text-sm font-semibold mb-0">MScGH (C), BPH</p>
+                        <p class="text-brand-300 text-xs mt-0.5">Published: May 17, 2026</p>
+                    </div>
                 </div>
             </div>
-        </header>
 
-        <article class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-            
-            <!-- Situation At A Glance Box -->
-            <div class="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg my-8 shadow-sm">
-                <h3 class="text-red-800 font-bold text-xl mb-4 flex items-center gap-2 mt-0">
-                    <span>⚠</span> SITUATION AT A GLANCE
-                </h3>
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm mb-5">
-                    <div class="bg-white p-4 rounded-lg shadow-sm border border-red-100 text-center flex flex-col justify-center">
-                        <p class="text-gray-600 font-medium text-xs uppercase tracking-wide mb-1">Confirmed Cases (lab)</p>
-                        <p class="text-3xl font-bold text-red-700">8</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm border border-red-100 text-center flex flex-col justify-center">
-                        <p class="text-gray-600 font-medium text-xs uppercase tracking-wide mb-1">Suspected Cases</p>
-                        <p class="text-3xl font-bold text-red-700">246</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm border border-red-100 text-center flex flex-col justify-center">
-                        <p class="text-gray-600 font-medium text-xs uppercase tracking-wide mb-1">Suspected Deaths</p>
-                        <p class="text-3xl font-bold text-red-700">80</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm border border-red-100 text-center flex flex-col justify-center">
-                        <p class="text-gray-600 font-medium text-xs uppercase tracking-wide mb-1">Countries Affected</p>
-                        <p class="text-lg font-bold text-red-700 leading-tight">DRC & Uganda</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm border border-red-100 text-center flex flex-col justify-center">
-                        <p class="text-gray-600 font-medium text-xs uppercase tracking-wide mb-1">Healthcare Worker Deaths</p>
-                        <p class="text-3xl font-bold text-red-700">4</p>
-                    </div>
-                </div>
-                <ul class="space-y-2 text-red-900 font-medium text-sm md:text-base m-0 pl-4 list-disc">
-                    <li><strong>PHEIC</strong> (Public Health Emergency of International Concern) declared by WHO Director-General: 17 May 2026</li>
-                    <li><strong>NO</strong> approved vaccine or treatment exists for this Ebola strain</li>
-                </ul>
-            </div>
+            <!-- ── Article body ── -->
+            <div class="px-6 sm:px-10 pb-12 pt-8 article-body">
 
-            <!-- Table of Contents -->
-            <div class="bg-brand-50/50 border border-brand-200 shadow-sm rounded-lg p-6 mb-10">
-                <h3 class="text-xl font-bold text-brand-800 mb-4 m-0 border-b border-brand-200 pb-2">Table of Contents</h3>
-                <nav>
-                    <ul class="space-y-3 mt-4 m-0 pl-0 list-none text-brand-700 font-medium">
-                        <li><a href="#intro" class="hover:text-brand-900 hover:underline transition">1. Introduction and Background</a></li>
-                        <li><a href="#agent" class="hover:text-brand-900 hover:underline transition">2. The Causative Agent: Bundibugyo Virus (BDBV)</a></li>
-                        <li><a href="#epi" class="hover:text-brand-900 hover:underline transition">3. Epidemiology of the Current Outbreak: Bundibugyo Ebolavirus</a></li>
-                        <li><a href="#measures" class="hover:text-brand-900 hover:underline transition">4. Evidence-Based Public Health Measures</a></li>
-                        <li><a href="#conclusions" class="hover:text-brand-900 hover:underline transition">5. Conclusions</a></li>
-                        <li><a href="#recommendations" class="hover:text-brand-900 hover:underline transition">6. Recommendations</a></li>
-                        <li><a href="#references" class="hover:text-brand-900 hover:underline transition">7. Reference List</a></li>
+                <!-- Situation At A Glance -->
+                <div class="bg-red-50 border border-red-200 rounded-xl p-6 mb-10 shadow-sm">
+                    <h3 class="text-red-800 font-bold text-lg mb-5 flex items-center gap-2" style="font-family:'Inter',sans-serif;">
+                        <span class="text-xl">⚠</span> Situation at a Glance
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-6">
+                        <div class="bg-white border border-red-100 rounded-lg p-3 text-center shadow-sm">
+                            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1 leading-tight">Confirmed Cases (lab)</p>
+                            <p class="text-3xl font-bold text-red-700" style="font-family:'Inter',sans-serif;">8</p>
+                        </div>
+                        <div class="bg-white border border-red-100 rounded-lg p-3 text-center shadow-sm">
+                            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1 leading-tight">Suspected Cases</p>
+                            <p class="text-3xl font-bold text-red-700" style="font-family:'Inter',sans-serif;">246</p>
+                        </div>
+                        <div class="bg-white border border-red-100 rounded-lg p-3 text-center shadow-sm">
+                            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1 leading-tight">Suspected Deaths</p>
+                            <p class="text-3xl font-bold text-red-700" style="font-family:'Inter',sans-serif;">80</p>
+                        </div>
+                        <div class="bg-white border border-red-100 rounded-lg p-3 text-center shadow-sm">
+                            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1 leading-tight">Countries Affected</p>
+                            <p class="text-base font-bold text-red-700 leading-tight" style="font-family:'Inter',sans-serif;">DRC &amp; Uganda</p>
+                        </div>
+                        <div class="bg-white border border-red-100 rounded-lg p-3 text-center shadow-sm col-span-2 sm:col-span-1">
+                            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1 leading-tight">Healthcare Worker Deaths</p>
+                            <p class="text-3xl font-bold text-red-700" style="font-family:'Inter',sans-serif;">4</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-red-900 text-sm font-medium list-disc pl-5">
+                        <li><strong>PHEIC</strong> (Public Health Emergency of International Concern) declared by WHO Director-General: 17 May 2026</li>
+                        <li><strong>NO</strong> approved vaccine or treatment exists for this Ebola strain</li>
                     </ul>
-                </nav>
-            </div>
-
-            <!-- Section 1 -->
-            <h2 id="intro" class="text-2xl font-bold text-brand-800 border-b border-gray-200 pb-2 mt-10 mb-4">1. Introduction and Background</h2>
-            
-            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">1a. What Is Ebola</h3>
-            <p>Ebola is a <strong>viral haemorrhagic fever</strong>, a very serious disease caused by a group of viruses called <strong>ebolaviruses</strong>. 'Haemorrhagic' means the disease can cause bleeding inside and outside the body. Ebola attacks many organs at once, breaking down the body's ability to control bleeding, fight infection, and keep its organs working. Ebola spreads from one person to another through contact with body fluids like blood, sweat, or vomit from a sick person. Without treatment, it can kill very quickly, sometimes within days. You <em>cannot</em> catch it through the air like a cold.</p>
-            <p>Think of it this way: if your body is a fortress, Ebola is an invader that sneaks in through the gates (your body's immune cells), then opens all the doors from the inside and destroys everything, the walls (blood vessels), the army (immune system), and the supply rooms (liver, kidneys, and spleen) — all at the same time.</p>
-
-            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">1b. Some History</h3>
-            <p>Ebola was <strong>first identified in 1976</strong> in two simultaneous outbreaks in Central Africa: one near the <strong>Ebola River, Yambuku, DRC</strong> (then called Zaire which led to 318 cases, 280 deaths, Case Fatality Rate CFR ~ 90%) and one in <strong>Nzara, Sudan</strong> (284 cases, 151 deaths). Scientists named the virus after the Ebola River where the first outbreak was detected. Since then, Ebola has appeared in more than 40 documented outbreaks across Africa. The Democratic Republic of Congo (DRC) alone has experienced <strong>17 outbreaks since 1976</strong> – more than any country on Earth.</p>
-
-            <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-4">1c. The Five Known Ebola Virus Species</h3>
-            <p>Scientists have identified five distinct species of ebolavirus, all belonging to the family Filoviridae and genus Ebolavirus. Three species cause major human outbreaks:</p>
-            
-            <div class="overflow-x-auto my-6 rounded-lg shadow border border-gray-200">
-                <table class="w-full text-left border-collapse m-0">
-                    <thead class="bg-brand-800 text-white">
-                        <tr>
-                            <th class="py-3 px-4 font-semibold text-sm">Species</th>
-                            <th class="py-3 px-4 font-semibold text-sm">First Discovered</th>
-                            <th class="py-3 px-4 font-semibold text-sm">Case Fatality Rate</th>
-                            <th class="py-3 px-4 font-semibold text-sm text-center">Vaccine?</th>
-                            <th class="py-3 px-4 font-semibold text-sm">Key Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200 bg-white text-sm">
-                        <tr class="hover:bg-gray-50 transition">
-                            <td class="py-3 px-4 font-medium">Zaire ebolavirus (EBOV)</td>
-                            <td class="py-3 px-4 text-gray-600">DRC, 1976</td>
-                            <td class="py-3 px-4 text-gray-600">Up to 90%</td>
-                            <td class="py-3 px-4 text-center text-green-600 font-bold">YES ✔</td>
-                            <td class="py-3 px-4 text-gray-600">Most outbreaks; 2014–2016 West Africa (28,600 cases)</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition">
-                            <td class="py-3 px-4 font-medium">Sudan ebolavirus (SUDV)</td>
-                            <td class="py-3 px-4 text-gray-600">Sudan, 1976</td>
-                            <td class="py-3 px-4 text-gray-600">41-70%</td>
-                            <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
-                            <td class="py-3 px-4 text-gray-600">Uganda 2022, 2025; several outbreaks in Sudan</td>
-                        </tr>
-                        <tr class="bg-brand-50 hover:bg-brand-100 transition border-l-4 border-l-brand-600">
-                            <td class="py-3 px-4 font-bold text-brand-800">Bundibugyo virus (BDBV)</td>
-                            <td class="py-3 px-4 text-brand-800">Uganda, 2007</td>
-                            <td class="py-3 px-4 text-brand-800 font-semibold">30-40%</td>
-                            <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
-                            <td class="py-3 px-4 text-brand-800 font-medium">THIS OUTBREAK; only 3rd known occurrence</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition">
-                            <td class="py-3 px-4 font-medium">Taï Forest virus (TAFV)</td>
-                            <td class="py-3 px-4 text-gray-600">Côte d'Ivoire, 1994</td>
-                            <td class="py-3 px-4 text-gray-600">Unknown</td>
-                            <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
-                            <td class="py-3 px-4 text-gray-600">Only 1 known human case (survived)</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition">
-                            <td class="py-3 px-4 font-medium">Reston ebolavirus (RESTV)</td>
-                            <td class="py-3 px-4 text-gray-600">Philippines, 1989</td>
-                            <td class="py-3 px-4 text-gray-600">Not fatal in humans</td>
-                            <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
-                            <td class="py-3 px-4 text-gray-600">Infects pigs; rare human exposure – no human deaths</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">1d. Patterns of Recent Outbreaks of Ebola</h3>
-            <ul class="space-y-2 mt-2">
-                <li><strong>August 2022 – January 2023:</strong> Sudan ebolavirus outbreak in Uganda (Mubende); 142 confirmed cases, 55 deaths.</li>
-                <li><strong>August – December 2025:</strong> Zaire ebolavirus outbreak in DRC (Bulape, Kasai Province); 53 confirmed, 45 deaths. Outbreak declared over by authorities 1 December 2025.</li>
-                <li><strong>January – April 2025:</strong> Sudan ebolavirus outbreak in Uganda (Kampala/Mbale); 14 cases, declared over 26 April 2025.</li>
-                <li class="bg-brand-50 p-2 rounded border border-brand-200"><strong>15 May 2026:</strong> DRC confirms Bundibugyo ebolavirus outbreak in Ituri Province. Uganda confirms imported case same day. PHEIC declared 17 May 2026.</li>
-            </ul>
-
-            <!-- Figure 1 Map with Fallback -->
-            <figure class="my-10 bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <img src="https://www.cdc.gov/vhf/ebola/images/outbreaks/ebola-outbreaks-map.jpg" 
-                     alt="Figure 1: Ebola disease outbreaks by species and size, since 1976" 
-                     class="w-full h-auto rounded shadow-sm border border-gray-300"
-                     onerror="this.src='https://placehold.co/800x500/ecfdf5/047857?text=Figure+1:+Ebola+Outbreaks+by+Species+and+Size'">
-                <figcaption class="mt-4 text-sm text-gray-600 text-center leading-relaxed">
-                    <strong>Figure 1: Ebola disease outbreaks by species and size, since 1976</strong><br>
-                    Source: Centers for Disease Control and Prevention. (Accessed May 17, 2026). Ebola outbreak history. U.S. Department of Health and Human Services. 
-                    <a href="https://www.cdc.gov/ebola/outbreaks/index.html" target="_blank" class="text-brand-600 break-all">https://www.cdc.gov/ebola/outbreaks/index.html</a>
-                </figcaption>
-            </figure>
-
-            <!-- Section 2 -->
-            <h2 id="agent" class="text-2xl font-bold text-brand-800 border-b border-gray-200 pb-2 mt-10 mb-4">2. The Causative Agent: Bundibugyo Virus (BDBV)</h2>
-            
-            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">2a. Biology of BDBV</h3>
-            <p>The Bundibugyo virus (BDBV) is a <strong>negative-sense, single-stranded RNA virus</strong> that belongs to the <strong>family Filoviridae</strong>, genus <strong>Ebolavirus</strong>. The name 'filo' comes from the Latin word <em>filum</em>, meaning 'thread'. This is because under the microscope the virus looks like a long, twisted thread or worm rather than a round ball.</p>
-            <p class="mb-2">Here is what makes it special as a virus:</p>
-            <ul class="mt-0">
-                <li><strong>It is TINY but complex:</strong> Its genome (genetic instruction book) is about 19 kilobases long and contains only 7 genes, each producing a specific protein the virus needs to survive and multiply.</li>
-                <li><strong>It has an envelope:</strong> The virus is wrapped in a fatty outer coat (envelope) taken from the cell it infected. This helps it hide from the body's immune system.</li>
-                <li><strong>Its most important weapon is the Glycoprotein (GP):</strong> This protein is like a 'key' on the surface of the virus that unlocks the door into human cells. Once inside, the virus uses the cell's own machinery to make millions of copies of itself.</li>
-                <li><strong>It attacks immune cells first:</strong> Ebola specifically targets macrophages (the body's 'patrol guards') and dendritic cells (the 'alarm-senders'). By attacking these first, the virus shuts down the body's early warning system before the main immune response can fire up.</li>
-            </ul>
-
-            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">2b. BDBV Reservoir</h3>
-            <p>This is one of the most important and still unanswered questions in Ebola science.</p>
-            
-            <div class="bg-gray-100 border-l-4 border-gray-600 p-5 rounded-r-lg my-6">
-                <h4 class="text-gray-900 font-bold text-lg mb-2 flex items-center gap-2 m-0">
-                    <span>🦇</span> The Bat Hypothesis (Current Best Scientific Thinking)
-                </h4>
-                <p class="text-gray-700 m-0 mb-3 text-sm">Fruit bats (family Pteropodidae), also called flying foxes, are the leading suspected reservoir host for ebolaviruses. Multiple studies have detected ebolavirus antibodies in African fruit bats, suggesting the animals have been exposed to the virus and survived. However – and this is very important – <strong>scientists have NEVER been able to isolate live Bundibugyo virus directly from a bat</strong>. The bat reservoir hypothesis is therefore scientifically strong but not 100% proven.</p>
-                <p class="text-gray-700 m-0 text-sm">Other animals that may carry or transmit ebolaviruses to humans include: gorillas, chimpanzees, and duikers (small antelope). These are likely 'spillover' hosts — they get infected just like humans and can spread it further, but they are probably not the original source. Importantly, a 2024 experimental study (Lewis et al., 2024) showed that domestic pigs can be infected with BDBV and shed the virus, raising concern about more complex animal-to-human transmission pathways in farming communities.</p>
-            </div>
-
-            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">2c. How the Virus Jumps Into Humans (Zoonotic Spillover)</h3>
-            <p>'Spillover' is the moment when a virus crosses from an animal into a human. For Bundibugyo and other ebolaviruses, this most likely happens through:</p>
-            <ul>
-                <li><strong>Hunting and handling bushmeat:</strong> People who hunt, skin, or eat bats, primates, or other forest animals may come into contact with infected blood, organs, or tissue. In Ituri Province, bats are a common food source and are handled by hand.</li>
-                <li><strong>Eating forest fruits contaminated by bats:</strong> Bats often bite fruit and leave behind saliva or droppings. Humans who pick up and eat that fruit without washing it may ingest the virus.</li>
-                <li><strong>Mining activities:</strong> Miners in Ituri Province regularly enter deep forest areas and caves where bats live, increasing their exposure risk. The current outbreak epicentre includes Mongbwalu, a high-traffic gold mining area.</li>
-                <li><strong>Direct contact with bat roosts:</strong> Communities living near caves or large trees where bats roost may be exposed through contact with bat droppings, urine, or carcasses.</li>
-            </ul>
-
-            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">2d. How the Virus Spreads Between People (Human-to-Human Transmission)</h3>
-            <p>Once the virus enters one person, it can spread to others, but ONLY through <strong>direct contact with body fluids</strong> of someone who is already showing symptoms. This includes:</p>
-            <ul>
-                <li>Blood, vomit, diarrhoea, sweat, saliva, urine, semen, and breast milk of a sick person.</li>
-                <li>Touching or washing the body of someone who has died from Ebola (dead bodies remain highly infectious).</li>
-                <li>Touching surfaces or materials (bedsheets, needles, gloves) contaminated with the body fluids of a sick person.</li>
-                <li>Healthcare workers caring for patients without proper protective equipment (PPE) are at extremely high risk — as seen in the current outbreak where 4+ nurses and doctors have died.</li>
-            </ul>
-            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded text-yellow-900 text-sm mt-4">
-                <strong>⚠ IMPORTANT:</strong> Ebola is NOT spread through the air like influenza or COVID-19, through water, or through casual contact like sitting next to someone, shaking hands, or sharing food with a healthy person. You cannot get it from a person who has the virus but has NOT yet shown symptoms (pre-symptomatic transmission is not confirmed for Ebola).
-            </div>
-
-            <!-- Section 3 -->
-            <h2 id="epi" class="text-2xl font-bold text-brand-800 border-b border-gray-200 pb-2 mt-10 mb-4">3. Epidemiology of the Current Outbreak: Bundibugyo Ebolavirus</h2>
-            
-            <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-4">3a. Key Epidemiological Facts About Bundibugyo Virus</h3>
-            
-            <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden mb-6">
-                <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-                    <div class="p-5 hover:bg-gray-50 transition">
-                        <h4 class="text-brand-800 font-bold text-sm uppercase mb-2">Incubation Period</h4>
-                        <p class="text-sm text-gray-700 m-0">2 to 21 days (usually 6–7 days). This is the silent period — the virus is inside the body but the person feels fine and is not yet contagious.</p>
-                    </div>
-                    <div class="p-5 hover:bg-gray-50 transition">
-                        <h4 class="text-brand-800 font-bold text-sm uppercase mb-2">Case Fatality Rate (CFR)</h4>
-                        <p class="text-sm text-gray-700 m-0">30–40% in the two previous outbreaks (33.6% overall across 211 cases). This means roughly 1 in 3 infected people die. While lower than Zaire Ebola, it is still extremely high.</p>
-                    </div>
-                    <div class="p-5 bg-red-50 hover:bg-red-100 transition">
-                        <h4 class="text-red-800 font-bold text-sm uppercase mb-2">Vaccine or Treatment?</h4>
-                        <p class="text-sm text-red-900 font-medium m-0">NO. Unlike Ebola Zaire, there are currently NO licensed vaccines or approved treatments for Bundibugyo virus. This is the single greatest challenge in the current outbreak.</p>
-                    </div>
                 </div>
-            </div>
 
-            <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">3b. Pathogenesis of Bundibugyo</h3>
-            <p>Understanding how the virus causes death helps explain why this disease is so serious and why certain public health measures are critical.</p>
-            <ol>
-                <li><strong>The virus enters the body</strong> through mucous membranes (eyes, nose, mouth) or skin breaks and immediately begins infecting macrophages and dendritic cells — the very immune cells designed to destroy invaders.</li>
-                <li><strong>A 'cytokine storm' is triggered.</strong> Infected immune cells release large amounts of inflammatory chemicals called cytokines in a chaotic, disorganised burst. Instead of protecting the body, this storm causes widespread inflammation and tissue damage throughout the body.</li>
-                <li><strong>The liver is badly damaged.</strong> The liver produces the proteins that make blood clot normally. When BDBV destroys liver cells (hepatocellular necrosis), the body loses the ability to stop bleeding, leading to the haemorrhagic (bleeding) features of the disease.</li>
-                <li><strong>Blood vessels leak.</strong> The virus damages the inner lining of blood vessels (endothelium), making them 'leaky'. Fluid moves out of the bloodstream into surrounding tissues. This causes dangerous drops in blood pressure (shock) and organ failure.</li>
-                <li><strong>Multiple organs fail at once.</strong> The kidneys, spleen, adrenal glands, and other organs are attacked simultaneously. The body can no longer regulate fluid balance, blood pressure, or basic chemistry. Death typically occurs from hypovolemic shock (the body running out of functional blood volume) and multi-organ failure, usually between day 6 and day 16 of illness.</li>
-            </ol>
+                <!-- Table of Contents -->
+                <div class="bg-brand-50 border border-brand-200 rounded-xl p-6 mb-10 shadow-sm">
+                    <h3 class="text-brand-800 font-bold text-base mb-4 border-b border-brand-200 pb-2" style="font-family:'Inter',sans-serif;">Table of Contents</h3>
+                    <nav>
+                        <ol class="space-y-2 mt-3 pl-4 list-decimal" style="font-family:'Inter',sans-serif;">
+                            <li><a href="#intro" class="toc-link">Introduction and Background</a></li>
+                            <li><a href="#agent" class="toc-link">The Causative Agent: Bundibugyo Virus (BDBV)</a></li>
+                            <li><a href="#epi" class="toc-link">Epidemiology of the Current Outbreak: Bundibugyo Ebolavirus</a></li>
+                            <li><a href="#measures" class="toc-link">Evidence-Based Public Health Measures</a></li>
+                            <li><a href="#conclusions" class="toc-link">Conclusions</a></li>
+                            <li><a href="#recommendations" class="toc-link">Recommendations</a></li>
+                            <li><a href="#references" class="toc-link">Reference List</a></li>
+                        </ol>
+                    </nav>
+                </div>
 
-            <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">3c. The Current 2026 Outbreak at a glance</h3>
-            <p>The current outbreak almost certainly began in <strong>late April 2026 in Ituri Province, northeastern DRC</strong>, a region known for gold mining, armed conflict, dense forest, and high cross-border movement with Uganda and South Sudan.</p>
-            <ul class="space-y-3">
-                <li><strong>24 April 2026:</strong> Suspected index case (first patient) who is a nurse develops symptoms in Bunia, Ituri's capital, and dies at the Evangelical Medical Center.</li>
-                <li><strong>Late April to early May 2026:</strong> More deaths are reported in Mongbwalu and Rwampara health zones. Early samples were tested at Bunia's regional health centre using GeneXpert machines, but these machines are designed only to detect the Zaire strain, they returned FALSE NEGATIVE results. This made the outbreak spread undetected.</li>
-                <li><strong>3–7 May 2026:</strong> Samples from Rwampara were sent to the INRB (National Institute of Biomedical Research) in Kinshasa. PCR tests capable of detecting multiple Ebola species were run and return POSITIVE for a non-Zaire ebolavirus.</li>
-                <li><strong>15 May 2026:</strong> DRC Ministry of Health officially confirms Bundibugyo ebolavirus outbreak. More than 246 suspected cases and 80 deaths already reported across Bunia, Rwampara, and Mongbwalu health zones.</li>
-                <li><strong>14–16 May 2026:</strong> A 59-year-old Congolese man was admitted to Kibuli Muslim Hospital in Kampala, Uganda on 11 May, died on the 14 May, and tests positive for BDBV (meaning he died before results proved positive). A second confirmed case was reported in Kampala on 16 May 2026. Both individuals had traveled from DRC. No evidence yet of local Ugandan-to-Ugandan transmission.</li>
-                <li><strong>17 May 2026:</strong> Dr Tedros Adhanom Ghebreyesus, the WHO Director-General declares a Public Health Emergency of International Concern (PHEIC).</li>
-            </ul>
+                <!-- ════════════════════ SECTION 1 ════════════════════ -->
+                <h2 id="intro" class="section-heading">1. Introduction and Background</h2>
 
-            <!-- Clarification Box -->
-            <div class="bg-brand-50 border-l-4 border-brand-600 p-6 rounded-r-lg my-8 shadow-sm">
-                <h4 class="text-brand-900 font-bold text-lg mb-4 flex items-center gap-2 m-0">
-                    <span class="text-xl">🔍</span> CLARIFICATION on 8 Lab-Confirmed Cases, 246 Suspected Cases, and 80 Deaths
-                </h4>
-                <p class="text-brand-800 text-sm mb-4 m-0 font-medium">This statistic confuses many people, including journalists. Here is a careful explanation of what each number actually means:</p>
-                
-                <ul class="space-y-3 text-sm text-gray-700 m-0 mb-4 pl-4">
-                    <li><strong>8 LAB-CONFIRMED cases</strong> = These are people from whom a physical sample (blood or swab) was successfully collected, and physically transported to the INRB reference laboratory in Kinshasa, and tested using PCR technology that confirmed Bundibugyo virus DNA. Often times, Lab testing is slow, expensive, and logistically very difficult in a conflict zone.</li>
-                    <li><strong>246 SUSPECTED cases</strong> = People who are currently sick (or who died) with symptoms strongly consistent with Ebola, such as fever, bleeding, vomiting, in the affected area, but for whom lab results are NOT yet available, OR whose samples could not be collected at all.</li>
-                    <li><strong>80+ SUSPECTED DEATHS</strong> = People who died with Ebola-like symptoms in the affected communities, most of whom DIED BEFORE the outbreak was even identified. Because the outbreak spread silently for about 3 weeks before diagnosis, most deaths occurred without any sample being collected.</li>
+                <h3 class="sub-heading">1a. What Is Ebola</h3>
+                <p>Ebola is a <strong>viral haemorrhagic fever</strong>, a very serious disease caused by a group of viruses called <strong>ebolaviruses</strong>. 'Haemorrhagic' means the disease can cause bleeding inside and outside the body. Ebola attacks many organs at once, breaking down the body's ability to control bleeding, fight infection, and keep its organs working. Ebola spreads from one person to another through contact with body fluids like blood, sweat, or vomit from a sick person. Without treatment, it can kill very quickly, sometimes within days. You <em>cannot</em> catch it through the air like a cold.</p>
+                <p>Think of it this way: if your body is a fortress, Ebola is an invader that sneaks in through the gates (your body's immune cells), then opens all the doors from the inside and destroys everything, the walls (blood vessels), the army (immune system), and the supply rooms (liver, kidneys, and spleen) — all at the same time.</p>
+
+                <h3 class="sub-heading">1b. Some History</h3>
+                <p>Ebola was <strong>first identified in 1976</strong> in two simultaneous outbreaks in Central Africa: one near the <strong>Ebola River, Yambuku, DRC</strong> (then called Zaire which led to 318 cases, 280 deaths, Case Fatality Rate CFR ~ 90%) and one in <strong>Nzara, Sudan</strong> (284 cases, 151 deaths). Scientists named the virus after the Ebola River where the first outbreak was detected. Since then, Ebola has appeared in more than 40 documented outbreaks across Africa. The Democratic Republic of Congo (DRC) alone has experienced <strong>17 outbreaks since 1976</strong> – more than any country on Earth.</p>
+
+                <h3 class="sub-heading">1c. The Five Known Ebola Virus Species</h3>
+                <p>Scientists have identified five distinct species of ebolavirus, all belonging to the family Filoviridae and genus Ebolavirus. Three species cause major human outbreaks:</p>
+
+                <div class="overflow-x-auto my-6 rounded-xl shadow border border-gray-200">
+                    <table class="w-full text-left border-collapse data-table">
+                        <thead class="bg-brand-800 text-white">
+                            <tr>
+                                <th class="py-3 px-4 font-semibold">Species</th>
+                                <th class="py-3 px-4 font-semibold">First Discovered</th>
+                                <th class="py-3 px-4 font-semibold">Case Fatality Rate</th>
+                                <th class="py-3 px-4 font-semibold text-center">Vaccine?</th>
+                                <th class="py-3 px-4 font-semibold">Key Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3 px-4 font-medium">Zaire ebolavirus (EBOV)</td>
+                                <td class="py-3 px-4 text-gray-600">DRC, 1976</td>
+                                <td class="py-3 px-4 text-gray-600">Up to 90%</td>
+                                <td class="py-3 px-4 text-center text-green-600 font-bold">YES ✔</td>
+                                <td class="py-3 px-4 text-gray-600">Most outbreaks; 2014–2016 West Africa (28,600 cases)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3 px-4 font-medium">Sudan ebolavirus (SUDV)</td>
+                                <td class="py-3 px-4 text-gray-600">Sudan, 1976</td>
+                                <td class="py-3 px-4 text-gray-600">41–70%</td>
+                                <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
+                                <td class="py-3 px-4 text-gray-600">Uganda 2022, 2025; several outbreaks in Sudan</td>
+                            </tr>
+                            <tr class="bg-brand-50 border-l-4 border-brand-600">
+                                <td class="py-3 px-4 font-bold text-brand-800">Bundibugyo virus (BDBV)</td>
+                                <td class="py-3 px-4 text-brand-800">Uganda, 2007</td>
+                                <td class="py-3 px-4 text-brand-800 font-semibold">30–40%</td>
+                                <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
+                                <td class="py-3 px-4 text-brand-800 font-medium">THIS OUTBREAK; only 3rd known occurrence</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3 px-4 font-medium">Taï Forest virus (TAFV)</td>
+                                <td class="py-3 px-4 text-gray-600">Côte d'Ivoire, 1994</td>
+                                <td class="py-3 px-4 text-gray-600">Unknown</td>
+                                <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
+                                <td class="py-3 px-4 text-gray-600">Only 1 known human case (survived)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3 px-4 font-medium">Reston ebolavirus (RESTV)</td>
+                                <td class="py-3 px-4 text-gray-600">Philippines, 1989</td>
+                                <td class="py-3 px-4 text-gray-600">Not fatal in humans</td>
+                                <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
+                                <td class="py-3 px-4 text-gray-600">Infects pigs; rare human exposure – no human deaths</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="sub-heading">1d. Patterns of Recent Outbreaks of Ebola</h3>
+                <ul class="space-y-2 mt-2 pl-5 list-disc">
+                    <li><strong>August 2022 – January 2023:</strong> Sudan ebolavirus outbreak in Uganda (Mubende); 142 confirmed cases, 55 deaths.</li>
+                    <li><strong>August – December 2025:</strong> Zaire ebolavirus outbreak in DRC (Bulape, Kasai Province); 53 confirmed, 45 deaths. Outbreak declared over by authorities 1 December 2025.</li>
+                    <li><strong>January – April 2025:</strong> Sudan ebolavirus outbreak in Uganda (Kampala/Mbale); 14 cases, declared over 26 April 2025.</li>
+                    <li class="bg-brand-50 p-2 rounded border border-brand-200 list-none -ml-5"><strong>15 May 2026:</strong> DRC confirms Bundibugyo ebolavirus outbreak in Ituri Province. Uganda confirms imported case same day. PHEIC declared 17 May 2026.</li>
                 </ul>
 
-                <h5 class="font-bold text-brand-800 text-sm m-0 mb-2">The Analogy:</h5>
-                <p class="text-sm text-gray-700 bg-white p-3 rounded border border-brand-100 m-0 mb-4 italic">
-                    Imagine a large fire that started spreading through a forest three weeks ago, but firefighters only arrived TODAY. The firefighters can only measure and confirm the fire in the sections they have personally inspected (8 confirmed). But they can see smoke and burning trees across a much larger area (246 suspected). And the ash from trees that already burned completely before they arrived is the 80 deaths.
-                </p>
+                <!-- Figure 1 -->
+                <figure class="my-10 bg-gray-50 border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <div class="p-4 sm:p-6">
+                        <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/images/Figure%201.png"
+                             alt="Figure 1: Ebola disease outbreaks by species and size, since 1976"
+                             class="w-full h-auto rounded-lg border border-gray-200 shadow-sm"
+                             onerror="this.src='https://placehold.co/800x500/ecfdf5/047857?text=Figure+1:+Ebola+Outbreaks+by+Species+and+Size'">
+                    </div>
+                    <figcaption class="px-6 pb-5 text-center">
+                        <strong class="text-gray-700">Figure 1:</strong> Ebola disease outbreaks by species and size, since 1976.<br>
+                        <span class="text-gray-500">Source: Centers for Disease Control and Prevention. (Accessed May 17, 2026). Ebola outbreak history. U.S. Department of Health and Human Services.
+                        <a href="https://www.cdc.gov/ebola/outbreaks/index.html" target="_blank" class="text-brand-600 underline break-all">https://www.cdc.gov/ebola/outbreaks/index.html</a></span>
+                    </figcaption>
+                </figure>
 
-                <h5 class="font-bold text-brand-800 text-sm m-0 mb-2">Reasons this gap exists:</h5>
-                <ul class="text-sm text-gray-700 m-0 pl-4 list-decimal">
-                    <li>The outbreak spread for ~3 weeks BEFORE it was identified because local diagnostic tools could not detect Bundibugyo (only Zaire strain).</li>
-                    <li>Collecting samples from every sick person and transporting them to Kinshasa (1,000+ km away) is physically impossible in real time, especially in a conflict zone with poor roads.</li>
-                    <li>Many people die in the community (at home, not in hospitals) without ever being reached by health teams. Community deaths are counted as suspected cases, but samples cannot be collected retroactively.</li>
+                <!-- ════════════════════ SECTION 2 ════════════════════ -->
+                <h2 id="agent" class="section-heading">2. The Causative Agent: Bundibugyo Virus (BDBV)</h2>
+
+                <h3 class="sub-heading">2a. Biology of BDBV</h3>
+                <p>The Bundibugyo virus (BDBV) is a <strong>negative-sense, single-stranded RNA virus</strong> that belongs to the <strong>family Filoviridae</strong>, genus <strong>Ebolavirus</strong>. The name 'filo' comes from the Latin word <em>filum</em>, meaning 'thread'. This is because under the microscope the virus looks like a long, twisted thread or worm rather than a round ball.</p>
+                <p class="mb-2">Here is what makes it special as a virus:</p>
+                <ul class="pl-5 list-disc space-y-2 mt-0">
+                    <li><strong>It is TINY but complex:</strong> Its genome (genetic instruction book) is about 19 kilobases long and contains only 7 genes, each producing a specific protein the virus needs to survive and multiply.</li>
+                    <li><strong>It has an envelope:</strong> The virus is wrapped in a fatty outer coat (envelope) taken from the cell it infected. This helps it hide from the body's immune system.</li>
+                    <li><strong>Its most important weapon is the Glycoprotein (GP):</strong> This protein is like a 'key' on the surface of the virus that unlocks the door into human cells. Once inside, the virus uses the cell's own machinery to make millions of copies of itself.</li>
+                    <li><strong>It attacks immune cells first:</strong> Ebola specifically targets macrophages (the body's 'patrol guards') and dendritic cells (the 'alarm-senders'). By attacking these first, the virus shuts down the body's early warning system before the main immune response can fire up.</li>
                 </ul>
-            </div>
 
-            <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-4">3d. PHEIC Declaration: What It Is and Why It Was Declared</h3>
-            <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg shadow-sm my-6">
-                <h4 class="text-blue-900 font-bold text-lg mb-3 flex items-center gap-2 m-0">
-                    <span class="text-xl">🌍</span> Public Health Emergency of International Concern (PHEIC) — Declared 17 May 2026
-                </h4>
-                <p class="text-sm text-blue-800 m-0 mb-3">A PHEIC is the highest level of global health alarm that the World Health Organization (WHO) can declare under international law (International Health Regulations, IHR 2005).</p>
-                <p class="text-sm text-blue-800 m-0 mb-4 font-semibold">In one sentence: a PHEIC is an official warning to all countries that a disease event is serious, unusual, and has the potential to spread internationally; thus, the entire world must coordinate to prevent or stop it through evidence-based public health measures.</p>
-                
-                <h5 class="text-blue-900 font-bold text-sm mb-2 m-0">WHO declared PHEIC for the current outbreak because:</h5>
-                <ul class="text-sm text-blue-800 m-0 mb-4 pl-5">
-                    <li>The outbreak has spread to three health zones, reached both Kinshasa (DRC's capital) and Kampala (Uganda's capital) almost simultaneously.</li>
-                    <li>There are NO approved vaccines or treatments for Bundibugyo, giving health authorities very limited tools to fight it.</li>
-                    <li>The scale of the outbreak is almost certainly much larger than the confirmed numbers suggest.</li>
-                    <li>The affected region borders Uganda AND South Sudan, with very high population movement (mining, trade, refugees).</li>
-                    <li>Active armed conflict in eastern DRC severely limits the public health response.</li>
-                </ul>
-                <p class="text-sm text-blue-900 font-medium m-0 bg-white p-3 rounded border border-blue-100 shadow-sm">
-                    <strong>What a PHEIC does:</strong> it gives WHO's Director-General legal authority to issue binding 'temporary recommendations' to all member countries, it mobilises emergency funding, and it elevates global political attention to the response.
-                </p>
-            </div>
+                <h3 class="sub-heading">2b. BDBV Reservoir</h3>
+                <p>This is one of the most important and still unanswered questions in Ebola science.</p>
 
-            <!-- Section 4 -->
-            <h2 id="measures" class="text-2xl font-bold text-brand-800 border-b border-gray-200 pb-2 mt-10 mb-4">4. Evidence-Based Public Health Measures</h2>
-            <p>The following measures are proven by decades of Ebola outbreak science to stop or slow transmission. There is an ongoing implementation of these for the current outbreak but with gaps:</p>
-
-            <div class="space-y-6">
-                <div>
-                    <h4 class="font-bold text-gray-900">4a. Surveillance and Active Case Finding</h4>
-                    <p class="text-sm mt-1">Health teams conduct active, systematic searches for sick people in affected communities, going door-to-door and reviewing records from hospitals and health centres. Community health workers and volunteers are trained to identify and report anyone with fever or Ebola-like symptoms. In the current outbreak, <strong>community death surveillance</strong> is a specific priority, given that many deaths occurred before formal case detection.</p>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-gray-900">4b. Risk Communication and Community Engagement (RCCE)</h4>
-                    <p class="text-sm mt-1">Communities that distrust or misunderstand Ebola response measures can actively undermine them — hiding sick relatives, resisting burial protocols, or fleeing treatment centres and spreading the virus further. Evidence-based RCCE means delivering accurate, timely, culturally appropriate information through trusted community leaders, local radio, and community health workers. Simultaneously, authorities must <strong>listen to and address community fears and concerns</strong>, not simply broadcast instructions.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-gray-900">4c. Contact Tracing</h4>
-                    <p class="text-sm mt-1">Every confirmed or suspected Ebola patient's recent contacts (family, healthcare workers, funeral attendees) are identified and monitored for 21 days, the maximum incubation period. If any contact develops symptoms, they are immediately isolated and tested. This 'chain-breaking' is how Ebola outbreaks are ultimately stopped. <strong>Gaps in contact listing have been specifically identified</strong> in the current outbreak and represent a major weakness that must be urgently addressed, particularly in areas affected by armed insecurity.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-gray-900">4d. Isolation and Case Management</h4>
-                    <p class="text-sm mt-1">Any confirmed or suspected case is immediately isolated in a dedicated treatment unit to prevent further spread. Even without a specific Bundibugyo antiviral, <strong>high-quality supportive care significantly improves survival:</strong> intravenous fluids and electrolyte replacement to prevent dehydration; treating concurrent infections (malaria, typhoid); pain management; and careful monitoring of organ function.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-gray-900">4e. Infection Prevention and Control (IPC) in Health Facilities</h4>
-                    <p class="text-sm mt-1">Healthcare facilities must implement strict safety protocols: full personal protective equipment (PPE) including gloves, gowns, face shields, and masks for all staff in contact with suspected cases; dedicated Ebola isolation wards; environmental decontamination; and safe disposal of medical waste. <strong>The death of at least four healthcare workers in the current outbreak</strong> signals dangerous IPC gaps in Ituri health facilities. Ebola routinely amplifies in hospitals when IPC is inadequate, as was seen in the 2018–2020 North Kivu epidemic.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-gray-900">4f. Safe and Dignified Burials (SDB)</h4>
-                    <p class="text-sm mt-1">A body infected with Ebola remains highly contagious after death — sometimes more so than during life. Traditional funeral practices in eastern DRC and Uganda often involve washing, touching, and kissing the deceased. It is therefore important to engage communities, including religious leaders and traditional authorities to explain the scientific need for safe burials to prevent further spread and maintain community cooperation.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-gray-900">4g. Laboratory Diagnostics</h4>
-                    <p class="text-sm mt-1">This outbreak was delayed in detection because field-level GeneXpert machines in Bunia were calibrated only for Ebola Zaire. An urgent priority is to deploy <strong>point-of-care tests capable of detecting Bundibugyo virus</strong> directly in Ituri Province. Currently, samples must travel ~1,000 km to Kinshasa's INRB for PCR confirmation – <strong>an unacceptable delay in a fast-moving outbreak.</strong> Whole genome sequencing is also critical to map transmission chains, detect mutations, and identify the likely zoonotic source.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-gray-900">4h. Cross-Border Surveillance and Regional Coordination</h4>
-                    <p class="text-sm mt-1">With cases already confirmed in Kampala (Uganda) and concern about South Sudan, formal cross-border mechanisms are essential. Africa CDC has convened a high-level regional coordination meeting with DRC, Uganda, and South Sudan health ministries, WHO, UNICEF, and international partners. WHO recommends health screening at all major border crossings, rapid sharing of epidemiological data, and joint contact tracing for cross-border cases. Border <strong>closure is NOT recommended</strong> by WHO, as it drives unofficial crossings that are harder to monitor and undermines trust.</p>
-                </div>
-
-                <div class="bg-red-50 p-4 border border-red-200 rounded-lg shadow-sm">
-                    <h4 class="font-bold text-red-900 flex items-center gap-2 m-0 mb-2">
-                        <span>⚠</span> 4i. Medical Countermeasures Research (Critical Gap)
+                <div class="bg-gray-100 border-l-4 border-gray-500 callout p-5 my-6">
+                    <h4 class="text-gray-900 font-bold text-base mb-2 flex items-center gap-2" style="font-family:'Inter',sans-serif;">
+                        🦇 The Bat Hypothesis (Current Best Scientific Thinking)
                     </h4>
-                    <p class="text-sm text-red-800 m-0">For Ebola Zaire, two licensed vaccines (rVSV-ZEBOV / Ervebo; Ad26.ZEBOV, MVA-BN-Filo / Zabdeno-Mvabea) and two approved monoclonal antibody treatments (Inmazeb, Ebanga) exist. <strong>None of these work for Bundibugyo virus.</strong> Several experimental vaccines and antivirals are in early development pipelines, but none have completed clinical trials for BDBV. Accelerated emergency research programmes, supported by international funding mechanisms like CEPI (Coalition for Epidemic Preparedness Innovations), must be urgently activated.</p>
+                    <p class="text-gray-700 text-sm mb-3">Fruit bats (family Pteropodidae), also called flying foxes, are the leading suspected reservoir host for ebolaviruses. Multiple studies have detected ebolavirus antibodies in African fruit bats, suggesting the animals have been exposed to the virus and survived. However – and this is very important – <strong>scientists have NEVER been able to isolate live Bundibugyo virus directly from a bat</strong>. The bat reservoir hypothesis is therefore scientifically strong but not 100% proven.</p>
+                    <p class="text-gray-700 text-sm mb-0">Other animals that may carry or transmit ebolaviruses to humans include: gorillas, chimpanzees, and duikers (small antelope). These are likely 'spillover' hosts — they get infected just like humans and can spread it further, but they are probably not the original source. Importantly, a 2024 experimental study (Lewis et al., 2024) showed that domestic pigs can be infected with BDBV and shed the virus, raising concern about more complex animal-to-human transmission pathways in farming communities.</p>
                 </div>
-            </div>
 
-            <!-- Section 5 -->
-            <h2 id="conclusions" class="text-2xl font-bold text-brand-800 border-b border-gray-200 pb-2 mt-10 mb-4">5. Conclusions</h2>
-            <p>The 2026 Ebola Bundibugyo outbreak in DRC and Uganda is a rare, rapidly evolving, and deeply concerning public health crisis. It is only the third time in recorded history that BDBV has caused a large human outbreak, and the first time this strain has spread to the capital cities of two countries simultaneously. The WHO PHEIC declaration on 17 May 2026 reflects both the extraordinary scale and the severe global risk this event poses.</p>
-            <p>Several structural weaknesses significantly complicated the early response: the absence of Bundibugyo-capable diagnostic tools at the district level allowed the outbreak to spread silently for approximately three weeks before detection; ongoing armed conflict in Ituri Province actively prevented health teams from accessing affected communities; and the complete absence of any approved vaccine or treatment leaves health authorities with no medical countermeasures beyond supportive care and containment.</p>
-            <p>At the same time, there are real strengths: the DRC has successfully contained 16 previous Ebola outbreaks and has deep national expertise and institutional structures. Uganda has strong outbreak response capacity built through repeated experience. International partnerships such as the WHO, Africa CDC, US CDC, UNICEF, and others — are mobilising rapidly. The window to control this outbreak is narrow. With sustained political commitment, adequate international funding, and strong community engagement, containment is achievable.</p>
+                <h3 class="sub-heading">2c. How the Virus Jumps Into Humans (Zoonotic Spillover)</h3>
+                <p>'Spillover' is the moment when a virus crosses from an animal into a human. For Bundibugyo and other ebolaviruses, this most likely happens through:</p>
+                <ul class="pl-5 list-disc space-y-2">
+                    <li><strong>Hunting and handling bushmeat:</strong> People who hunt, skin, or eat bats, primates, or other forest animals may come into contact with infected blood, organs, or tissue. In Ituri Province, bats are a common food source and are handled by hand.</li>
+                    <li><strong>Eating forest fruits contaminated by bats:</strong> Bats often bite fruit and leave behind saliva or droppings. Humans who pick up and eat that fruit without washing it may ingest the virus.</li>
+                    <li><strong>Mining activities:</strong> Miners in Ituri Province regularly enter deep forest areas and caves where bats live, increasing their exposure risk. The current outbreak epicentre includes Mongbwalu, a high-traffic gold mining area.</li>
+                    <li><strong>Direct contact with bat roosts:</strong> Communities living near caves or large trees where bats roost may be exposed through contact with bat droppings, urine, or carcasses.</li>
+                </ul>
 
-            <!-- Section 6 -->
-            <h2 id="recommendations" class="text-2xl font-bold text-brand-800 border-b border-gray-200 pb-2 mt-10 mb-4">6. Recommendations</h2>
-            
-            <h4 class="font-bold text-gray-900 mt-6">For National Governments (DRC, Uganda, South Sudan)</h4>
-            <ul class="text-sm space-y-2">
-                <li>Mandate emergency PPE supply and mandatory IPC training for ALL health workers in affected and at-risk zones, and implement zero-tolerance enforcement of hospital safety protocols to prevent further healthcare worker deaths.</li>
-                <li>Activate formal cross-border coordination mechanisms between DRC, Uganda, and South Sudan including joint contact tracing protocols, shared epidemiological data platforms, and screening at all major road and river crossings.</li>
-                <li>Engage armed groups and local authorities in affected conflict zones to negotiate humanitarian access for health teams, and ensure health worker security.</li>
-                <li>Do not implement border closures or international travel bans, which drive unmonitored movement and undermine regional trust and cooperation, as recommended by WHO.</li>
-            </ul>
+                <h3 class="sub-heading">2d. How the Virus Spreads Between People (Human-to-Human Transmission)</h3>
+                <p>Once the virus enters one person, it can spread to others, but ONLY through <strong>direct contact with body fluids</strong> of someone who is already showing symptoms. This includes:</p>
+                <ul class="pl-5 list-disc space-y-2">
+                    <li>Blood, vomit, diarrhoea, sweat, saliva, urine, semen, and breast milk of a sick person.</li>
+                    <li>Touching or washing the body of someone who has died from Ebola (dead bodies remain highly infectious).</li>
+                    <li>Touching surfaces or materials (bedsheets, needles, gloves) contaminated with the body fluids of a sick person.</li>
+                    <li>Healthcare workers caring for patients without proper protective equipment (PPE) are at extremely high risk — as seen in the current outbreak where 4+ nurses and doctors have died.</li>
+                </ul>
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 callout p-4 text-yellow-900 text-sm mt-5">
+                    <strong>⚠ Important:</strong> Ebola is NOT spread through the air like influenza or COVID-19, through water, or through casual contact like sitting next to someone, shaking hands, or sharing food with a healthy person. You cannot get it from a person who has the virus but has NOT yet shown symptoms (pre-symptomatic transmission is not confirmed for Ebola).
+                </div>
 
-            <h4 class="font-bold text-gray-900 mt-6">For Research Institutions and Scientists</h4>
-            <ul class="text-sm space-y-2">
-                <li>Urgently conduct ecological and virological field surveys in Ituri Province bat populations and wildlife to identify the probable zoonotic source and reduce future spillover risk.</li>
-                <li>Investigate the susceptibility of domestic pigs to BDBV in high-risk communities and assess whether livestock may represent an underappreciated amplifying host in the transmission chain.</li>
-                <li>Share data and findings openly and rapidly through platforms like PubMed, preprint servers, and WHO technical briefings to accelerate global scientific response.</li>
-            </ul>
+                <!-- ════════════════════ SECTION 3 ════════════════════ -->
+                <h2 id="epi" class="section-heading">3. Epidemiology of the Current Outbreak: Bundibugyo Ebolavirus</h2>
 
-            <h4 class="font-bold text-gray-900 mt-6">For Communities</h4>
-            <ul class="text-sm space-y-2">
-                <li>Wash hands frequently with soap and water, especially after contact with sick people, animals, or their environments.</li>
-                <li>Do NOT touch or wash the body of someone who has died, especially if they showed signs of Ebola. Allow trained safe burial teams to handle this safely and respectfully.</li>
-                <li>If you or a family member develops fever, weakness, vomiting, or bleeding, go immediately to a health facility. Do not wait, and do not visit a traditional healer first.</li>
-                <li>Avoid handling, killing, or eating bats, primates, or animals found sick or dead in the forest.</li>
-                <li>Listen to and cooperate with health workers and government health authorities. Share information about sick community members; early reporting saves lives. Do not spread rumours.</li>
-            </ul>
+                <h3 class="sub-heading">3a. Key Epidemiological Facts About Bundibugyo Virus</h3>
 
-            <!-- References (Section 7) -->
-            <h2 id="references" class="text-2xl font-bold text-brand-800 border-b border-gray-200 pb-2 mt-12 mb-6">7. Reference List</h2>
-            <div class="text-xs text-gray-600 space-y-4 break-words font-sans">
-                <p>Africa Centres for Disease Control and Prevention. (2026, May 15). <em>Africa CDC calls for urgent regional coordination following Ebola virus disease outbreak in Ituri Province, DRC, and imported Ebola Bundibugyo case reported by Uganda</em>. <a href="https://africacdc.org/news-item/africa-cdc-calls-for-urgent-regional-coordination-following-ebola-virus-disease-outbreak-in-ituri-province-drc-and-imported-ebola-bundibugyo-case-reported-by-uganda/" target="_blank">Link</a></p>
-                <p>Center for Infectious Disease Research and Policy. (2026, May). <em>New Ebola outbreak hits Democratic Republic of Congo</em>. University of Minnesota. <a href="https://www.cidrap.umn.edu/ebola/new-ebola-outbreak-hits-democratic-republic-congo" target="_blank">Link</a></p>
-                <p>Centers for Disease Control and Prevention. (Accessed May 17, 2026). <em>Ebola outbreak history</em>. U.S. Department of Health and Human Services. <a href="https://www.cdc.gov/ebola/outbreaks/index.html" target="_blank">Link</a></p>
-                <p>Cori, A., Nedjati Gilani, G., McCabe, R., Nash, R., Skarp, J., Morgenstern, C., Hauck, K., Ferguson, N., van Elsland, S., & Imperial College London School of Public Health. (2026, May). <em>Ebola outbreak 2026: Q&A with experts</em>. Imperial College London. <a href="https://www.imperial.ac.uk/news/articles/2026/ebola-outbreak-2026-qa-with-experts/" target="_blank">Link</a></p>
-                <p>Falasca, L., Agrati, C., Petrosillo, N., Di Caro, A., Capobianchi, M. R., Ippolito, G., & Piacentini, M. (2015). Molecular mechanisms of Ebola virus pathogenesis: focus on cell death. <em>Cell Death & Differentiation</em>, 22(8), 1250-1259.</p>
-                <p>Judson, S. D., Fischer, R., Judson, A., & Munster, V. J. (2016). Ecological contexts of index cases and spillover events of different ebolaviruses. <em>PLoS pathogens</em>, 12(8), e1005780. <a href="https://doi.org/10.1371/journal.ppat.1005780" target="_blank">Link</a></p>
-                <p>Lewis, C. E., Pinette, M. M., Lakin, S. M., Smith, G., Fisher, M., Moffat, E., ... & Pickering, B. S. (2024). Experimental infection of Bundibugyo virus in domestic swine leads to viral shedding with evidence of Intraspecies transmission. <em>Transboundary and Emerging Diseases</em>, 2024(1), 5350769. <a href="https://doi.org/10.1155/2024/5350769" target="_blank">Link</a></p>
-                <p>MacNeil, A., Farnon, E. C., Wamala, J., Okware, S., Cannon, D. L., Reed, Z., ... & Rollin, P. E. (2010). Proportion of deaths and clinical features in Bundibugyo Ebola virus infection, Uganda. <em>Emerging infectious diseases</em>, 16(12), 1969. <a href="https://doi.org/10.3201/eid1612.100627" target="_blank">Link</a></p>
-                <p>Rougeron, V., Feldmann, H., Grard, G., Becker, S., & Leroy, E. M. (2015). Ebola and Marburg haemorrhagic fever. <em>Journal of Clinical Virology</em>, 64, 111-119. <a href="https://doi.org/10.1016/j.jcv.2015.01.014" target="_blank">Link</a></p>
-                <p>Ryabchikova, E. I., & Price, B. B. (2004). <em>Ebola and Marburg viruses: a view of infection using electron microscopy</em>. <a href="https://doi.org/10.3201/eid1008.040350" target="_blank">Link</a></p>
-                <p>Umar, S. K., & Diggle, M. A. (2025). The Ebola virus–going beyond the bleeding edge. <em>Journal of medical microbiology</em>, 74(7), 001998. <a href="https://doi.org/10.1099/jmm.0.001998" target="_blank">Link</a></p>
-                <p>Van Kerkhove, M. D., Bento, A. I., Mills, H. L., Ferguson, N. M., & Donnelly, C. A. (2015). A review of epidemiological parameters from Ebola outbreaks to inform early public health decision-making. <em>Scientific data</em>, 2(1), 150019. <a href="https://doi.org/10.1038/sdata.2015.19" target="_blank">Link</a></p>
-                <p>World Health Organization Regional Office for Africa. (Accessed May 16, 2026). <em>Democratic Republic of the Congo confirms new Ebola outbreak, WHO scales up support</em>. <a href="https://www.afro.who.int/countries/democratic-republic-of-congo/news/democratic-republic-congo-confirms-new-ebola-outbreak-who-scales-upsupport" target="_blank">Link</a></p>
-                <p>World Health Organization. (2020). <em>Ebola Virus Disease Democratic Republic of Congo: External Situation Report 82</em>. <a href="https://iris.who.int/server/api/core/bitstreams/aebf731c-9b5e-446f-9f41-31bae23121bf/content" target="_blank">Link</a></p>
-                <p>World Health Organization. (2025, April 24). <em>Ebola disease [Fact sheet]</em>. <a href="https://www.who.int/news-room/fact-sheets/detail/ebola-disease" target="_blank">Link</a></p>
-                <p>World Health Organization. (2025, February 21). <em>Disease outbreak news: Sudan virus disease — Uganda (DON 556)</em>. <a href="https://www.who.int/emergencies/disease-outbreak-news/item/2025-DON556" target="_blank">Link</a></p>
-                <p>World Organisation for Animal Health (WOAH). (2024). <em>Ebola virus disease</em>. <a href="https://www.woah.org/en/disease/ebola-virus-disease/" target="_blank">Link</a></p>
-                <p>World Health Organization. (Accessed May 17, 2026). <em>Epidemic of Ebola Disease caused by Bundibugyo virus in the Democratic Republic of the Congo and Uganda determined a public health emergency of international concern</em>. <a href="https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern" target="_blank">Link</a></p>
-            </div>
-        </article>
-        
-    </main>
+                <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+                        <div class="p-5">
+                            <h4 class="text-brand-800 font-bold text-xs uppercase tracking-wide mb-2" style="font-family:'Inter',sans-serif;">Incubation Period</h4>
+                            <p class="text-sm text-gray-700 mb-0">2 to 21 days (usually 6–7 days). This is the silent period — the virus is inside the body but the person feels fine and is not yet contagious.</p>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="text-brand-800 font-bold text-xs uppercase tracking-wide mb-2" style="font-family:'Inter',sans-serif;">Case Fatality Rate (CFR)</h4>
+                            <p class="text-sm text-gray-700 mb-0">30–40% in the two previous outbreaks (33.6% overall across 211 cases). This means roughly 1 in 3 infected people die. While lower than Zaire Ebola, it is still extremely high.</p>
+                        </div>
+                        <div class="p-5 bg-red-50">
+                            <h4 class="text-red-800 font-bold text-xs uppercase tracking-wide mb-2" style="font-family:'Inter',sans-serif;">Vaccine or Treatment?</h4>
+                            <p class="text-sm text-red-900 font-medium mb-0">NO. Unlike Ebola Zaire, there are currently NO licensed vaccines or approved treatments for Bundibugyo virus. This is the single greatest challenge in the current outbreak.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <footer class="bg-brand-900 text-center py-8 text-brand-200 text-sm mt-12">
-        <p>&copy; 2026 Simon Boakye. All rights reserved.</p>
+                <h3 class="sub-heading">3b. Pathogenesis of Bundibugyo</h3>
+                <p>Understanding how the virus causes death helps explain why this disease is so serious and why certain public health measures are critical.</p>
+                <ol class="pl-5 list-decimal space-y-3 mt-2">
+                    <li><strong>The virus enters the body</strong> through mucous membranes (eyes, nose, mouth) or skin breaks and immediately begins infecting macrophages and dendritic cells — the very immune cells designed to destroy invaders.</li>
+                    <li><strong>A 'cytokine storm' is triggered.</strong> Infected immune cells release large amounts of inflammatory chemicals called cytokines in a chaotic, disorganised burst. Instead of protecting the body, this storm causes widespread inflammation and tissue damage throughout the body.</li>
+                    <li><strong>The liver is badly damaged.</strong> The liver produces the proteins that make blood clot normally. When BDBV destroys liver cells (hepatocellular necrosis), the body loses the ability to stop bleeding, leading to the haemorrhagic (bleeding) features of the disease.</li>
+                    <li><strong>Blood vessels leak.</strong> The virus damages the inner lining of blood vessels (endothelium), making them 'leaky'. Fluid moves out of the bloodstream into surrounding tissues. This causes dangerous drops in blood pressure (shock) and organ failure.</li>
+                    <li><strong>Multiple organs fail at once.</strong> The kidneys, spleen, adrenal glands, and other organs are attacked simultaneously. The body can no longer regulate fluid balance, blood pressure, or basic chemistry. Death typically occurs from hypovolemic shock (the body running out of functional blood volume) and multi-organ failure, usually between day 6 and day 16 of illness.</li>
+                </ol>
+
+                <h3 class="sub-heading">3c. The Current 2026 Outbreak at a Glance</h3>
+                <p>The current outbreak almost certainly began in <strong>late April 2026 in Ituri Province, northeastern DRC</strong>, a region known for gold mining, armed conflict, dense forest, and high cross-border movement with Uganda and South Sudan.</p>
+                <ul class="space-y-3 pl-5 list-disc mt-2">
+                    <li><strong>24 April 2026:</strong> Suspected index case (first patient) who is a nurse develops symptoms in Bunia, Ituri's capital, and dies at the Evangelical Medical Center.</li>
+                    <li><strong>Late April to early May 2026:</strong> More deaths are reported in Mongbwalu and Rwampara health zones. Early samples were tested at Bunia's regional health centre using GeneXpert machines, but these machines are designed only to detect the Zaire strain, they returned FALSE NEGATIVE results. This made the outbreak spread undetected.</li>
+                    <li><strong>3–7 May 2026:</strong> Samples from Rwampara were sent to the INRB (National Institute of Biomedical Research) in Kinshasa. PCR tests capable of detecting multiple Ebola species were run and return POSITIVE for a non-Zaire ebolavirus.</li>
+                    <li><strong>15 May 2026:</strong> DRC Ministry of Health officially confirms Bundibugyo ebolavirus outbreak. More than 246 suspected cases and 80 deaths already reported across Bunia, Rwampara, and Mongbwalu health zones.</li>
+                    <li><strong>14–16 May 2026:</strong> A 59-year-old Congolese man was admitted to Kibuli Muslim Hospital in Kampala, Uganda on 11 May, died on the 14 May, and tests positive for BDBV (meaning he died before results proved positive). A second confirmed case was reported in Kampala on 16 May 2026. Both individuals had traveled from DRC. No evidence yet of local Ugandan-to-Ugandan transmission.</li>
+                    <li><strong>17 May 2026:</strong> Dr Tedros Adhanom Ghebreyesus, the WHO Director-General declares a Public Health Emergency of International Concern (PHEIC).</li>
+                </ul>
+
+                <!-- Clarification Box -->
+                <div class="bg-brand-50 border-l-4 border-brand-600 callout p-6 my-8 shadow-sm rounded-r-xl">
+                    <h4 class="text-brand-900 font-bold text-base mb-4 flex items-center gap-2" style="font-family:'Inter',sans-serif;">
+                        🔍 Clarification on 8 Lab-Confirmed Cases, 246 Suspected Cases, and 80 Deaths
+                    </h4>
+                    <p class="text-brand-800 text-sm font-medium mb-4">This statistic confuses many people, including journalists. Here is a careful explanation of what each number actually means:</p>
+
+                    <ul class="space-y-3 text-sm text-gray-700 mb-4 pl-5 list-disc">
+                        <li><strong>8 LAB-CONFIRMED cases</strong> = These are people from whom a physical sample (blood or swab) was successfully collected, and physically transported to the INRB reference laboratory in Kinshasa, and tested using PCR technology that confirmed Bundibugyo virus DNA. Often times, Lab testing is slow, expensive, and logistically very difficult in a conflict zone.</li>
+                        <li><strong>246 SUSPECTED cases</strong> = People who are currently sick (or who died) with symptoms strongly consistent with Ebola, such as fever, bleeding, vomiting, in the affected area, but for whom lab results are NOT yet available, OR whose samples could not be collected at all.</li>
+                        <li><strong>80+ SUSPECTED DEATHS</strong> = People who died with Ebola-like symptoms in the affected communities, most of whom DIED BEFORE the outbreak was even identified. Because the outbreak spread silently for about 3 weeks before diagnosis, most deaths occurred without any sample being collected.</li>
+                    </ul>
+
+                    <h5 class="font-bold text-brand-800 text-sm mb-2" style="font-family:'Inter',sans-serif;">The Analogy:</h5>
+                    <p class="text-sm text-gray-700 bg-white p-4 rounded-lg border border-brand-100 italic mb-4">
+                        Imagine a large fire that started spreading through a forest three weeks ago, but firefighters only arrived TODAY. The firefighters can only measure and confirm the fire in the sections they have personally inspected (8 confirmed). But they can see smoke and burning trees across a much larger area (246 suspected). And the ash from trees that already burned completely before they arrived is the 80 deaths.
+                    </p>
+
+                    <h5 class="font-bold text-brand-800 text-sm mb-2" style="font-family:'Inter',sans-serif;">Reasons this gap exists:</h5>
+                    <ol class="text-sm text-gray-700 pl-5 list-decimal space-y-1">
+                        <li>The outbreak spread for ~3 weeks BEFORE it was identified because local diagnostic tools could not detect Bundibugyo (only Zaire strain).</li>
+                        <li>Collecting samples from every sick person and transporting them to Kinshasa (1,000+ km away) is physically impossible in real time, especially in a conflict zone with poor roads.</li>
+                        <li>Many people die in the community (at home, not in hospitals) without ever being reached by health teams. Community deaths are counted as suspected cases, but samples cannot be collected retroactively.</li>
+                    </ol>
+                </div>
+
+                <h3 class="sub-heading">3d. PHEIC Declaration: What It Is and Why It Was Declared</h3>
+                <div class="bg-blue-50 border-l-4 border-blue-600 callout p-6 shadow-sm my-6 rounded-r-xl">
+                    <h4 class="text-blue-900 font-bold text-base mb-3 flex items-center gap-2" style="font-family:'Inter',sans-serif;">
+                        🌍 Public Health Emergency of International Concern (PHEIC) — Declared 17 May 2026
+                    </h4>
+                    <p class="text-sm text-blue-800 mb-3">A PHEIC is the highest level of global health alarm that the World Health Organization (WHO) can declare under international law (International Health Regulations, IHR 2005).</p>
+                    <p class="text-sm text-blue-800 font-semibold mb-4">In one sentence: a PHEIC is an official warning to all countries that a disease event is serious, unusual, and has the potential to spread internationally; thus, the entire world must coordinate to prevent or stop it through evidence-based public health measures.</p>
+
+                    <h5 class="text-blue-900 font-bold text-sm mb-2" style="font-family:'Inter',sans-serif;">WHO declared PHEIC for the current outbreak because:</h5>
+                    <ul class="text-sm text-blue-800 mb-4 pl-5 list-disc space-y-1">
+                        <li>The outbreak has spread to three health zones, reached both Kinshasa (DRC's capital) and Kampala (Uganda's capital) almost simultaneously.</li>
+                        <li>There are NO approved vaccines or treatments for Bundibugyo, giving health authorities very limited tools to fight it.</li>
+                        <li>The scale of the outbreak is almost certainly much larger than the confirmed numbers suggest.</li>
+                        <li>The affected region borders Uganda AND South Sudan, with very high population movement (mining, trade, refugees).</li>
+                        <li>Active armed conflict in eastern DRC severely limits the public health response.</li>
+                    </ul>
+                    <p class="text-sm text-blue-900 font-medium bg-white p-3 rounded-lg border border-blue-100 shadow-sm mb-0">
+                        <strong>What a PHEIC does:</strong> it gives WHO's Director-General legal authority to issue binding 'temporary recommendations' to all member countries, it mobilises emergency funding, and it elevates global political attention to the response.
+                    </p>
+                </div>
+
+                <!-- ════════════════════ SECTION 4 ════════════════════ -->
+                <h2 id="measures" class="section-heading">4. Evidence-Based Public Health Measures</h2>
+                <p>The following measures are proven by decades of Ebola outbreak science to stop or slow transmission. There is an ongoing implementation of these for the current outbreak but with gaps:</p>
+
+                <div class="mt-6 space-y-0">
+
+                    <div class="measure-item">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1" style="font-family:'Inter',sans-serif;">4.1 &nbsp;Surveillance and Active Case Finding</h4>
+                        <p class="text-sm mt-1">Health teams conduct active, systematic searches for sick people in affected communities, going door-to-door and reviewing records from hospitals and health centres. Community health workers and volunteers are trained to identify and report anyone with fever or Ebola-like symptoms. In the current outbreak, <strong>community death surveillance</strong> is a specific priority, given that many deaths occurred before formal case detection.</p>
+                    </div>
+
+                    <div class="measure-item">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1" style="font-family:'Inter',sans-serif;">4.2 &nbsp;Risk Communication and Community Engagement (RCCE)</h4>
+                        <p class="text-sm mt-1">Communities that distrust or misunderstand Ebola response measures can actively undermine them — hiding sick relatives, resisting burial protocols, or fleeing treatment centres and spreading the virus further. Evidence-based RCCE means delivering accurate, timely, culturally appropriate information through trusted community leaders, local radio, and community health workers. Simultaneously, authorities must <strong>listen to and address community fears and concerns</strong>, not simply broadcast instructions.</p>
+                    </div>
+
+                    <div class="measure-item">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1" style="font-family:'Inter',sans-serif;">4.3 &nbsp;Contact Tracing</h4>
+                        <p class="text-sm mt-1">Every confirmed or suspected Ebola patient's recent contacts (family, healthcare workers, funeral attendees) are identified and monitored for 21 days, the maximum incubation period. If any contact develops symptoms, they are immediately isolated and tested. This 'chain-breaking' is how Ebola outbreaks are ultimately stopped. <strong>Gaps in contact listing have been specifically identified</strong> in the current outbreak and represent a major weakness that must be urgently addressed, particularly in areas affected by armed insecurity.</p>
+                    </div>
+
+                    <div class="measure-item">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1" style="font-family:'Inter',sans-serif;">4.4 &nbsp;Isolation and Case Management</h4>
+                        <p class="text-sm mt-1">Any confirmed or suspected case is immediately isolated in a dedicated treatment unit to prevent further spread. Even without a specific Bundibugyo antiviral, <strong>high-quality supportive care significantly improves survival:</strong> intravenous fluids and electrolyte replacement to prevent dehydration; treating concurrent infections (malaria, typhoid); pain management; and careful monitoring of organ function.</p>
+                    </div>
+
+                    <div class="measure-item">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1" style="font-family:'Inter',sans-serif;">4.5 &nbsp;Infection Prevention and Control (IPC) in Health Facilities</h4>
+                        <p class="text-sm mt-1">Healthcare facilities must implement strict safety protocols: full personal protective equipment (PPE) including gloves, gowns, face shields, and masks for all staff in contact with suspected cases; dedicated Ebola isolation wards; environmental decontamination; and safe disposal of medical waste. <strong>The death of at least four healthcare workers in the current outbreak</strong> signals dangerous IPC gaps in Ituri health facilities. Ebola routinely amplifies in hospitals when IPC is inadequate, as was seen in the 2018–2020 North Kivu epidemic.</p>
+                    </div>
+
+                    <div class="measure-item">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1" style="font-family:'Inter',sans-serif;">4.6 &nbsp;Safe and Dignified Burials (SDB)</h4>
+                        <p class="text-sm mt-1">A body infected with Ebola remains highly contagious after death — sometimes more so than during life. Traditional funeral practices in eastern DRC and Uganda often involve washing, touching, and kissing the deceased. It is therefore important to engage communities, including religious leaders and traditional authorities to explain the scientific need for safe burials to prevent further spread and maintain community cooperation.</p>
+                    </div>
+
+                    <div class="measure-item">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1" style="font-family:'Inter',sans-serif;">4.7 &nbsp;Laboratory Diagnostics</h4>
+                        <p class="text-sm mt-1">This outbreak was delayed in detection because field-level GeneXpert machines in Bunia were calibrated only for Ebola Zaire. An urgent priority is to deploy <strong>point-of-care tests capable of detecting Bundibugyo virus</strong> directly in Ituri Province. Currently, samples must travel ~1,000 km to Kinshasa's INRB for PCR confirmation – <strong>an unacceptable delay in a fast-moving outbreak.</strong> Whole genome sequencing is also critical to map transmission chains, detect mutations, and identify the likely zoonotic source.</p>
+                    </div>
+
+                    <div class="measure-item">
+                        <h4 class="font-bold text-gray-900 text-sm mb-1" style="font-family:'Inter',sans-serif;">4.8 &nbsp;Cross-Border Surveillance and Regional Coordination</h4>
+                        <p class="text-sm mt-1">With cases already confirmed in Kampala (Uganda) and concern about South Sudan, formal cross-border mechanisms are essential. Africa CDC has convened a high-level regional coordination meeting with DRC, Uganda, and South Sudan health ministries, WHO, UNICEF, and international partners. WHO recommends health screening at all major border crossings, rapid sharing of epidemiological data, and joint contact tracing for cross-border cases. Border <strong>closure is NOT recommended</strong> by WHO, as it drives unofficial crossings that are harder to monitor and undermines trust.</p>
+                    </div>
+
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-red-900 text-sm flex items-center gap-2 mb-2" style="font-family:'Inter',sans-serif;">
+                            ⚠ 4.9 &nbsp;Medical Countermeasures Research (Critical Gap)
+                        </h4>
+                        <p class="text-sm text-red-800 mb-0">For Ebola Zaire, two licensed vaccines (rVSV-ZEBOV / Ervebo; Ad26.ZEBOV, MVA-BN-Filo / Zabdeno-Mvabea) and two approved monoclonal antibody treatments (Inmazeb, Ebanga) exist. <strong>None of these work for Bundibugyo virus.</strong> Several experimental vaccines and antivirals are in early development pipelines, but none have completed clinical trials for BDBV. Accelerated emergency research programmes, supported by international funding mechanisms like CEPI (Coalition for Epidemic Preparedness Innovations), must be urgently activated.</p>
+                    </div>
+                </div>
+
+                <!-- ════════════════════ SECTION 5 ════════════════════ -->
+                <h2 id="conclusions" class="section-heading">5. Conclusions</h2>
+                <p>The 2026 Ebola Bundibugyo outbreak in DRC and Uganda is a rare, rapidly evolving, and deeply concerning public health crisis. It is only the third time in recorded history that BDBV has caused a large human outbreak, and the first time this strain has spread to the capital cities of two countries simultaneously. The WHO PHEIC declaration on 17 May 2026 reflects both the extraordinary scale and the severe global risk this event poses.</p>
+                <p>Several structural weaknesses significantly complicated the early response: the absence of Bundibugyo-capable diagnostic tools at the district level allowed the outbreak to spread silently for approximately three weeks before detection; ongoing armed conflict in Ituri Province actively prevented health teams from accessing affected communities; and the complete absence of any approved vaccine or treatment leaves health authorities with no medical countermeasures beyond supportive care and containment.</p>
+                <p>At the same time, there are real strengths: the DRC has successfully contained 16 previous Ebola outbreaks and has deep national expertise and institutional structures. Uganda has strong outbreak response capacity built through repeated experience. International partnerships such as the WHO, Africa CDC, US CDC, UNICEF, and others — are mobilising rapidly. The window to control this outbreak is narrow. With sustained political commitment, adequate international funding, and strong community engagement, containment is achievable.</p>
+
+                <!-- ════════════════════ SECTION 6 ════════════════════ -->
+                <h2 id="recommendations" class="section-heading">6. Recommendations</h2>
+
+                <h3 class="sub-heading">For National Governments (DRC, Uganda, South Sudan)</h3>
+                <ul class="pl-5 list-disc space-y-2 text-sm">
+                    <li>Mandate emergency PPE supply and mandatory IPC training for ALL health workers in affected and at-risk zones, and implement zero-tolerance enforcement of hospital safety protocols to prevent further healthcare worker deaths.</li>
+                    <li>Activate formal cross-border coordination mechanisms between DRC, Uganda, and South Sudan including joint contact tracing protocols, shared epidemiological data platforms, and screening at all major road and river crossings.</li>
+                    <li>Engage armed groups and local authorities in affected conflict zones to negotiate humanitarian access for health teams, and ensure health worker security.</li>
+                    <li>Do not implement border closures or international travel bans, which drive unmonitored movement and undermine regional trust and cooperation, as recommended by WHO.</li>
+                </ul>
+
+                <h3 class="sub-heading">For Research Institutions and Scientists</h3>
+                <ul class="pl-5 list-disc space-y-2 text-sm">
+                    <li>Urgently conduct ecological and virological field surveys in Ituri Province bat populations and wildlife to identify the probable zoonotic source and reduce future spillover risk.</li>
+                    <li>Investigate the susceptibility of domestic pigs to BDBV in high-risk communities and assess whether livestock may represent an underappreciated amplifying host in the transmission chain.</li>
+                    <li>Share data and findings openly and rapidly through platforms like PubMed, preprint servers, and WHO technical briefings to accelerate global scientific response.</li>
+                </ul>
+
+                <h3 class="sub-heading">For Communities</h3>
+                <ul class="pl-5 list-disc space-y-2 text-sm">
+                    <li>Wash hands frequently with soap and water, especially after contact with sick people, animals, or their environments.</li>
+                    <li>Do NOT touch or wash the body of someone who has died, especially if they showed signs of Ebola. Allow trained safe burial teams to handle this safely and respectfully.</li>
+                    <li>If you or a family member develops fever, weakness, vomiting, or bleeding, go immediately to a health facility. Do not wait, and do not visit a traditional healer first.</li>
+                    <li>Avoid handling, killing, or eating bats, primates, or animals found sick or dead in the forest.</li>
+                    <li>Listen to and cooperate with health workers and government health authorities. Share information about sick community members; early reporting saves lives. Do not spread rumours.</li>
+                </ul>
+
+                <!-- ════════════════════ SECTION 7 ════════════════════ -->
+                <h2 id="references" class="section-heading">7. Reference List</h2>
+                <div class="text-xs text-gray-600 space-y-4 break-words" style="font-family:'Inter',sans-serif; line-height:1.7;">
+                    <p>Africa Centres for Disease Control and Prevention. (2026, May 15). <em>Africa CDC calls for urgent regional coordination following Ebola virus disease outbreak in Ituri Province, DRC, and imported Ebola Bundibugyo case reported by Uganda</em>. <a href="https://africacdc.org/news-item/africa-cdc-calls-for-urgent-regional-coordination-following-ebola-virus-disease-outbreak-in-ituri-province-drc-and-imported-ebola-bundibugyo-case-reported-by-uganda/" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>Center for Infectious Disease Research and Policy. (2026, May). <em>New Ebola outbreak hits Democratic Republic of Congo</em>. University of Minnesota. <a href="https://www.cidrap.umn.edu/ebola/new-ebola-outbreak-hits-democratic-republic-congo" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>Centers for Disease Control and Prevention. (Accessed May 17, 2026). <em>Ebola outbreak history</em>. U.S. Department of Health and Human Services. <a href="https://www.cdc.gov/ebola/outbreaks/index.html" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>Cori, A., Nedjati Gilani, G., McCabe, R., Nash, R., Skarp, J., Morgenstern, C., Hauck, K., Ferguson, N., van Elsland, S., &amp; Imperial College London School of Public Health. (2026, May). <em>Ebola outbreak 2026: Q&amp;A with experts</em>. Imperial College London. <a href="https://www.imperial.ac.uk/news/articles/2026/ebola-outbreak-2026-qa-with-experts/" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>Falasca, L., Agrati, C., Petrosillo, N., Di Caro, A., Capobianchi, M. R., Ippolito, G., &amp; Piacentini, M. (2015). Molecular mechanisms of Ebola virus pathogenesis: focus on cell death. <em>Cell Death &amp; Differentiation</em>, 22(8), 1250–1259.</p>
+                    <p>Judson, S. D., Fischer, R., Judson, A., &amp; Munster, V. J. (2016). Ecological contexts of index cases and spillover events of different ebolaviruses. <em>PLoS Pathogens</em>, 12(8), e1005780. <a href="https://doi.org/10.1371/journal.ppat.1005780" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>Lewis, C. E., Pinette, M. M., Lakin, S. M., Smith, G., Fisher, M., Moffat, E., ... &amp; Pickering, B. S. (2024). Experimental infection of Bundibugyo virus in domestic swine leads to viral shedding with evidence of Intraspecies transmission. <em>Transboundary and Emerging Diseases</em>, 2024(1), 5350769. <a href="https://doi.org/10.1155/2024/5350769" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>MacNeil, A., Farnon, E. C., Wamala, J., Okware, S., Cannon, D. L., Reed, Z., ... &amp; Rollin, P. E. (2010). Proportion of deaths and clinical features in Bundibugyo Ebola virus infection, Uganda. <em>Emerging Infectious Diseases</em>, 16(12), 1969. <a href="https://doi.org/10.3201/eid1612.100627" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>Rougeron, V., Feldmann, H., Grard, G., Becker, S., &amp; Leroy, E. M. (2015). Ebola and Marburg haemorrhagic fever. <em>Journal of Clinical Virology</em>, 64, 111–119. <a href="https://doi.org/10.1016/j.jcv.2015.01.014" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>Ryabchikova, E. I., &amp; Price, B. B. (2004). <em>Ebola and Marburg viruses: a view of infection using electron microscopy</em>. <a href="https://doi.org/10.3201/eid1008.040350" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>Umar, S. K., &amp; Diggle, M. A. (2025). The Ebola virus–going beyond the bleeding edge. <em>Journal of Medical Microbiology</em>, 74(7), 001998. <a href="https://doi.org/10.1099/jmm.0.001998" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>Van Kerkhove, M. D., Bento, A. I., Mills, H. L., Ferguson, N. M., &amp; Donnelly, C. A. (2015). A review of epidemiological parameters from Ebola outbreaks to inform early public health decision-making. <em>Scientific Data</em>, 2(1), 150019. <a href="https://doi.org/10.1038/sdata.2015.19" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>World Health Organization Regional Office for Africa. (Accessed May 16, 2026). <em>Democratic Republic of the Congo confirms new Ebola outbreak, WHO scales up support</em>. <a href="https://www.afro.who.int/countries/democratic-republic-of-congo/news/democratic-republic-congo-confirms-new-ebola-outbreak-who-scales-upsupport" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>World Health Organization. (2020). <em>Ebola Virus Disease Democratic Republic of Congo: External Situation Report 82</em>. <a href="https://iris.who.int/server/api/core/bitstreams/aebf731c-9b5e-446f-9f41-31bae23121bf/content" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>World Health Organization. (2025, April 24). <em>Ebola disease [Fact sheet]</em>. <a href="https://www.who.int/news-room/fact-sheets/detail/ebola-disease" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>World Health Organization. (2025, February 21). <em>Disease outbreak news: Sudan virus disease — Uganda (DON 556)</em>. <a href="https://www.who.int/emergencies/disease-outbreak-news/item/2025-DON556" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>World Organisation for Animal Health (WOAH). (2024). <em>Ebola virus disease</em>. <a href="https://www.woah.org/en/disease/ebola-virus-disease/" target="_blank" class="text-brand-600 underline">Link</a></p>
+                    <p>World Health Organization. (Accessed May 17, 2026). <em>Epidemic of Ebola Disease caused by Bundibugyo virus in the Democratic Republic of the Congo and Uganda determined a public health emergency of international concern</em>. <a href="https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern" target="_blank" class="text-brand-600 underline">Link</a></p>
+                </div>
+
+            </div><!-- /article-body -->
+        </main><!-- /main card -->
+    </div><!-- /page wrapper -->
+
+    <!-- ── Footer ── -->
+    <footer class="bg-brand-900 text-center py-8 text-brand-300 text-sm mt-4">
+        <p class="mb-0">&copy; 2026 Simon Boakye &bull; MScGH (C), BPH</p>
     </footer>
 
 </body>
