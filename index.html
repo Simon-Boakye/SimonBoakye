@@ -437,21 +437,21 @@
 
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1rem; }
 
-    a.blog-card {
+    .blog-card {
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
-      cursor: pointer;
-    }
-
-    .blog-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
       transition: 0.3s;
       height: 100%;
+    }
+
+    a.blog-card {
+      cursor: pointer;
     }
 
     .blog-card:hover {
@@ -704,6 +704,28 @@
     <span class="section-subtitle-italics">Global health discourse — essays, analyses, and commentary.</span>
     
     <div class="blog-grid">
+      <!-- 1. Ebola Post (Current) -->
+      <div class="blog-card">
+        <a href="Ebola_Bundibugyo_EpiReport_May2026.html" style="text-decoration: none; color: inherit; display: block;">
+          <div class="blog-card-img">🦠</div>
+        </a>
+        <div class="blog-card-body">
+          <a href="Ebola_Bundibugyo_EpiReport_May2026.html" style="text-decoration: none; color: inherit;">
+            <div class="blog-card-title">Ebola Strain "Bundibugyo" Outbreak in DRC &amp; Uganda</div>
+            <p class="blog-card-excerpt" style="margin-bottom: 1rem;">Documenting the Bundibugyo Outbreak — For Science, For Communities, For the World.</p>
+          </a>
+          
+          <div class="blog-card-excerpt" style="font-size: 0.9rem; margin-bottom: 0.5rem; border-left: 2px solid var(--border); padding-left: 10px;">
+            <a href="https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern" target="_blank" class="gjs-t-link" title="Read full statement"><em>Read full PHEIC statement by Director General of the World Health Organisation (WHO).</em></a>
+            <div style="height: 8px;"></div>
+            <a href="https://apps.who.int/gb/bd/pdf_files/IHR_2014-2022-2024-en.pdf" target="_blank" class="gjs-t-link" title="Access Document"><em>Access the IHR 2005 as amended in 2014, 2022 and 2024 here.</em></a>
+          </div>
+          
+          <a href="Ebola_Bundibugyo_EpiReport_May2026.html" class="blog-read-more" style="text-decoration: none;">READ FULL ARTICLE &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 2. Malaria & Diarrhoea Post -->
       <a href="malaria-diarrhoea-analysis.html" class="blog-card" title="Read Full Article">
         <div class="blog-card-img">🦟</div>
         <div class="blog-card-body">
@@ -713,6 +735,7 @@
         </div>
       </a>
 
+      <!-- 3. Data Analyst Post -->
       <a href="data-analyst-job-posting-analysis.html" class="blog-card" title="Read Full Article">
         <div class="blog-card-img">📊</div>
         <div class="blog-card-body">
