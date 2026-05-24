@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,6 +32,7 @@
                             700: '#15803d',
                             800: '#166534',
                             900: '#14532d',
+                            950: '#052e16',
                         }
                     }
                 }
@@ -43,8 +44,21 @@
         html { scroll-behavior: smooth; }
 
         body {
-            background-color: #f1f5f1;
+            background-color: #f8fafc;
             font-family: 'Inter', sans-serif;
+            color: #334155;
+        }
+
+        /* ── Progress Bar ── */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #15803d;
+            z-index: 100;
+            width: 0%;
+            transition: width 0.1s ease-out;
         }
 
         /* ── Article body text uses serif for readability ── */
@@ -52,194 +66,291 @@
         .article-body li,
         .article-body ol li {
             font-family: 'Merriweather', Georgia, serif;
-            font-size: 0.97rem;
-            line-height: 1.9;
-            color: #374151;
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: #334155;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
         }
 
         /* ── Section headings ── */
         .section-heading {
             font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            color: #166534;
+            font-weight: 800;
+            color: #14532d;
             border-bottom: 2px solid #bbf7d0;
             padding-bottom: 0.5rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            font-size: 1.35rem;
-            letter-spacing: -0.01em;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            letter-spacing: -0.02em;
+            scroll-margin-top: 100px;
         }
 
         .sub-heading {
             font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            color: #1f2937;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
         }
 
-        /* ── TOC links ── */
-        .toc-link {
-            color: #15803d;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.15s;
+        /* ── Sticky left sidebar Table of Contents ── */
+        .toc-container {
+            position: sticky;
+            top: 6rem;
+            max-height: calc(100vh - 8rem);
+            overflow-y: auto;
         }
-        .toc-link:hover { color: #14532d; text-decoration: underline; }
+
+        .toc-link {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            color: #64748b;
+            padding: 0.5rem 0;
+            border-left: 2px solid transparent;
+            padding-left: 1rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .toc-link:hover {
+            color: #15803d;
+            border-left-color: #bbf7d0;
+        }
+
+        .toc-link.active {
+            color: #166534;
+            font-weight: 600;
+            border-left-color: #15803d;
+            background: linear-gradient(to right, #f0fdf4, transparent);
+        }
 
         /* ── Inline links ── */
         .article-body a {
             color: #15803d;
             text-decoration: underline;
-            text-underline-offset: 2px;
+            text-decoration-color: #86efac;
+            text-underline-offset: 4px;
+            transition: all 0.2s;
         }
-        .article-body a:hover { color: #14532d; }
-
-        /* ── Sticky header scroll shadow ── */
-        header { position: sticky; top: 0; z-index: 50; }
+        .article-body a:hover {
+            color: #14532d;
+            text-decoration-color: #15803d;
+        }
 
         /* ── Callout boxes ── */
-        .callout { border-radius: 0 0.5rem 0.5rem 0; }
-
-        /* ── Figure caption ── */
-        figcaption {
+        .callout {
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
             font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            color: #6b7280;
-            margin-top: 0.75rem;
         }
+        .callout p { font-family: 'Inter', sans-serif; font-size: 0.95rem; margin-bottom: 0.75rem; }
+        .callout p:last-child { margin-bottom: 0; }
 
         /* ── Table ── */
-        .data-table th { font-family: 'Inter', sans-serif; font-size: 0.78rem; letter-spacing: 0.03em; }
-        .data-table td { font-family: 'Inter', sans-serif; font-size: 0.83rem; }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+        .data-table th {
+            background-color: #166534;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .data-table tr:hover {
+            background-color: #f8fafc;
+        }
 
         /* ── Numbered measure items ── */
-        .measure-item { border-left: 3px solid #bbf7d0; padding-left: 1rem; margin-bottom: 1.5rem; }
-        .measure-item:hover { border-left-color: #15803d; transition: border-color 0.2s; }
+        .measure-item {
+            border-left: 4px solid #bbf7d0;
+            padding-left: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .measure-item:hover {
+            border-left-color: #15803d;
+            transition: border-color 0.2s;
+        }
 
         /* ── Tag pill ── */
         .tag-pill {
-            display: inline-block;
-            background: #dcfce7;
-            color: #15803d;
-            font-size: 0.7rem;
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            color: #dcfce7;
+            font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            padding: 0.2rem 0.65rem;
-            border-radius: 999px;
-            margin-right: 0.4rem;
-            margin-bottom: 0.4rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── Header Navigation ── */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #f1f5f9;
         }
 
         /* ── Print ── */
         @media print {
-            header, footer { display: none; }
+            header, .toc-container, #progress-bar, footer { display: none; }
             body { background: white; }
+            .article-body { font-size: 12pt; }
         }
     </style>
 </head>
 <body class="antialiased">
 
+    <div id="progress-bar"></div>
+
     <!-- ── Navigation ── -->
-    <header class="bg-brand-800 text-white shadow-lg">
-        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="https://simonboakye.com/" class="font-bold text-xl tracking-tight hover:text-brand-200 transition">Simon Boakye</a>
-            <nav class="hidden md:flex space-x-6 text-sm font-medium text-brand-100">
-                <a href="https://simonboakye.com/" class="hover:text-white transition">Home</a>
+    <header class="glass-nav sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="https://simonboakye.com/" class="font-bold text-xl tracking-tight text-brand-900 hover:text-brand-700 transition flex items-center gap-2">
+                <div class="w-8 h-8 bg-brand-700 rounded-lg flex items-center justify-center text-white font-serif italic">S</div>
+                Simon Boakye
+            </a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="https://simonboakye.com/" class="hover:text-brand-700 transition">Home</a>
+                <a href="#" class="text-brand-700 font-semibold">Articles</a>
+                <a href="#" class="hover:text-brand-700 transition">Projects</a>
+                <a href="#" class="hover:text-brand-700 transition">About</a>
             </nav>
         </div>
     </header>
 
     <!-- ── Page wrapper ── -->
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 my-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex flex-col lg:flex-row gap-10">
 
-        <!-- ── Article card ── -->
-        <main class="bg-white shadow-xl rounded-2xl border border-gray-100 overflow-hidden">
+        <!-- ── Desktop Sidebar / TOC ── -->
+        <aside class="hidden lg:block w-64 flex-shrink-0">
+            <div class="toc-container pr-4">
+                <h4 class="font-bold text-slate-900 mb-4 font-sans tracking-tight uppercase text-xs">On this page</h4>
+                <nav id="toc-nav" class="space-y-1">
+                    <a href="#intro" class="toc-link active">1. Introduction and Background</a>
+                    <a href="#agent" class="toc-link">2. The Causative Agent</a>
+                    <a href="#epi" class="toc-link">3. Epidemiology of Outbreak</a>
+                    <a href="#measures" class="toc-link">4. Public Health Measures</a>
+                    <a href="#conclusions" class="toc-link">5. Conclusions</a>
+                    <a href="#recommendations" class="toc-link">6. Recommendations</a>
+                    <a href="#references" class="toc-link">7. Reference List</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- ── Main Article ── -->
+        <main class="flex-1 min-w-0 bg-white shadow-xl shadow-slate-200/50 rounded-2xl border border-slate-100 overflow-hidden">
 
             <!-- ── Hero / Article Header ── -->
-            <div class="bg-gradient-to-br from-brand-800 via-brand-700 to-brand-900 px-6 sm:px-10 pt-10 pb-12">
-                <!-- Tags -->
-                <div class="mb-5">
-                    <span class="tag-pill" style="background:rgba(255,255,255,0.15); color:#bbf7d0;">Epidemiological update</span>
-                    <span class="tag-pill" style="background:rgba(255,255,255,0.15); color:#bbf7d0;">Public Health</span>
-                    <span class="tag-pill" style="background:rgba(255,255,255,0.15); color:#bbf7d0;">PHEIC </span>
-                </div>
+            <div class="relative bg-gradient-to-br from-brand-900 via-brand-800 to-brand-950 px-6 sm:px-12 pt-12 pb-16 overflow-hidden">
+                <!-- Background Pattern overlay -->
+                <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+                
+                <div class="relative z-10">
+                    <!-- Tags -->
+                    <div class="mb-6 flex flex-wrap">
+                        <span class="tag-pill">Epidemiological update</span>
+                        <span class="tag-pill">Public Health</span>
+                        <span class="tag-pill bg-red-500/20 text-red-100 border-red-400/30">PHEIC</span>
+                    </div>
 
-                <!-- Title -->
-                <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight mb-3" style="font-family:'Inter',sans-serif;">
-                    Ebola Strain "Bundibugyo" Outbreak in the Democratic Republic of the Congo &amp; Uganda
-                </h1>
-                <p class="text-brand-200 font-semibold text-base sm:text-lg mb-1">Outbreak in DRC &amp; Uganda</p>
-                <p class="text-brand-300 text-sm sm:text-base italic">
-                    Documenting the Bundibugyo Outbreak — For Science, For Communities, For the World.
-                </p>
+                    <!-- Title -->
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight tracking-tight mb-4" style="font-family:'Inter',sans-serif;">
+                        Ebola Strain "Bundibugyo" Outbreak in the Democratic Republic of the Congo &amp; Uganda
+                    </h1>
+                    <p class="text-brand-100 text-lg md:text-xl font-medium mb-6">
+                        Documenting the Bundibugyo Outbreak — For Science, For Communities, For the World.
+                    </p>
 
-                <!-- Author block -->
-                <div class="flex items-center gap-4 mt-8 bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-white/20">
-                    <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/Passport.JPG"
-                         alt="Simon Boakye"
-                         class="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-brand-300 shadow"
-                         onerror="this.src='https://ui-avatars.com/api/?name=Simon+Boakye&background=15803d&color=fff'">
-                    <div>
-                        <p class="text-white font-bold text-base sm:text-lg leading-snug mb-0">Simon Boakye</p>
-                        <p class="text-brand-200 text-sm font-semibold mb-0">MScGH (C), BPH</p>
-                        <p class="text-brand-300 text-xs mt-0.5">Published: May 17, 2026</p>
+                    <!-- Author block -->
+                    <div class="flex items-center gap-4 mt-10">
+                        <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/Passport.JPG"
+                             alt="Simon Boakye"
+                             class="w-14 h-14 rounded-full object-cover ring-2 ring-brand-300 ring-offset-2 ring-offset-brand-900 shadow-lg"
+                             onerror="this.src='https://ui-avatars.com/api/?name=Simon+Boakye&background=15803d&color=fff'">
+                        <div>
+                            <p class="text-white font-bold text-base leading-snug">Simon Boakye</p>
+                            <p class="text-brand-200 text-sm font-medium">MScGH (C), BPH</p>
+                            <div class="flex items-center gap-2 text-brand-300 text-xs mt-1">
+                                <span>Published: May 17, 2026</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- ── Article body ── -->
-            <div class="px-6 sm:px-10 pb-12 pt-8 article-body">
+            <div class="px-6 sm:px-12 py-10 article-body">
 
-                <!-- Situation At A Glance -->
-                <div class="bg-red-50 border border-red-200 rounded-xl p-6 mb-10 shadow-sm">
-                    <h3 class="text-red-800 font-bold text-lg mb-5 flex items-center gap-2" style="font-family:'Inter',sans-serif;">
-                        <span class="text-xl">⚠</span> Situation at a Glance as at 17 May 2026
-                    </h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-6">
-                        <div class="bg-white border border-red-100 rounded-lg p-3 text-center shadow-sm">
-                            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1 leading-tight">Confirmed Cases (lab)</p>
-                            <p class="text-3xl font-bold text-red-700" style="font-family:'Inter',sans-serif;">8</p>
-                        </div>
-                        <div class="bg-white border border-red-100 rounded-lg p-3 text-center shadow-sm">
-                            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1 leading-tight">Suspected Cases</p>
-                            <p class="text-3xl font-bold text-red-700" style="font-family:'Inter',sans-serif;">246</p>
-                        </div>
-                        <div class="bg-white border border-red-100 rounded-lg p-3 text-center shadow-sm">
-                            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1 leading-tight">Suspected Deaths</p>
-                            <p class="text-3xl font-bold text-red-700" style="font-family:'Inter',sans-serif;">80</p>
-                        </div>
-                        <div class="bg-white border border-red-100 rounded-lg p-3 text-center shadow-sm">
-                            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1 leading-tight">Countries Affected</p>
-                            <p class="text-base font-bold text-red-700 leading-tight" style="font-family:'Inter',sans-serif;">DRC &amp; Uganda</p>
-                        </div>
-                        <div class="bg-white border border-red-100 rounded-lg p-3 text-center shadow-sm col-span-2 sm:col-span-1">
-                            <p class="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-1 leading-tight">Healthcare Worker Deaths</p>
-                            <p class="text-3xl font-bold text-red-700" style="font-family:'Inter',sans-serif;">4</p>
-                        </div>
-                    </div>
-                    <ul class="space-y-2 text-red-900 text-sm font-medium list-disc pl-5">
-                        <li><strong>PHEIC</strong> (Public Health Emergency of International Concern) declared by WHO Director-General: 17 May 2026</li>
-                        <li><strong>NO</strong> approved vaccine or treatment exists for this Ebola strain</li>
-                    </ul>
-                </div>
-
-                <!-- Table of Contents -->
-                <div class="bg-brand-50 border border-brand-200 rounded-xl p-6 mb-10 shadow-sm">
-                    <h3 class="text-brand-800 font-bold text-base mb-4 border-b border-brand-200 pb-2" style="font-family:'Inter',sans-serif;">Table of Contents</h3>
+                <!-- Mobile TOC (visible only on small screens) -->
+                <div class="lg:hidden bg-slate-50 border border-slate-200 rounded-xl p-6 mb-10">
+                    <h3 class="font-bold text-slate-800 text-sm uppercase tracking-wider mb-4 font-sans !mt-0">Table of Contents</h3>
                     <nav>
-                        <ol class="space-y-2 mt-3 pl-4 list-decimal" style="font-family:'Inter',sans-serif;">
-                            <li><a href="#intro" class="toc-link">Introduction and Background</a></li>
-                            <li><a href="#agent" class="toc-link">The Causative Agent: Bundibugyo Virus (BDBV)</a></li>
-                            <li><a href="#epi" class="toc-link">Epidemiology of the Current Outbreak: Bundibugyo Ebolavirus</a></li>
-                            <li><a href="#measures" class="toc-link">Evidence-Based Public Health Measures</a></li>
-                            <li><a href="#conclusions" class="toc-link">Conclusions</a></li>
-                            <li><a href="#recommendations" class="toc-link">Recommendations</a></li>
-                            <li><a href="#references" class="toc-link">Reference List</a></li>
+                        <ol class="space-y-2 pl-4 list-decimal font-sans text-sm">
+                            <li><a href="#intro" class="text-brand-700 hover:underline">Introduction and Background</a></li>
+                            <li><a href="#agent" class="text-brand-700 hover:underline">The Causative Agent: Bundibugyo Virus (BDBV)</a></li>
+                            <li><a href="#epi" class="text-brand-700 hover:underline">Epidemiology of the Current Outbreak</a></li>
+                            <li><a href="#measures" class="text-brand-700 hover:underline">Evidence-Based Public Health Measures</a></li>
+                            <li><a href="#conclusions" class="text-brand-700 hover:underline">Conclusions</a></li>
+                            <li><a href="#recommendations" class="text-brand-700 hover:underline">Recommendations</a></li>
+                            <li><a href="#references" class="text-brand-700 hover:underline">Reference List</a></li>
                         </ol>
                     </nav>
+                </div>
+
+                <!-- Situation At A Glance -->
+                <div class="bg-red-50/70 border border-red-200 rounded-2xl p-6 sm:p-8 mb-12 shadow-sm">
+                    <h3 class="text-red-900 font-bold text-lg mb-6 flex items-center gap-3 !mt-0" style="font-family:'Inter',sans-serif;">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-red-200 text-red-700 text-sm">⚠</span> 
+                        Situation at a Glance as at 17 May 2026
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+                        <div class="bg-white border border-red-100 rounded-xl p-4 text-center shadow-sm">
+                            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-2 leading-tight">Confirmed Cases</p>
+                            <p class="text-3xl font-extrabold text-red-600" style="font-family:'Inter',sans-serif;">8</p>
+                        </div>
+                        <div class="bg-white border border-red-100 rounded-xl p-4 text-center shadow-sm">
+                            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-2 leading-tight">Suspected Cases</p>
+                            <p class="text-3xl font-extrabold text-red-600" style="font-family:'Inter',sans-serif;">246</p>
+                        </div>
+                        <div class="bg-white border border-red-100 rounded-xl p-4 text-center shadow-sm">
+                            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-2 leading-tight">Suspected Deaths</p>
+                            <p class="text-3xl font-extrabold text-red-600" style="font-family:'Inter',sans-serif;">80</p>
+                        </div>
+                        <div class="bg-white border border-red-100 rounded-xl p-4 text-center shadow-sm">
+                            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-2 leading-tight">Countries Affected</p>
+                            <p class="text-sm font-bold text-red-600 leading-tight mt-2" style="font-family:'Inter',sans-serif;">DRC &amp; Uganda</p>
+                        </div>
+                        <div class="bg-white border border-red-100 rounded-xl p-4 text-center shadow-sm col-span-2 md:col-span-1">
+                            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-wider mb-2 leading-tight">HCW Deaths</p>
+                            <p class="text-3xl font-extrabold text-red-600" style="font-family:'Inter',sans-serif;">4</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-red-900 text-sm font-medium font-sans !mb-0 !pl-1">
+                        <li class="flex gap-2 items-start"><span class="text-red-500 mt-0.5">&bull;</span> <span><strong>PHEIC</strong> (Public Health Emergency of International Concern) declared by WHO Director-General: 17 May 2026.</span></li>
+                        <li class="flex gap-2 items-start"><span class="text-red-500 mt-0.5">&bull;</span> <span><strong>NO</strong> approved vaccine or treatment exists for this Ebola strain.</span></li>
+                    </ul>
                 </div>
 
                 <!-- ════════════════════ SECTION 1 ════════════════════ -->
@@ -255,77 +366,77 @@
                 <h3 class="sub-heading">1c. The Five Known Ebola Virus Species</h3>
                 <p>Scientists have identified five distinct species of ebolavirus, all belonging to the family Filoviridae and genus Ebolavirus. Three species cause major human outbreaks:</p>
 
-                <div class="overflow-x-auto my-6 rounded-xl shadow border border-gray-200">
-                    <table class="w-full text-left border-collapse data-table">
-                        <thead class="bg-brand-800 text-white">
+                <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-slate-200">
+                    <table class="data-table !my-0">
+                        <thead>
                             <tr>
-                                <th class="py-3 px-4 font-semibold">Species</th>
-                                <th class="py-3 px-4 font-semibold">First Discovered</th>
-                                <th class="py-3 px-4 font-semibold">Case Fatality Rate</th>
-                                <th class="py-3 px-4 font-semibold text-center">Vaccine?</th>
-                                <th class="py-3 px-4 font-semibold">Key Notes</th>
+                                <th>Species</th>
+                                <th>First Discovered</th>
+                                <th>CFR</th>
+                                <th class="text-center">Vaccine?</th>
+                                <th>Key Notes</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200 bg-white">
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="py-3 px-4 font-medium">Zaire ebolavirus (EBOV)</td>
-                                <td class="py-3 px-4 text-gray-600">DRC, 1976</td>
-                                <td class="py-3 px-4 text-gray-600">Up to 90%</td>
-                                <td class="py-3 px-4 text-center text-green-600 font-bold">YES ✔</td>
-                                <td class="py-3 px-4 text-gray-600">Most outbreaks; 2014–2016 West Africa (28,600 cases)</td>
+                        <tbody class="divide-y divide-slate-100 bg-white">
+                            <tr>
+                                <td class="font-semibold text-slate-800">Zaire ebolavirus (EBOV)</td>
+                                <td>DRC, 1976</td>
+                                <td>Up to 90%</td>
+                                <td class="text-center text-emerald-600 font-bold">YES ✔</td>
+                                <td class="text-sm">Most outbreaks; 2014–2016 West Africa (28,600 cases)</td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="py-3 px-4 font-medium">Sudan ebolavirus (SUDV)</td>
-                                <td class="py-3 px-4 text-gray-600">Sudan, 1976</td>
-                                <td class="py-3 px-4 text-gray-600">41–70%</td>
-                                <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
-                                <td class="py-3 px-4 text-gray-600">Uganda 2022, 2025; several outbreaks in Sudan</td>
+                            <tr>
+                                <td class="font-semibold text-slate-800">Sudan ebolavirus (SUDV)</td>
+                                <td>Sudan, 1976</td>
+                                <td>41–70%</td>
+                                <td class="text-center text-red-500 font-bold">NO ✗</td>
+                                <td class="text-sm">Uganda 2022, 2025; several outbreaks in Sudan</td>
                             </tr>
-                            <tr class="bg-brand-50 border-l-4 border-brand-600">
-                                <td class="py-3 px-4 font-bold text-brand-800">Bundibugyo virus (BDBV)</td>
-                                <td class="py-3 px-4 text-brand-800">Uganda, 2007</td>
-                                <td class="py-3 px-4 text-brand-800 font-semibold">30–40%</td>
-                                <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
-                                <td class="py-3 px-4 text-brand-800 font-medium">THIS OUTBREAK; only 3rd known occurrence</td>
+                            <tr class="bg-brand-50 border-l-4 border-l-brand-600">
+                                <td class="font-bold text-brand-900">Bundibugyo virus (BDBV)</td>
+                                <td class="text-brand-900">Uganda, 2007</td>
+                                <td class="text-brand-900 font-semibold">30–40%</td>
+                                <td class="text-center text-red-600 font-bold">NO ✗</td>
+                                <td class="text-brand-900 font-medium text-sm">THIS OUTBREAK; only 3rd known occurrence</td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="py-3 px-4 font-medium">Taï Forest virus (TAFV)</td>
-                                <td class="py-3 px-4 text-gray-600">Côte d'Ivoire, 1994</td>
-                                <td class="py-3 px-4 text-gray-600">Unknown</td>
-                                <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
-                                <td class="py-3 px-4 text-gray-600">Only 1 known human case (survived)</td>
+                            <tr>
+                                <td class="font-semibold text-slate-800">Taï Forest virus (TAFV)</td>
+                                <td>Côte d'Ivoire, 1994</td>
+                                <td>Unknown</td>
+                                <td class="text-center text-red-500 font-bold">NO ✗</td>
+                                <td class="text-sm">Only 1 known human case (survived)</td>
                             </tr>
-                            <tr class="hover:bg-gray-50 transition">
-                                <td class="py-3 px-4 font-medium">Reston ebolavirus (RESTV)</td>
-                                <td class="py-3 px-4 text-gray-600">Philippines, 1989</td>
-                                <td class="py-3 px-4 text-gray-600">Not fatal in humans</td>
-                                <td class="py-3 px-4 text-center text-red-600 font-bold">NO ✗</td>
-                                <td class="py-3 px-4 text-gray-600">Infects pigs; rare human exposure – no human deaths</td>
+                            <tr>
+                                <td class="font-semibold text-slate-800">Reston ebolavirus (RESTV)</td>
+                                <td>Philippines, 1989</td>
+                                <td>Not fatal</td>
+                                <td class="text-center text-red-500 font-bold">NO ✗</td>
+                                <td class="text-sm">Infects pigs; rare human exposure – no human deaths</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <h3 class="sub-heading">1d. Patterns of Recent Outbreaks of Ebola</h3>
-                <ul class="space-y-2 mt-2 pl-5 list-disc">
+                <ul class="space-y-3 pl-5 list-disc">
                     <li><strong>August 2022 – January 2023:</strong> Sudan ebolavirus outbreak in Uganda (Mubende); 142 confirmed cases, 55 deaths.</li>
                     <li><strong>August – December 2025:</strong> Zaire ebolavirus outbreak in DRC (Bulape, Kasai Province); 53 confirmed, 45 deaths. Outbreak declared over by authorities 1 December 2025.</li>
                     <li><strong>January – April 2025:</strong> Sudan ebolavirus outbreak in Uganda (Kampala/Mbale); 14 cases, declared over 26 April 2025.</li>
-                    <li class="bg-brand-50 p-2 rounded border border-brand-200 list-none -ml-5"><strong>15 May 2026:</strong> DRC confirms Bundibugyo ebolavirus outbreak in Ituri Province. Uganda confirms imported case same day. PHEIC declared 17 May 2026.</li>
+                    <li class="bg-brand-50 p-3 rounded-xl border border-brand-200 list-none -ml-5 shadow-sm"><strong>15 May 2026:</strong> DRC confirms Bundibugyo ebolavirus outbreak in Ituri Province. Uganda confirms imported case same day. PHEIC declared 17 May 2026.</li>
                 </ul>
 
                 <!-- Figure 1 -->
-                <figure class="my-10 bg-gray-50 border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <div class="p-4 sm:p-6">
+                <figure class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm my-10">
+                    <div class="p-6">
                         <img src="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/images/Figure%201.png"
                              alt="Figure 1: Ebola disease outbreaks by species and size, since 1976"
-                             class="w-full h-auto rounded-lg border border-gray-200 shadow-sm"
+                             class="w-full h-auto rounded-xl border border-slate-200 shadow-sm"
                              onerror="this.src='https://placehold.co/800x500/ecfdf5/047857?text=Figure+1:+Ebola+Outbreaks+by+Species+and+Size'">
                     </div>
-                    <figcaption class="px-6 pb-5 text-center">
-                        <strong class="text-gray-700">Figure 1:</strong> Ebola disease outbreaks by species and size, since 1976.<br>
-                        <span class="text-gray-500">Source: Centers for Disease Control and Prevention. (Accessed May 17, 2026). Ebola outbreak history. U.S. Department of Health and Human Services.
-                        <a href="https://www.cdc.gov/ebola/outbreaks/index.html" target="_blank" class="text-brand-600 underline break-all">https://www.cdc.gov/ebola/outbreaks/index.html</a></span>
+                    <figcaption class="px-6 pb-6 text-center border-t border-slate-200 pt-4 bg-white">
+                        <strong class="text-slate-800">Figure 1:</strong> Ebola disease outbreaks by species and size, since 1976.<br>
+                        <span class="text-slate-500 text-xs mt-1 block">Source: Centers for Disease Control and Prevention. (Accessed May 17, 2026). Ebola outbreak history.<br>
+                        <a href="https://www.cdc.gov/ebola/outbreaks/index.html" target="_blank" class="text-brand-600 hover:text-brand-800 transition underline">https://www.cdc.gov/ebola/outbreaks/index.html</a></span>
                     </figcaption>
                 </figure>
 
@@ -334,8 +445,8 @@
 
                 <h3 class="sub-heading">2a. Biology of BDBV</h3>
                 <p>The Bundibugyo virus (BDBV) is a <strong>negative-sense, single-stranded RNA virus</strong> that belongs to the <strong>family Filoviridae</strong>, genus <strong>Ebolavirus</strong>. The name 'filo' comes from the Latin word <em>filum</em>, meaning 'thread'. This is because under the microscope the virus looks like a long, twisted thread or worm rather than a round ball.</p>
-                <p class="mb-2">Here is what makes it special as a virus:</p>
-                <ul class="pl-5 list-disc space-y-2 mt-0">
+                <p>Here is what makes it special as a virus:</p>
+                <ul class="space-y-2 pl-5 list-disc">
                     <li><strong>It is TINY but complex:</strong> Its genome (genetic instruction book) is about 19 kilobases long and contains only 7 genes, each producing a specific protein the virus needs to survive and multiply.</li>
                     <li><strong>It has an envelope:</strong> The virus is wrapped in a fatty outer coat (envelope) taken from the cell it infected. This helps it hide from the body's immune system.</li>
                     <li><strong>Its most important weapon is the Glycoprotein (GP):</strong> This protein is like a 'key' on the surface of the virus that unlocks the door into human cells. Once inside, the virus uses the cell's own machinery to make millions of copies of itself.</li>
@@ -345,17 +456,17 @@
                 <h3 class="sub-heading">2b. BDBV Reservoir</h3>
                 <p>This is one of the most important and still unanswered questions in Ebola science.</p>
 
-                <div class="bg-gray-100 border-l-4 border-gray-500 callout p-5 my-6">
-                    <h4 class="text-gray-900 font-bold text-base mb-2 flex items-center gap-2" style="font-family:'Inter',sans-serif;">
-                        🦇 The Bat Hypothesis (Current Best Scientific Thinking)
+                <div class="callout bg-slate-50 border-l-4 border-slate-500 shadow-sm">
+                    <h4 class="text-slate-900 font-bold text-base mb-3 flex items-center gap-2">
+                        <span class="text-xl">🦇</span> The Bat Hypothesis (Current Best Scientific Thinking)
                     </h4>
-                    <p class="text-gray-700 text-sm mb-3">Fruit bats (family Pteropodidae), also called flying foxes, are the leading suspected reservoir host for ebolaviruses. Multiple studies have detected ebolavirus antibodies in African fruit bats, suggesting the animals have been exposed to the virus and survived. However – and this is very important – <strong>scientists have NEVER been able to isolate live Bundibugyo virus directly from a bat</strong>. The bat reservoir hypothesis is therefore scientifically strong but not 100% proven.</p>
-                    <p class="text-gray-700 text-sm mb-0">Other animals that may carry or transmit ebolaviruses to humans include: gorillas, chimpanzees, and duikers (small antelope). These are likely 'spillover' hosts — they get infected just like humans and can spread it further, but they are probably not the original source. Importantly, a 2024 experimental study (Lewis et al., 2024) showed that domestic pigs can be infected with BDBV and shed the virus, raising concern about more complex animal-to-human transmission pathways in farming communities.</p>
+                    <p class="text-slate-700">Fruit bats (family Pteropodidae), also called flying foxes, are the leading suspected reservoir host for ebolaviruses. Multiple studies have detected ebolavirus antibodies in African fruit bats, suggesting the animals have been exposed to the virus and survived. However – and this is very important – <strong>scientists have NEVER been able to isolate live Bundibugyo virus directly from a bat</strong>. The bat reservoir hypothesis is therefore scientifically strong but not 100% proven.</p>
+                    <p class="text-slate-700">Other animals that may carry or transmit ebolaviruses to humans include: gorillas, chimpanzees, and duikers (small antelope). These are likely 'spillover' hosts — they get infected just like humans and can spread it further, but they are probably not the original source. Importantly, a 2024 experimental study (Lewis et al., 2024) showed that domestic pigs can be infected with BDBV and shed the virus, raising concern about more complex animal-to-human transmission pathways in farming communities.</p>
                 </div>
 
                 <h3 class="sub-heading">2c. How the Virus Jumps Into Humans (Zoonotic Spillover)</h3>
                 <p>'Spillover' is the moment when a virus crosses from an animal into a human. For Bundibugyo and other ebolaviruses, this most likely happens through:</p>
-                <ul class="pl-5 list-disc space-y-2">
+                <ul class="space-y-2 pl-5 list-disc">
                     <li><strong>Hunting and handling bushmeat:</strong> People who hunt, skin, or eat bats, primates, or other forest animals may come into contact with infected blood, organs, or tissue. In Ituri Province, bats are a common food source and are handled by hand.</li>
                     <li><strong>Eating forest fruits contaminated by bats:</strong> Bats often bite fruit and leave behind saliva or droppings. Humans who pick up and eat that fruit without washing it may ingest the virus.</li>
                     <li><strong>Mining activities:</strong> Miners in Ituri Province regularly enter deep forest areas and caves where bats live, increasing their exposure risk. The current outbreak epicentre includes Mongbwalu, a high-traffic gold mining area.</li>
@@ -364,14 +475,18 @@
 
                 <h3 class="sub-heading">2d. How the Virus Spreads Between People (Human-to-Human Transmission)</h3>
                 <p>Once the virus enters one person, it can spread to others, but ONLY through <strong>direct contact with body fluids</strong> of someone who is already showing symptoms. This includes:</p>
-                <ul class="pl-5 list-disc space-y-2">
+                <ul class="space-y-2 pl-5 list-disc">
                     <li>Blood, vomit, diarrhoea, sweat, saliva, urine, semen, and breast milk of a sick person.</li>
                     <li>Touching or washing the body of someone who has died from Ebola (dead bodies remain highly infectious).</li>
                     <li>Touching surfaces or materials (bedsheets, needles, gloves) contaminated with the body fluids of a sick person.</li>
                     <li>Healthcare workers caring for patients without proper protective equipment (PPE) are at extremely high risk — as seen in the current outbreak where 4+ nurses and doctors have died.</li>
                 </ul>
-                <div class="bg-yellow-50 border-l-4 border-yellow-500 callout p-4 text-yellow-900 text-sm mt-5">
-                    <strong>⚠ Important:</strong> Ebola is NOT spread through the air like influenza or COVID-19, through water, or through casual contact like sitting next to someone, shaking hands, or sharing food with a healthy person. You cannot get it from a person who has the virus but has NOT yet shown symptoms (pre-symptomatic transmission is not confirmed for Ebola).
+                
+                <div class="callout bg-amber-50 border-l-4 border-amber-500 shadow-sm mt-6">
+                    <p class="text-amber-900 font-medium flex gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mt-0.5" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+                        <span><strong>Important:</strong> Ebola is NOT spread through the air like influenza or COVID-19, through water, or through casual contact like sitting next to someone, shaking hands, or sharing food with a healthy person. You cannot get it from a person who has the virus but has NOT yet shown symptoms (pre-symptomatic transmission is not confirmed for Ebola).</span>
+                    </p>
                 </div>
 
                 <!-- ════════════════════ SECTION 3 ════════════════════ -->
@@ -379,26 +494,26 @@
 
                 <h3 class="sub-heading">3a. Key Epidemiological Facts About Bundibugyo Virus</h3>
 
-                <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden mb-8">
-                    <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-                        <div class="p-5">
-                            <h4 class="text-brand-800 font-bold text-xs uppercase tracking-wide mb-2" style="font-family:'Inter',sans-serif;">Incubation Period</h4>
-                            <p class="text-sm text-gray-700 mb-0">2 to 21 days (usually 6–7 days).</p>
+                <div class="border border-slate-200 rounded-2xl shadow-sm overflow-hidden mb-10 bg-white">
+                    <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+                        <div class="p-6">
+                            <h4 class="text-brand-800 font-bold text-xs uppercase tracking-wider mb-3 font-sans">Incubation Period</h4>
+                            <p class="text-sm text-slate-700 leading-relaxed font-sans">2 to 21 days (usually 6–7 days).</p>
                         </div>
-                        <div class="p-5">
-                            <h4 class="text-brand-800 font-bold text-xs uppercase tracking-wide mb-2" style="font-family:'Inter',sans-serif;">Case Fatality Rate (CFR)</h4>
-                            <p class="text-sm text-gray-700 mb-0">30–40% in the two previous outbreaks (33.6% overall across 211 cases). This means roughly 1 in 3 infected people die. While lower than Zaire Ebola, it is still extremely high.</p>
+                        <div class="p-6">
+                            <h4 class="text-brand-800 font-bold text-xs uppercase tracking-wider mb-3 font-sans">Case Fatality Rate (CFR)</h4>
+                            <p class="text-sm text-slate-700 leading-relaxed font-sans">30–40% in the two previous outbreaks (33.6% overall across 211 cases). This means roughly 1 in 3 infected people die. While lower than Zaire Ebola, it is still extremely high.</p>
                         </div>
-                        <div class="p-5 bg-red-50">
-                            <h4 class="text-red-800 font-bold text-xs uppercase tracking-wide mb-2" style="font-family:'Inter',sans-serif;">Vaccine or Treatment?</h4>
-                            <p class="text-sm text-red-900 font-medium mb-0">NO. Unlike Ebola Zaire, there are currently NO licensed vaccines or approved treatments for Bundibugyo virus. This is the single greatest challenge in the current outbreak.</p>
+                        <div class="p-6 bg-red-50/50">
+                            <h4 class="text-red-700 font-bold text-xs uppercase tracking-wider mb-3 font-sans">Vaccine or Treatment?</h4>
+                            <p class="text-sm text-red-900 font-medium leading-relaxed font-sans">NO. Unlike Ebola Zaire, there are currently NO licensed vaccines or approved treatments for Bundibugyo virus. This is the single greatest challenge in the current outbreak.</p>
                         </div>
                     </div>
                 </div>
 
                 <h3 class="sub-heading">3b. Pathogenesis of Bundibugyo</h3>
                 <p>Understanding how the virus causes death helps explain why this disease is so serious and why certain public health measures are critical.</p>
-                <ol class="pl-5 list-decimal space-y-3 mt-2">
+                <ol class="space-y-3 pl-5 list-decimal">
                     <li><strong>The virus enters the body</strong> through mucous membranes (eyes, nose, mouth) or skin breaks and immediately begins infecting macrophages and dendritic cells — the very immune cells designed to destroy invaders.</li>
                     <li><strong>A 'cytokine storm' is triggered.</strong> Infected immune cells release large amounts of inflammatory chemicals called cytokines in a chaotic, disorganised burst. Instead of protecting the body, this storm causes widespread inflammation and tissue damage throughout the body.</li>
                     <li><strong>The liver is badly damaged.</strong> The liver produces the proteins that make blood clot normally. When BDBV destroys liver cells (hepatocellular necrosis), the body loses the ability to stop bleeding, leading to the haemorrhagic (bleeding) features of the disease.</li>
@@ -408,14 +523,29 @@
 
                 <h3 class="sub-heading">3c. The Current 2026 Outbreak at a Glance</h3>
                 <p>The current outbreak almost certainly began in <strong>late April 2026 in Ituri Province, northeastern DRC</strong>, a region known for gold mining, armed conflict, dense forest, and high cross-border movement with Uganda and South Sudan.</p>
-                <ul class="space-y-3 pl-5 list-disc mt-2">
-                    <li><strong>24 April 2026:</strong> Suspected index case (first patient) who is a nurse develops symptoms in Bunia, Ituri's capital, and dies at the Evangelical Medical Center.</li>
-                    <li><strong>Late April to early May 2026:</strong> More deaths are reported in Mongbwalu and Rwampara health zones. Early samples were tested at Bunia's regional health centre using GeneXpert machines, but these machines are designed only to detect the Zaire strain, they returned FALSE NEGATIVE results. This made the outbreak spread undetected.</li>
-                    <li><strong>3–7 May 2026:</strong> Samples from Rwampara were sent to the INRB (National Institute of Biomedical Research) in Kinshasa. PCR tests capable of detecting multiple Ebola species were run and return POSITIVE for a non-Zaire ebolavirus.</li>
-                    <li><strong>15 May 2026:</strong> DRC Ministry of Health officially confirms Bundibugyo ebolavirus outbreak. More than 246 suspected cases and 80 deaths already reported across Bunia, Rwampara, and Mongbwalu health zones.</li>
-                    <li><strong>14–16 May 2026:</strong> A 59-year-old Congolese man was admitted to Kibuli Muslim Hospital in Kampala, Uganda on 11 May, died on the 14 May, and tests positive for BDBV (meaning he died before results proved positive). A second confirmed case was reported in Kampala on 16 May 2026. Both individuals had traveled from DRC. No evidence yet of local Ugandan-to-Ugandan transmission.</li>
-                    <li><strong>17 May 2026:</strong> Dr Tedros Adhanom Ghebreyesus, the WHO Director-General declares a Public Health Emergency of International Concern (PHEIC).</li>
+                
+                <ul class="space-y-3 pl-5 list-disc">
+                    <li>
+                        <strong>Late April to early May 2026:</strong> More deaths are reported in Mongbwalu and Rwampara health zones. Early samples were tested at Bunia's regional health centre using GeneXpert machines, but these machines are designed only to detect the Zaire strain, they returned FALSE NEGATIVE results. This made the outbreak spread undetected.
+                    </li>
+                    <li>
+                        <strong>3–7 May 2026:</strong> Samples from Rwampara were sent to the INRB (National Institute of Biomedical Research) in Kinshasa. PCR tests capable of detecting multiple Ebola species were run and return POSITIVE for a non-Zaire ebolavirus.
+                    </li>
+                    <li>
+                        <strong>15 May 2026:</strong> DRC Ministry of Health officially confirms Bundibugyo ebolavirus outbreak. More than 246 suspected cases and 80 deaths already reported across Bunia, Rwampara, and Mongbwalu health zones.
+                    </li>
+                    <li>
+                        <strong>14–16 May 2026:</strong> A 59-year-old Congolese man was admitted to Kibuli Muslim Hospital in Kampala, Uganda on 11 May, died on the 14 May, and tests positive for BDBV (meaning he died before results proved positive). A second confirmed case was reported in Kampala on 16 May 2026. Both individuals had traveled from DRC. No evidence yet of local Ugandan-to-Ugandan transmission.
+                    </li>
+                    <li>
+                        <strong>17 May 2026:</strong> Dr Tedros Adhanom Ghebreyesus, the WHO Director-General declares a Public Health Emergency of International Concern (PHEIC).
+                    </li>
                 </ul>
+
+                <!-- Visualizing the Silent Spread (verbatim image reference) -->
+                <div class="my-8 flex justify-center">
+                    <img src="image_7158a9.png" alt="Late April to early May 2026 Outbreak Progress Visual" class="rounded-xl border border-slate-200 shadow-sm max-w-full h-auto" onerror="this.style.display='none'">
+                </div>
 
                 <!-- Clarification Box -->
                 <div class="bg-brand-50 border-l-4 border-brand-600 callout p-6 my-8 shadow-sm rounded-r-xl">
@@ -579,9 +709,47 @@
     </div><!-- /page wrapper -->
 
     <!-- ── Footer ── -->
-    <footer class="bg-brand-900 text-center py-8 text-brand-300 text-sm mt-4">
-        <p class="mb-0">&copy; 2026 Simon Boakye &bull; MScGH (C), BPH</p>
+    <footer class="bg-brand-950 text-center py-12 text-brand-300 text-sm border-t border-brand-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="font-sans font-medium text-white mb-2">&copy; 2026 Simon Boakye. All rights reserved.</p>
+            <p class="text-xs text-brand-400">This scientific analysis document is compiled for global public health awareness and data transparency.</p>
+        </div>
     </footer>
 
+    <script>
+        // Reading Progress Bar Script
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+            
+            // Highlight Active TOC Item based on scroll position
+            let sections = document.querySelectorAll('.article-body h2[id]');
+            let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+            
+            sections.forEach(section => {
+                if (scrollPosition >= section.offsetTop - 180) {
+                    let currentId = section.attributes.id.value;
+                    removeAllActiveClasses();
+                    addActiveClass(currentId);
+                }
+            });
+        };
+
+        function removeAllActiveClasses() {
+            document.querySelectorAll('.toc-link').forEach((el) => {
+                el.classList.remove('active');
+            });
+        }
+
+        function addActiveClass(id) {
+            let selector = `.toc-link[href="#${id}"]`;
+            let element = document.querySelector(selector);
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
