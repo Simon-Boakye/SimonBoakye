@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Can We Address the AMR Challenge by 2036? — Simon Boakye</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="An analysis of AMR global policy documents by Simon Boakye. Can we address the Antimicrobial Resistance challenge by 2036?" />
+  
+  <link rel="icon" type="image/jpeg" href="https://github.com/Simon-Boakye/SimonBoakye/blob/main/Passport.JPG?raw=true" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&amp;display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --g-deep: #082a1c;
+      --g-dark: #0d3d2b;
+      --g-mid: #155c3f;
+      --g-accent: #1e7d54;
+      --g-bright: #2aa86e;
+      --g-light: #d4ede2;
+      --g-pale: #f0faf5;
+      --white: #ffffff;
+      --off: #f7f9f7;
+      --ink: #0b1f16;
+      --muted: #4a6558;
+      --border: #c5ddd3;
+    }
+
+    body {
+      background-color: var(--off);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 72px;
+      background: rgba(8, 42, 28, 0.98);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--g-bright);
+      object-fit: cover;
+    }
+
+    .article-header {
+      background: linear-gradient(145deg, var(--g-deep) 0%, var(--g-dark) 100%);
+      padding: 160px 5vw 80px;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .article-header-lines {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 1;
+    }
+
+    .article-header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .article-badge {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background: rgba(42, 168, 110, 0.15);
+      border: 1px solid rgba(42, 168, 110, 0.3);
+      color: var(--g-bright);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-meta {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .article-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 5vw;
+      background: var(--white);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      border-radius: 20px;
+      transform: translateY(-40px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
+
+    .article-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--g-deep);
+      font-weight: 700;
+      margin-top: 3rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .article-body h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.3rem;
+      color: var(--g-dark);
+      font-weight: 700;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .article-body p {
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body ul {
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+    }
+
+    .article-body li {
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+
+    .article-body ul li::before {
+      content: "•";
+      color: var(--g-bright);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+    
+    .article-body ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .article-body ol li {
+      margin-bottom: 1rem;
+      padding-left: 0.5rem;
+    }
+
+    .article-body ol li::marker {
+      color: var(--g-accent);
+      font-weight: 700;
+    }
+
+    .toc {
+      background: var(--g-pale);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      border-left: 4px solid var(--g-bright);
+    }
+    .toc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--g-deep);
+      margin-bottom: 1rem;
+    }
+    .toc ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .toc ul ul {
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .toc li {
+      margin-bottom: 0.6rem;
+    }
+    .toc li::before {
+      content: none !important;
+    }
+    .toc a {
+      color: var(--g-dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .toc a:hover {
+      color: var(--g-bright);
+      text-decoration: underline;
+    }
+    
+    .article-body p a {
+      color: var(--g-accent);
+      text-decoration: underline;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .article-body p a:hover {
+      color: var(--g-bright);
+    }
+
+    .article-figure {
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .article-figure img {
+      border-radius: 12px;
+      width: 100%;
+      height: auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .article-figure figcaption {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .article-figure .credit {
+      display: block;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #6b7280;
+      margin-top: 0.5rem;
+    }
+
+    .quote-block {
+      background: var(--g-pale);
+      border-left: 4px solid var(--g-bright);
+      padding: 2rem;
+      margin: 3rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .quote-block p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--g-deep);
+      font-style: italic;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .quote-block cite {
+      font-size: 0.95rem;
+      color: var(--g-accent);
+      font-weight: 700;
+      font-style: normal;
+      display: block;
+    }
+
+    .references-section {
+      margin-top: 5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+    
+    .references-section h2 {
+      margin-top: 0;
+    }
+
+    .reference-item {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      padding-left: 2rem;
+      text-indent: -2rem;
+      color: var(--muted);
+      word-break: break-word;
+    }
+
+    .reference-item a {
+      color: var(--g-accent);
+      text-decoration: underline;
+    }
+    
+    .reference-item a:hover {
+      color: var(--g-bright);
+    }
+
+    footer {
+      background: var(--white);
+      padding: 40px 5vw;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="https://github.com/Simon-Boakye/SimonBoakye/blob/main/Passport.JPG?raw=true" alt="Simon Boakye" />
+      Simon <span>Boakye</span>
+    </a>
+  </nav>
+
+  <header class="article-header">
+    <div class="article-header-lines"></div>
+    <div class="article-header-content">
+      <div class="article-badge">Global Policy Analysis</div>
+      <h1 class="article-title">Can We Address the Antimicrobial Resistance Challenge by 2036?</h1>
+      <p class="text-xl text-white/80 font-serif italic mb-8">Analysis of AMR Global Policy Documents</p>
+      <div class="article-meta">
+        <span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          By Simon Boakye, MScGH, BPH
+        </span>
+        <span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Published: 26 May 2026
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 px-4">
+    <article class="article-body">
+      
+      <!-- TABLE OF CONTENTS -->
+      <div class="toc">
+        <div class="toc-title">Table of Contents</div>
+        <ul>
+          <li><a href="#intro">1. Introduction</a></li>
+          <li><a href="#understanding">2. Understanding AMR: A One Health Problem</a></li>
+          <li><a href="#policy">3. The Global Policy Response: What Has Been Agreed so far?</a>
+            <ul>
+              <li><a href="#gap-2015">3.1 The Original Global Action Plan (2015) and Its Gaps</a></li>
+              <li><a href="#un-hlm">3.2 The 2024 UN High-Level Meeting: A Turning Point</a></li>
+              <li><a href="#gap-2026">3.3 GAP-AMR 2026-2036: The New Framework</a></li>
+            </ul>
+          </li>
+          <li><a href="#vaccine">4. Vaccine as a tool against AMR</a></li>
+          <li><a href="#lessons">5. Lesson to learn from Switzerland and the European Union</a>
+            <ul>
+              <li><a href="#swiss-model">5.1 Switzerland: A One Health Model in Action</a></li>
+              <li><a href="#eu-action">5.2 European Union coordinated regional action</a></li>
+            </ul>
+          </li>
+          <li><a href="#challenge-2036">6. Can We Address the AMR Challenge by 2036?</a></li>
+          <li><a href="#conclusion">7. Conclusion</a></li>
+          <li><a href="#references">References</a></li>
+        </ul>
+      </div>
+
+      <h2 id="intro">1. Introduction</h2>
+      <p>Imagine a small cut on your finger becoming life-threatening not because of a rare disease, but because the medicine we use to treat it no longer works. This is not science fiction. It is happening right now. The problem is called Antimicrobial Resistance (AMR): the process by which bacteria, viruses, fungi, and parasites stop responding to the medicines designed to kill them.</p>
+      
+      <p>AMR is already one of the world's deadliest threats. According to the World Health Organisation (WHO), AMR contribute to nearly five million annual deaths, with 1.14 million directly linked to drug-resistant bacterial infections, a more than six-fold increase over the last decade. But the picture ahead is even more alarming. According to landmark forecasts published in The Lancet, bacterial AMR could cause over 39 million deaths between 2025 and 2050. This is three deaths every minute, if urgent action is not taken (Naghavi et al., 2024). Beyond lives, AMR has been estimated to shave 1.8 years off global life expectancy within the decade, cause up to 39 million deaths by 2050, and generate total GDP losses of $575 billion, if not tackle (Jonas et al., 2017).</p>
+
+      <p>This article analyses key global policy documents pertaining to AMR and assesses whether coordinated international efforts, including the newly adopted <a href="https://apps.who.int/gb/ebwha/pdf_files/WHA79/A79_5Add2-en.pdf" target="_blank">Global Action Plan on AMR 2026-2036 (GAP-AMR 2.0)</a> are sufficient to address this challenge by 2036. It draws on policies from the WHO, the Food and Agriculture Organization (FAO), the World Organisation for Animal Health (WOAH), the United Nations Environment Programme (UNEP), and case studies from Switzerland and the European Union.</p>
+
+      <h2 id="understanding">2. Understanding AMR: A One Health Problem</h2>
+      <p>AMR does not live in one place or one species. It moves between humans, animals, plants, and the environment. This is why global health experts talk about a concept called One Health, a methodology which recognized that the health of people, animals, and our environment are all deeply connected, and that we cannot protect one without the other (Davido et al., 2026).</p>
+
+      <p>The key drivers of AMR are well documented in global policy literature. The WHO together with the Food and Agriculture Organization (FAO) and other global partners identify the following as the most critical:</p>
+
+      <ul>
+        <li><strong>Inappropriate use of antibiotics in humans and animals.</strong> When people take antibiotics unnecessarily, or do not complete their full course of treatment, bacteria learn to survive the medicine.</li>
+        <li><strong>Weak infection prevention and control (IPC).</strong> Poor hygiene in hospitals, farms, and communities allows resistant organisms to spread.</li>
+        <li><strong>Low vaccination coverage.</strong> When infections are not prevented through vaccines, people use more antibiotics, which gives resistant bacteria more chances to develop and spread.</li>
+        <li><strong>Environmental contamination.</strong> Antibiotic residues from farms and pharmaceutical factories enter rivers, soil, and waterways, accelerating resistance outside of clinical settings.</li>
+        <li><strong>Weak health systems in low- and middle-income countries (LMICs).</strong> Limited regulatory capacity, substandard medicines, and inadequate surveillance make AMR harder to detect and control in countries that need help the most.</li>
+      </ul>
+
+      <p>These drivers do not operate in isolation, they reinforce each other, creating a complex, system-wide problem that cannot be solved by any one country or any one sector alone (Coque at al., 2023).</p>
+
+      <h2 id="policy">3. The Global Policy Response: What Has Been Agreed so far?</h2>
+      
+      <h3 id="gap-2015">3.1 The Original Global Action Plan (2015) and Its Gaps</h3>
+      <p>In 2015, the World Health Assembly adopted the first Global Action Plan on AMR (GAP-AMR 1.0), establishing five strategic objectives: improving awareness, strengthening surveillance, reducing infection, optimizing antimicrobial use, and investing in research and development (WHO, 2015). All Member States were required to develop National Action Plans (NAPs) aligned with this framework.</p>
+
+      <p>Progress has been meaningful but far too slow. By 2024, 178 countries had developed NAPs, yet only 68% of those plans were actively being implemented, and a mere 11% had dedicated domestic funding (Muraya et al., 2026). These numbers reveal a pattern that is common in global health governance: political will at the declaration level does not automatically translate into resources and action on the ground.</p>
+
+      <h3>3.2 The 2024 UN High-Level Meeting: A Turning Point</h3>
+      <p>In September 2024, world leaders gathered at the United Nations General Assembly (UNGA) High-Level Meeting on AMR and adopted a landmark Political Declaration containing 106 commitments (United Nations, 2024). This included a specific, measurable target: a 10% reduction in global deaths associated with bacterial AMR by 2030, from the 2019 baseline (United Nations, 2024). The declaration also called for at least 60% of countries to have fully funded National Action Plans by 2030 and set a goal of mobilising $100 million in catalytic funding through the AMR Multi-Partner Trust Fund (WOAH, 2024).</p>
+
+      <p>Critically, the 2024 declaration mandated the Quadripartite - WHO, FAO, WOAH, and UNEP - to update the Global Action Plan on AMR by 2026 using a strengthened One Health approach (United Nations, 2024). This mandate recognised that the original 2015 plan was not ambitious enough and that implementation had been too weak.</p>
+
+      <h3 id="gap-2026">3.3 GAP-AMR 2026-2036: The New Framework</h3>
+      <p>On 22 May 2026, during the 79th World Health Assembly in Geneva, WHO Member States formally adopted the updated <a href="https://apps.who.int/gb/ebwha/pdf_files/WHA79/A79_5Add2-en.pdf" target="_blank">Global Action Plan on AMR 2026-2036 (GAP-AMR 2.0)</a> (WHO, 2026). This ten-year framework is designed to operationalise the 2024 UNGA commitments and build a stronger, more accountable system for reducing AMR deaths.</p>
+
+      <p>The GAP-AMR 2.0 retains the five strategic objectives of the original plan but sharpens them significantly. Key additions include: greater emphasis on environmental health and AMR pollution; stronger integration of vaccination into AMR strategies; binding accountability mechanisms through biennial Quadripartite reports to the WHA; and stronger inclusion of communities, civil society, and the private sector in implementation (WHO, 2026). The plan also calls on the OECD to scale up its work showing that investing just USD 4 per person per year in One Health AMR policy packages could avert over 17,000 deaths and save billions in healthcare costs annually across OECD countries (OECD, 2023).</p>
+
+      <figure class="article-figure">
+        <img src="https://github.com/Simon-Boakye/SimonBoakye/blob/main/images/Figure%201.png?raw=true" alt="Plenary session at the World Health Assembly, May 2026" />
+        <figcaption>
+          <strong>Figure 1: The 79th World Health Assembly in session</strong><br>
+          Plenary session at the World Health Assembly, May 2026<br>
+          <span class="credit">Credit: WHO / Stefanie Glinski</span>
+        </figcaption>
+      </figure>
+
+      <h2 id="vaccine">4. Vaccine as a tool against AMR</h2>
+
+      <div class="quote-block">
+        <p>"Protecting ourselves starts with protecting the world around us - animals, land, and water included. Vaccines are not just a tool for human medicine. They are a shared solution for a shared planet."</p>
+        <cite>— Simon Boakye, MScGH, BPH</cite>
+      </div>
+
+      <p>One of the most powerful but underused tools in the fight against AMR is vaccination. When we prevent infections from happening in the first place, there is no need for antibiotics. This reduces the opportunity for bacteria to develop resistance. The logic is simple, and the evidence is increasingly strong. A landmark WHO reports published in October 2024 estimated that vaccines targeting 24 pathogens (covering 19 bacteria, four viruses, and the malaria parasite) could reduce global antibiotic use by 22%, equivalent to 2.5 billion defined daily doses annually (WHO, 2024). The same report found that vaccines already in use against pneumococcal pneumonia and Haemophilus influenzae type b (Hib) alone could prevent up to 106,000 AMR-associated deaths each year.</p>
+
+      <p>Real-world case studies confirm this potential. In Pakistan, Gavi, the Vaccine Alliance supported the introduction of typhoid vaccines in 2019 following years of drug-resistant typhoid outbreaks. A census survey cohort study found this intervention was over 90% effective in protecting young children against multi-drug-resistant Salmonella Typhi (Wellcome Trust, 2025). Vaccines for Haemophilus influenzae b (Hib) and Streptococcus pneumoniae have similarly driven major reductions in resistant strains globally.</p>
+
+      <p>Despite this evidence, a significant gap remains between policy and practice. While 87% of national AMR action plans include vaccination as a strategy, implementation consistently falls short of intention (Naghavi et al., 2024). The GAP-AMR 2.0 and the 2024 UNGA Political Declaration both recognise vaccination as critical. But recognition must now be matched by investment, particularly in LMICs where vaccine access remains unequal.</p>
+
+      <h2 id="lessons">5. Lesson to learn from Switzerland and the European Union</h2>
+      
+      <h3 id="swiss-model">5.1 Switzerland: A One Health Model in Action</h3>
+      <p>Switzerland offers one of the most instructive national examples of how AMR governance can be structured effectively. Since adopting the <a href="https://cdn.who.int/media/docs/default-source/antimicrobial-resistance/amr-spc-npm/nap-library/strategy-on-antibiotic-resistance-switzerland.pdf?sfvrsn=2afc48cb_1" target="_blank">Swiss Strategy on Antibiotic Resistance (StAR)</a> in 2016, the country has demonstrated that sustained commitment, cross-sector coordination, and evidence-based policy can produce real results. Antibiotic consumption in Switzerland has been reduced, and resistance growth stabilised over the period of the strategy's implementation (Swiss Federal Office of Public Health [FOPH], 2024).</p>
+
+      <p>In the veterinary sector, antibiotic use has continued to decline, a particularly important achievement given that agricultural antibiotic use is a major global driver of AMR (Van Boeckel et al., 2019). The Swiss Antibiotic Resistance Report 2024 documents these gains while honestly acknowledging that further efforts are needed, particularly to ensure antibiotic prescribing in human medicine fully aligns with national (FOPH, 2024).</p>
+
+      <p>In 2024, the Federal Council launched the StAR One Health Action Plan 2024-2027, a strengthened framework incorporating binding measures across human health, veterinary medicine, agriculture, and environmental monitoring (Swiss Federal Veterinary Office [FVO], 2024). Notably, Switzerland is also upgrading wastewater treatment systems to filter out antibiotic residues. By 2040, 70% of Swiss wastewater will undergo advanced treatment capable of reducing antibiotic concentrations by a factor of ten. This is a concrete environmental health intervention directly addressing AMR in the ecosystem.</p>
+
+      <h3 id="eu-action">5.2 European Union coordinated regional action</h3>
+      <p>At the regional level, the European Union has built one of the world's most coordinated multi-country AMR governance systems. The <a href="https://food.ec.europa.eu/system/files/2020-05/f2f_action-plan_2020_strategy-info_en.pdf" target="_blank">EU's Farm-to-Fork Strategy</a> set a target of a 50% reduction in the total sales of antimicrobials for farmed animals by 2030, from a 2018 baseline, a binding commitment backed by EU regulation (European Commission, 2020).</p>
+
+      <p>In 2024, the EU launched the second <a href="https://eu-jamrai.eu/wp-content/uploads/2024/10/EU-JAMRA2-AMRSymbol_Brochure_A6_English.pdf" target="_blank">Joint Action on Antimicrobial Resistance and Healthcare-Associated Infections (EU-JAMRAI-2)</a>, uniting 128 partners from 30 countries with a budget exceeding EUR 62 million. This initiative promotes harmonised surveillance, strengthens IPC across Member States, applies behavioural science to stewardship interventions, and ensures sustainable access to essential antibiotics (Davido et al., 2026).</p>
+
+      <p>An initial assessment of EU-JAMRAI-2 revealed that implementation remains constrained by limited resources, weak intersectoral coordination, and fragmented leadership in many Member States, challenges that mirror global patterns (Davido et al., 2026). These honest findings make the EU model valuable not just as a success story, but as a learning platform for how to identify and close gaps in regional AMR governance by countries.</p>
+
+      <h2 id="challenge-2036">6. Can We Address the AMR Challenge by 2036?</h2>
+      <p>We know the roadmap, we know some success stories from countries, including the Switzerland and the EU, but can we address AMR by 2036? The short version is: not on current trajectory, but with the right decisions now, meaningful progress is achievable.</p>
+
+      <p>The adoption of GAP-AMR 2.0 in May 2026 is a significant step forward. It consolidates years of scientific evidence and political negotiation into a structured, accountable framework. Research published in Nature Medicine found that global AMR governance scores improved from 30.7 to 44.5 out of 100 between 2017 and 2022. This is a meaningful progress, but still well below adequate (Chen et al., 2026). The same study found that it takes an average of five years after a country adopts a National Action Plan before measurable improvements in AMR prevalence can be detected, underscoring the importance of starting now and sustaining effort.</p>
+
+      <p>The assessment revealed that three critical conditions must be met if the 2036 goal is to be approached with any realism:</p>
+
+      <ol>
+        <li><strong>First, financing must follow ambition.</strong> As of 2024, only 10% of countries reported dedicated domestic funding for their AMR National Action Plans (WHO, 2026). Without money, policies are just words. The $100 million catalytic fund established at UNGA 2024 is a start, but must be dramatically scaled up.</li>
+        <li><strong>Second, vaccines must be fully integrated into AMR strategies</strong> - not just on paper, but in practice. This means scaling up immunization programs in LMICS, supporting Gavi's Vaccine Investment Strategy which now explicitly includes AMR impact as a selection criterion, and accelerating the development of vaccines targeting priority AMR pathogens (Gavi, 2024).</li>
+        <li><strong>Third, One Health must move from concept to implementation by countries.</strong> Switzerland and the EU demonstrate that cross-sector coordination between human health, veterinary, agricultural, and environmental authorities is achievable. But globally, the animal and environmental sectors lag far behind the human health sector in AMR governance (Chen et al., 2026). This imbalance must be corrected.</li>
+      </ol>
+
+      <p>Without these conditions, the GRAM Project's forecast of 39 million deaths between 2025 and 2050 becomes a grim certainty. With them, the UN's 10% mortality reduction target by 2030, and the broader goal of meaningful AMR control by 2036 becomes genuinely achievable (Naghavi et al., 2024).</p>
+
+      <h2 id="conclusion">7. Conclusion</h2>
+      <p>AMR is not a future problem. It is a present emergency. Every year of delay adds more resistant bacteria, more untreatable infections, and more deaths. The science is clear. The policy frameworks are increasingly strong. What the world now needs is the courage to implement them with urgency, equity, and accountability.</p>
+
+      <p>The adoption of <a href="https://apps.who.int/gb/ebwha/pdf_files/WHA79/A79_5Add2-en.pdf" target="_blank">GAP-AMR 2.0</a> at the 79th World Health Assembly in Geneva in May 2026 marks a historic moment. For the first time, the world has a ten-year plan that fully integrates One Health, aligns with the 2024 UNGA commitments, and comes with biennial accountability mechanisms. Switzerland's StAR strategy and the EU's Joint Action programme show that this kind of coordinated, evidence-based governance can produce real results.</p>
+
+      <p>But frameworks alone do not save lives. People do. Governments do. Funding does. Vaccines do. The challenge of AMR by 2036 can be addressed not by magic, but by political commitment, sustained investment, global cooperation, and the courage to treat this silent pandemic with the same urgency the world brought to COVID-19. The time to act is not 2030, or 2036. It is now.</p>
+
+      <div class="references-section" id="references">
+        <h2>References</h2>
+        
+        <div class="reference-item">
+          Chen, W., Zeng, Y., Zheng, J., Wang, J., Gu, W., Li, M., ... & Zhu, Y. (2026). Evaluation of antimicrobial resistance governance across 193 countries to inform the 2026 Global Action Plan update. <em>Nature Medicine</em>, 1-12. <a href="https://doi.org/10.1038/s41591-026-04257-1" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          Coque, T., Graham, D. W., Pruden, A., So, A., & Topp, E. (2023). <em>Bracing for Superbugs: Strengthening environmental action in the One Health response to antimicrobial resistance</em>. <a href="https://www.unep.org/resources/superbugs/environmental-action" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          Daouk, S., Heim, D., Kronenberg, A. O., Léger, A., Overesch, G., Plüss, C., & Schwermer, H. (2022). <em>Swiss Antibiotic Resistance Report 2022. Usage of Antibiotics and Occurrence of Antibiotic Resistance in Switzerland</em>. <a href="https://boris-portal.unibe.ch/entities/publication/4813410d-d867-445f-bd60-e191438d97c6" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          Davido, B., Ny, S., Van Lingen, C., Årdal, C., Irujo, L. A., Linnros, S., ... & Ugarteburu, M. Z. (2026). Strengthening antimicrobial resistance governance in Europe: a coordinated One Health approach. <em>The Lancet Regional Health-Europe</em>, 61. <a href="https://doi.org/10.1016/j.lanepe.2025.00332-1" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          European Commission. (2020). <em>Farm to fork strategy: for a fair, healthy and environmentally-friendly food system</em>. Communication from the Commission to the European Parliament, the Council, the European Economic and Social Committee and the Committee of the Regions, 381, 1-9. <a href="https://ec.europa.eu/food/horizontal-topics/farm-fork-strategy_en" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          European Food Safety Authority, & European Centre for Disease Prevention and Control. (2011). The European Union summary report on trends and sources of zoonoses, zoonotic agents and food-borne outbreaks in 2009. <em>EFSA Journal</em>, 9(3), 2090. <a href="https://doi.org/10.2903/j.efsa.2011.2090" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          Gavi, The Vaccine Alliance. (2024). <em>Vaccine investment strategy 2031</em>. Gavi. <a href="https://www.gavi.org/programmes-impact/our-impact/vaccine-investment-strategy" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          Jonas, O. B., Irwin, A., Berthe, F. C. J., Le Gall, F. G., & Marquez, P. V. (2017). Drug-resistant infections: a threat to our economic future. <em>World Bank Rep</em>, 2, 1-132. <a href="https://documents.worldbank.org/en/publication/documents-reports/documentdetail/323311493396993758" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          Murray, C. J. L., Ikuta, K. S., Sharara, F., Swetschinski, L., Robles Aguilar, G., Gray, A., Han, C., Bisignano, C., Rao, P., Wool, E., Johnson, S. C., Browne, A. J., Chipeta, M. G., Fell, F., Hackett, S., Haines-Woodhouse, G., Kashef Hamadani, B. H., Kumaran, E. A. P., McManigal, B., Naghavi, M. (2022). Global burden of bacterial antimicrobial resistance in 2019: A systematic analysis. <em>The Lancet</em>, 399(10325), 629-655. <a href="https://doi.org/10.1016/S0140-6736(21)02724-0" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          Naghavi, M., Vollset, S. E., Ikuta, K. S., Swetschinski, L. R., Gray, A. P., Wool, E. E., ... & Dekker, D. M. (2024). Global burden of bacterial antimicrobial resistance 1990-2021: a systematic analysis with forecasts to 2050. <em>The Lancet</em>, 404(10459), 1199-1226. <a href="https://doi.org/10.1016/S0140-6736(24)01867-1" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          Swiss Federal Office for the Environment. (2024). <em>Antibiotic consumption and antibiotic resistance in Switzerland: StAR monitoring 2024</em>. Swiss Confederation. <a href="https://cdn.who.int/media/docs/default-source/antimicrobial-resistance/amr-spc-npm/nap-library/strategy-on-antibiotic-resistance-switzerland.pdf" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          United Nations. (2016). <em>Political declaration of the high-level meeting of the general assembly on antimicrobial resistance</em>. New York: United Nations. <a href="https://www.who.int/news-room/events/detail/2024/09/26/default-calendar/un-general-assembly-high-level-meeting-on-antimicrobial-resistance-2024" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          Van Boeckel, T. P., Pires, J., Silvester, R., Zhao, C., Song, J., Criscuolo, N. G., ... & Laxminarayan, R. (2019). Global trends in antimicrobial resistance in animals in low-and middle-income countries. <em>Science</em>, 365(6459), eaaw1944. <a href="https://doi.org/10.1126/science.aaw1944" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          Wellcome Trust. (2025). <em>Vaccination to prevent antimicrobial resistance: New evidence, future priorities and policy implications</em>. Wellcome. <a href="https://wellcome.org/insights/reports/vaccination-prevent-antimicrobial-resistance-new-evidence-future-priorities-and-policy" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          World Health Organization. (2015). <em>Global action plan on antimicrobial resistance</em>. WHO. <a href="https://www.who.int/publications/i/item/9789241509763" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          World Health Organization. (2022). <em>Global antimicrobial resistance and use surveillance system (GLASS) report 2022</em>. World Health Organization. <a href="https://books.google.ch/books?id=dHsOEQAAQBAJ" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          World Health Organization. (2024a). <em>Estimating the impact of vaccines in reducing antimicrobial resistance and antibiotic use</em>. WHO. <a href="https://www.who.int/publications/i/item/9789240098787" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          World Health Organization. (2026). <em>Global action plan on antimicrobial resistance 2026-2036 (GAP-AMR 2.0)</em> [Adopted at the 79th World Health Assembly, WHA79.12.9]. WHO. <a href="https://apps.who.int/gb/ebwha/pdf_files/WHA79/A795Add2-en.pdf" target="_blank">Link</a>
+        </div>
+        <div class="reference-item">
+          World Organisation for Animal Health. (2024). <em>Quadripartite key recommendations and priorities for the 2024 UNGA high-level meeting on antimicrobial resistance: A policy brief</em>. <a href="https://www.woah.org/app/uploads/2024/06/quadripartite-key-messages-and-priorities-final-08-may-2024.pdf" target="_blank">Link</a>
+        </div>
+      </div>
+      
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2026 Simon Boakye. MScGH (C), BSc. Geneva, Switzerland.</p>
+  </footer>
+</body>
+</html>
