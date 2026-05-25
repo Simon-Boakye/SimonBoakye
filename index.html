@@ -478,6 +478,45 @@
       background: var(--g-mid);
     }
 
+    /* Featured card styling for the newest/top article */
+    .blog-card.featured {
+      border: 2px solid var(--g-bright);
+      position: relative;
+    }
+
+    .blog-card.featured .blog-card-img {
+      height: 160px;
+      background: linear-gradient(135deg, var(--g-deep) 0%, var(--g-mid) 100%);
+      font-size: 3.5rem;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .blog-card.featured:hover {
+      box-shadow: 0 14px 40px rgba(42, 168, 110, 0.18);
+      border-color: var(--g-accent);
+    }
+
+    .blog-card.featured:hover .blog-card-img {
+      background: linear-gradient(135deg, var(--g-dark) 0%, var(--g-accent) 100%);
+    }
+
+    .blog-latest-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--g-bright);
+      color: var(--g-deep);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.75rem;
+      border-radius: 50px;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(42,168,110,0.25);
+    }
+
     .blog-card-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
 
     .blog-card-title {
@@ -487,6 +526,10 @@
       color: var(--g-deep);
       font-weight: 700;
       line-height: 1.3;
+    }
+
+    .blog-card.featured .blog-card-title {
+      font-size: 1.28rem;
     }
 
     .blog-card-excerpt {
@@ -590,6 +633,29 @@
     #iiu8hj { display: flex; gap: 1rem; }
     #ieaxn3 { color: rgba(0, 0, 0, 0.95); }
 
+    /* AMR card icon SVG styling */
+    .blog-card-img .amr-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .blog-card-img .amr-icon svg {
+      width: 56px;
+      height: 56px;
+      filter: drop-shadow(0 2px 8px rgba(42,168,110,0.35));
+    }
+
+    .blog-card-img .amr-icon-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--g-bright);
+      font-family: 'DM Sans', sans-serif;
+    }
+
     /* Balanced media queries for Android & iOS smartphone ergonomics */
     @media (max-width: 1024px) {
       .hero-sub { margin-left: auto; margin-right: auto; }
@@ -620,6 +686,7 @@
         padding: 0.75rem;
         border-radius: 12px;
       }
+
     }
   </style>
 </head>
@@ -732,7 +799,53 @@
     <span class="section-subtitle-italics">Global health discourse — essays, analyses, and commentary.</span>
     
     <div class="blog-grid">
-      <!-- 1. Ebola Post (Current) -->
+
+      <!-- 1. AMR Post (Newest — May 2026) -->
+      <a href="Can-We-Address-the-Antimicrobial-Resistance-Challenge-by-2036-Analysis-of-AMR-Global-Policy-Documents.html" class="blog-card featured" title="Read Full Article">
+        <div class="blog-card-img">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" width="72" height="72" aria-label="Antibiotic pill capsule">
+            <defs>
+              <linearGradient id="capLeft" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f5a623"/>
+                <stop offset="100%" stop-color="#e07830"/>
+              </linearGradient>
+              <linearGradient id="capRight" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#f0356a"/>
+                <stop offset="100%" stop-color="#be1558"/>
+              </linearGradient>
+              <clipPath id="leftClip">
+                <rect x="0" y="0" width="50" height="100"/>
+              </clipPath>
+              <clipPath id="rightClip">
+                <rect x="50" y="0" width="50" height="100"/>
+              </clipPath>
+            </defs>
+            <!-- Whole capsule rotated ~-35deg around center -->
+            <g transform="rotate(-35 50 50)">
+              <!-- Left (orange) half -->
+              <rect x="15" y="36" width="35" height="28" rx="0" fill="url(#capLeft)" clip-path="url(#leftClip)"/>
+              <ellipse cx="15" cy="50" rx="14" ry="14" fill="url(#capLeft)"/>
+              <!-- Right (pink) half -->
+              <rect x="50" y="36" width="35" height="28" rx="0" fill="url(#capRight)" clip-path="url(#rightClip)"/>
+              <ellipse cx="85" cy="50" rx="14" ry="14" fill="url(#capRight)"/>
+              <!-- Centre seam -->
+              <line x1="50" y1="36" x2="50" y2="64" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+              <!-- Gloss highlight -->
+              <ellipse cx="72" cy="41" rx="8" ry="4" fill="white" opacity="0.45" transform="rotate(-10 72 41)"/>
+            </g>
+            <!-- Soft drop shadow -->
+            <ellipse cx="52" cy="88" rx="22" ry="4" fill="rgba(0,0,0,0.15)"/>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-title">Can We Address the Antimicrobial Resistance Challenge by 2036?</div>
+          <div style="font-weight: 600; font-size: 0.9rem; color: var(--g-accent); margin-bottom: 0.6rem;">Analysis of AMR Global Policy Documents</div>
+          <p class="blog-card-excerpt">With 39 million projected deaths by 2050, AMR is the silent pandemic hiding in plain sight. This policy analysis examines the newly adopted GAP-AMR 2026–2036, lessons from Switzerland and the EU, and asks the urgent question: are we finally ready to act?</p>
+          <div class="blog-read-more">READ FULL ARTICLE &rarr;</div>
+        </div>
+      </a>
+
+      <!-- 2. Ebola Post -->
       <div class="blog-card">
         <a href="Ebola_Bundibugyo_EpiReport_May2026.html" style="text-decoration: none; color: inherit; display: block;">
           <div class="blog-card-img">🦠</div>
@@ -754,7 +867,7 @@
         </div>
       </div>
 
-      <!-- 2. Malaria & Diarrhoea Post -->
+      <!-- 3. Malaria & Diarrhoea Post -->
       <a href="malaria-diarrhoea-analysis.html" class="blog-card" title="Read Full Article">
         <div class="blog-card-img">🦟</div>
         <div class="blog-card-body">
@@ -764,7 +877,7 @@
         </div>
       </a>
 
-      <!-- 3. Data Analyst Post -->
+      <!-- 4. Data Analyst Post -->
       <a href="data-analyst-job-posting-analysis.html" class="blog-card" title="Read Full Article">
         <div class="blog-card-img">📊</div>
         <div class="blog-card-body">
