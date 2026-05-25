@@ -212,6 +212,23 @@
             border-bottom: 1px solid #f1f5f9;
         }
 
+        /* ── Stat card label: force text to fit ── */
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #64748b;
+            line-height: 1.3;
+        }
+        .stat-value {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            color: #dc2626;
+            margin-top: auto;
+        }
+
         /* ── Print ── */
         @media print {
             header, .toc-container, #progress-bar, footer { display: none; }
@@ -287,7 +304,7 @@
                             <p class="text-white font-bold text-base leading-snug">Simon Boakye</p>
                             <p class="text-brand-200 text-sm font-medium">MScGH (C), BPH</p>
                             <div class="flex items-center gap-2 text-brand-300 text-xs mt-1">
-                                <span>Published: May 17, 2026</span>
+                                <span>Published: May 19, 2026</span>
                             </div>
                         </div>
                     </div>
@@ -320,25 +337,25 @@
                         Situation at a Glance as at 19 May 2026 (Cumulative)
                     </h3>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-6">
-                        <div class="bg-white border border-red-100 rounded-xl p-3 sm:p-4 text-center shadow-sm flex flex-col justify-between min-h-[115px]">
-                            <p class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wide leading-tight">Confirmed Cases</p>
-                            <p class="text-2xl sm:text-3xl font-extrabold text-red-600 mt-auto" style="font-family:'Inter',sans-serif;">51</p>
+                        <div class="bg-white border border-red-100 rounded-xl p-3 sm:p-4 text-center shadow-sm flex flex-col items-center justify-between min-h-[110px]">
+                            <p class="stat-label">Confirmed<br>Cases</p>
+                            <p class="stat-value text-2xl sm:text-3xl">51</p>
                         </div>
-                        <div class="bg-white border border-red-100 rounded-xl p-3 sm:p-4 text-center shadow-sm flex flex-col justify-between min-h-[115px]">
-                            <p class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wide leading-tight">Suspected Cases</p>
-                            <p class="text-2xl sm:text-3xl font-extrabold text-red-600 mt-auto" style="font-family:'Inter',sans-serif;">575</p>
+                        <div class="bg-white border border-red-100 rounded-xl p-3 sm:p-4 text-center shadow-sm flex flex-col items-center justify-between min-h-[110px]">
+                            <p class="stat-label">Suspected<br>Cases</p>
+                            <p class="stat-value text-2xl sm:text-3xl">575</p>
                         </div>
-                        <div class="bg-white border border-red-100 rounded-xl p-3 sm:p-4 text-center shadow-sm flex flex-col justify-between min-h-[115px]">
-                            <p class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wide leading-tight">Suspected Deaths</p>
-                            <p class="text-2xl sm:text-3xl font-extrabold text-red-600 mt-auto" style="font-family:'Inter',sans-serif;">148</p>
+                        <div class="bg-white border border-red-100 rounded-xl p-3 sm:p-4 text-center shadow-sm flex flex-col items-center justify-between min-h-[110px]">
+                            <p class="stat-label">Suspected<br>Deaths</p>
+                            <p class="stat-value text-2xl sm:text-3xl">148</p>
                         </div>
-                        <div class="bg-white border border-red-100 rounded-xl p-3 sm:p-4 text-center shadow-sm flex flex-col justify-between min-h-[115px]">
-                            <p class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wide leading-tight">Countries Affected</p>
-                            <p class="text-xs sm:text-sm font-extrabold text-red-600 leading-tight mt-auto" style="font-family:'Inter',sans-serif;">DRC &amp; Uganda</p>
+                        <div class="bg-white border border-red-100 rounded-xl p-3 sm:p-4 text-center shadow-sm flex flex-col items-center justify-between min-h-[110px]">
+                            <p class="stat-label">Countries<br>Affected</p>
+                            <p class="stat-value text-sm sm:text-base leading-tight">DRC &amp;<br>Uganda</p>
                         </div>
-                        <div class="bg-white border border-red-100 rounded-xl p-3 sm:p-4 text-center shadow-sm flex flex-col justify-between min-h-[115px] col-span-2 sm:col-span-1">
-                            <p class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wide leading-tight">Comfirmed Deaths</p>
-                            <p class="text-2xl sm:text-3xl font-extrabold text-red-600 mt-auto" style="font-family:'Inter',sans-serif;">4</p>
+                        <div class="bg-white border border-red-100 rounded-xl p-3 sm:p-4 text-center shadow-sm flex flex-col items-center justify-between min-h-[110px] col-span-2 sm:col-span-1">
+                            <p class="stat-label">Confirmed<br>Deaths</p>
+                            <p class="stat-value text-2xl sm:text-3xl">4</p>
                         </div>
                     </div>
                     <ul class="space-y-3 text-red-900 text-sm font-medium font-sans !mb-0 !pl-1">
@@ -411,7 +428,7 @@
                     </table>
                 </div>
 
-                <h3 class="sub-heading">1d.  Timeline of Recent Ebola Outbreaks in Africa (2022–2025)</h3>
+                <h3 class="sub-heading">1d. Timeline of Recent Ebola Outbreaks in East &amp; Central Africa (2022–2025)</h3>
                 <ul class="space-y-3 pl-5 list-disc">
                     <li><strong>August 2022 – January 2023:</strong> Sudan ebolavirus outbreak in Uganda (Mubende); 142 confirmed cases, 55 deaths.</li>
                     <li><strong>August – December 2025:</strong> Zaire ebolavirus outbreak in DRC (Bulape, Kasai Province); 53 confirmed, 45 deaths. Outbreak declared over by authorities 1 December 2025.</li>
@@ -536,12 +553,7 @@
                     </li>
                 </ul>
 
-                <!-- Visualizing the Silent Spread (verbatim image reference) -->
-                <div class="my-8 flex justify-center">
-                    <img src="image_7158a9.png" alt="Late April to early May 2026 Outbreak Progress Visual" class="rounded-xl border border-slate-200 shadow-sm max-w-full h-auto" onerror="this.style.display='none'">
-                </div>
-                </div>
-
+                <!-- ════════════════════ SECTION 3d ════════════════════ -->
                 <h3 class="sub-heading">3d. PHEIC Declaration: What It Is and Why It Was Declared</h3>
                 <div class="bg-blue-50 border-l-4 border-blue-600 callout p-6 shadow-sm my-6 rounded-r-xl">
                     <h4 class="text-blue-900 font-bold text-base mb-3 flex items-center gap-2" style="font-family:'Inter',sans-serif;">
