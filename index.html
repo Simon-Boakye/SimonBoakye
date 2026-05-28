@@ -347,6 +347,62 @@
       margin: 2.5rem 0;
       line-height: 1.6;
     }
+
+    /* ── Skills grid ── */
+    .skills-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--g-deep);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .skill-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: var(--g-pale);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .skill-item:hover {
+      border-color: var(--g-bright);
+      box-shadow: 0 4px 12px rgba(42,168,110,0.1);
+    }
+    .skill-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--g-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .skill-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--g-accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .skill-text {
+      font-size: 0.92rem;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.4;
+      padding-top: 0.15rem;
+    }
+
     .cv-social-row { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; }
     .social-icon-btn {
       width: 48px;
@@ -388,7 +444,16 @@
       box-shadow: 0 8px 20px rgba(8, 42, 28, 0.2);
     }
     .btn-cv-full svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.5; }
-    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 1rem; }
+
+    /* ── Blog / article grid ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+      list-style: none;
+      padding: 0;
+    }
     .blog-card {
       text-decoration: none;
       color: inherit;
@@ -400,6 +465,7 @@
       overflow: hidden;
       transition: 0.3s;
       height: 100%;
+      position: relative;
     }
     a.blog-card {
       cursor: pointer;
@@ -425,7 +491,6 @@
     /* Featured card styling for the newest/top article */
     .blog-card.featured {
       border: 2px solid var(--g-bright);
-      position: relative;
     }
     .blog-card.featured .blog-card-img {
       height: 160px;
@@ -574,6 +639,179 @@
       color: var(--g-bright);
       font-family: 'DM Sans', sans-serif;
     }
+
+    /* ── Disclaimer section ── */
+    #disclaimer {
+      padding: 40px 8%;
+      background: #fffdf0;
+      border-top: 2px solid #f0d060;
+      border-bottom: 1px solid #e8cc50;
+    }
+    .disclaimer-inner {
+      max-width: 950px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+    }
+    .disclaimer-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f0d060;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1rem;
+    }
+    .disclaimer-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: #6b5a00;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .disclaimer-text {
+      font-size: 0.9rem;
+      color: #5a4a00;
+      line-height: 1.7;
+    }
+    .disclaimer-text strong {
+      font-weight: 700;
+      color: #3d3200;
+    }
+
+    /* ── Field Experience Timeline ── */
+    .timeline {
+      position: relative;
+      max-width: 860px;
+      margin-top: 3rem;
+      padding-left: 2.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--g-bright) 0%, var(--border) 100%);
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-marker {
+      position: absolute;
+      left: -2.5rem;
+      top: 2px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      border: 2px solid var(--border);
+      margin-left: -17px;
+    }
+    .timeline-marker svg { width: 16px; height: 16px; }
+    .upcoming-marker { border-color: #f59e0b; background: #fffbeb; color: #92400e; }
+    .upcoming-marker svg { stroke: #d97706; }
+    .current-marker { border-color: var(--g-bright); background: var(--g-pale); }
+    .current-marker svg { stroke: var(--g-accent); }
+    .done-marker { border-color: var(--g-accent); background: var(--g-pale); }
+    .done-marker svg { stroke: var(--g-accent); }
+    .timeline-content {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.6rem 1.8rem;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .timeline-item.upcoming .timeline-content {
+      border-color: #f59e0b;
+      background: #fffdf5;
+    }
+    .timeline-item.current .timeline-content {
+      border-color: var(--g-bright);
+      background: var(--g-pale);
+    }
+    .timeline-content:hover {
+      border-color: var(--g-bright);
+      box-shadow: 0 6px 20px rgba(42,168,110,0.1);
+    }
+    .timeline-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.65rem;
+    }
+    .timeline-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+    }
+    .upcoming-tag { background: #fef3c7; color: #92400e; }
+    .current-tag { background: var(--g-light); color: var(--g-dark); }
+    .done-tag { background: var(--g-pale); color: var(--g-accent); border: 1px solid var(--border); }
+    .timeline-location { font-size: 0.8rem; color: var(--muted); }
+    .timeline-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--g-deep);
+      margin-bottom: 0.65rem;
+      line-height: 1.35;
+    }
+    .timeline-desc {
+      font-size: 0.97rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 0.9rem;
+    }
+    .timeline-link {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--g-accent);
+      text-decoration: none;
+      margin-bottom: 0.9rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .timeline-link:hover { color: var(--g-bright); transform: translateX(3px); }
+    .timeline-tags-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .t-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--g-accent);
+      background: var(--g-pale);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 600px) {
+      .timeline { padding-left: 2rem; }
+      .timeline-marker { margin-left: -15px; width: 28px; height: 28px; }
+      .timeline-marker svg { width: 13px; height: 13px; }
+      .timeline-content { padding: 1.2rem; }
+    }
+
     /* Balanced media queries for Android & iOS smartphone ergonomics */
     @media (max-width: 1024px) {
       .hero-sub { margin-left: auto; margin-right: auto; }
@@ -603,6 +841,13 @@
         padding: 0.75rem;
         border-radius: 12px;
       }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .disclaimer-inner {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
     }
   </style>
 </head>
@@ -614,20 +859,21 @@
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#projects">Field Work</a></li>
       <li><a href="https://drive.google.com/file/d/1Z4etNe5OFAcm0QjT_UQxP2sF7uMeklRB/view?usp=sharing" target="_blank">CV</a></li>
       <li><a href="#contact" class="nav-cta">Connect</a></li>
     </ul>
   </nav>
+
+  <main>
   
   <section id="hero">
     <div class="hero-grid-lines"></div>
     <div class="hero-left">
-      <div class="hero-badge">Public Health · Global Health</div>
-      <h1 class="hero-title">Global Health <br/><em>Innovation</em></h1>
+      <div class="hero-badge">Licensed Public Health Officer · MScGH Candidate · University of Geneva</div>
+      <h1 class="hero-title">Protecting Lives<br/>Through <em>Evidence &amp; Action</em></h1>
       <p class="hero-sub">
-        Public Health professional and currently pursuing master of Global Health at the University of Geneva. I offer 3+
-        years experience in the field of public health, specializing in strengthening immunization systems, disease surveillance, and
-        programmatic support in Ghana, in collaboration with government health directorates and NGOs, CSOs and development partners.</p>
+        Field-tested public health professional from Ghana, working at the intersection of immunisation systems, disease surveillance, and global health policy — now training at one of the world's foremost centres for international health governance.</p>
       <div class="hero-ctas"><a href="#blog" class="btn-tab primary-cta"><svg viewBox="0 0 24 24">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
             <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
@@ -638,14 +884,14 @@
             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
             <polyline points="22 4 12 14.01 9 11.01"></polyline>
           </svg>
-          3+ Years Experience
+          95% Routine Vaccine Coverage
         </div>
         <div class="btn-tab"><svg viewBox="0 0 24 24">
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="2" y1="12" x2="22" y2="12"></line>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
           </svg>
-          Ghana · Switzerland
+          Ghana · Geneva, Switzerland
         </div>
       </div>
     </div>
@@ -675,16 +921,69 @@
     <h2 class="section-title">A Mission Rooted in<br/><em>Health Equity and Science</em></h2>
     <div class="about-container">
       <div class="about-text">
-        <p><strong>Simon Boakye</strong> is a Public Health Professional with over three years of experience in public
-          health practice, driving immunization, surveillance programmes and programmatic support in Ghana. Having mastered the operational realities of last-mile delivery, I am looking to transition these field-tested experience to contribute to the mission of organization supporting programmatic and strategic efforts that protect vulnerable populations worldwide.</p>
-        <p id="inuit4">Currently pursuing a <b>Master of Science in Global Health</b> at the University of Geneva. As
-          the Founder of
-          <b><a href="https://equihealthacademy.org/" target="_blank" class="gjs-t-link"><span data-gs-mrk-color="" id="ieaxn3"><span data-gs-mrk-bgcolor="">EquiHealth Academy</span></span></a></b>,
-          I translate my experience into scalable leadership development. I believe that true global health security relies on resilient local systems. I contribute to systematically addressing disparities in professional opportunities by mentoring and empowering students and young professionals, especially from underserved communities. By equipping diverse, next-generation leaders with the tools to contribute to public health, I help cultivate a sustainable, self-reliant health workforce. This directly drives health equity, fosters deep community trust, and builds the localized resilience necessary to predict, prevent, and respond to global health threats.</p>
+
+        <p><strong>Simon Boakye</strong> is a Licensed Public Health Officer from Ghana, currently pursuing a <strong>Master of Science in Global Health</strong> at the <strong>University of Geneva, Switzerland</strong> — one of the world's foremost centres for international health governance, diplomacy, and policy. Over more than three years of field practice, he has helped drive routine immunisation coverage to <strong>95% across all antigens</strong> in his operational areas, contributing to one of the core benchmarks of a high-performing immunisation system.</p>
+
+        <p>His field experience spans <strong>vaccination and immunisation programme delivery, vaccine-preventable disease surveillance, mass campaign operations, and last-mile outreach planning</strong> — including critical technical support to districts and regions during the <strong>COVID-19 response, the national Polio campaign, and the Measles-Rubella campaign</strong>. These were high-stakes, high-complexity operations conducted in partnership with the Ghana Health Service, government health directorates, NGOs, CSOs, and international development partners. His work sits squarely at the intersection of epidemiology, data, and implementation — translating evidence into action that protects communities at the last mile.</p>
+
+        <p id="inuit4">As the Founder of <b><a href="https://equihealthacademy.org/" target="_blank" class="gjs-t-link"><span data-gs-mrk-color="" id="ieaxn3"><span data-gs-mrk-bgcolor="">EquiHealth Academy</span></span></a></b>, Simon extends this commitment beyond his own career: building scalable leadership development pathways that mentor and empower the next generation of public health professionals — especially those from underserved communities who are too often excluded from global health opportunities. He believes that true health security depends on resilient, locally-rooted systems and on people who have lived the realities they are working to change.</p>
+
         <div class="about-highlight">
           "Geography, socioeconomic background, and access to opportunity should never determine the quality of one's
           contribution to global public health and human dignity."
         </div>
+
+        <p class="skills-heading">What I bring to organisations:</p>
+        <div class="skills-grid" role="list">
+
+          <div class="skill-item" role="listitem">
+            <div class="skill-icon" aria-hidden="true">
+              <!-- Bar chart / data analysis icon -->
+              <svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="3" width="4" height="18"/></svg>
+            </div>
+            <span class="skill-text">Quantitative data qualitative analysis (STATA, R, Microsoft Excel, ATLAS.ti)</span>
+          </div>
+
+          <div class="skill-item" role="listitem">
+            <div class="skill-icon" aria-hidden="true">
+              <!-- Microscope / research icon -->
+              <svg viewBox="0 0 24 24"><path d="M9 3h6v10H9z"/><path d="M12 13v8"/><path d="M8 21h8"/><path d="M5 13h14"/><path d="M7 6H5a2 2 0 0 0-2 2v1h4"/></svg>
+            </div>
+            <span class="skill-text">Public health research and epidemiological reporting</span>
+          </div>
+
+          <div class="skill-item" role="listitem">
+            <div class="skill-icon" aria-hidden="true">
+              <!-- Document / policy icon -->
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <span class="skill-text">Policy analysis and health advocacy</span>
+          </div>
+
+          <div class="skill-item" role="listitem">
+            <div class="skill-icon" aria-hidden="true">
+              <!-- Briefcase / project management icon -->
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <span class="skill-text">Project management across national and international programmes</span>
+          </div>
+
+          <div class="skill-item" role="listitem">
+            <div class="skill-icon" aria-hidden="true">
+              <!-- People / community engagement icon -->
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="skill-text">Community engagement and outreach planning</span>
+          </div>
+
+        </div>
+
+        <p>Beyond academia, Simon has contributed to real-world policy impact. As <strong>Deputy General Secretary of the Ghana Public Health Association (2020–2022)</strong>, he was part of the advocacy effort that contributed to Ghana's Parliament passing an excise tax policy on Sugar-Sweetened Beverages — a landmark public health victory in nutrition policy. He has served on committees for national public health projects and internationally sponsored programmes, sharpening his ability to navigate multi-stakeholder environments and deliver across sectors and cultures.</p>
+
+        <p>He holds a <strong>Bachelor of Public Health in Disease Control</strong> from the University of Health and Allied Sciences, Ghana, and certifications in health policy, epidemiology, project management, and health leadership from the <strong>University of Washington Continuous Professional Development Programme</strong>. He has also trained with the <strong>Global Health and Education Project (GHEP), Inc.</strong> (Washington D.C.) and <strong>Child Family Health International</strong> (US).</p>
+
+        <p>Simon brings rare depth — field experience, quantitative skills, policy exposure, and Geneva-based global health training — to any team working on immunisation, epidemic response, health systems strengthening, or data-for-health programmes. He is available for internships, junior professional officer positions, consultancies, and fellowship programmes aligned with his mission.</p>
+
         <div class="cv-social-row">
           <a href="https://drive.google.com/file/d/1Z4etNe5OFAcm0QjT_UQxP2sF7uMeklRB/view?usp=sharing" target="_blank" class="btn-cv-full">
             <svg viewBox="0 0 24 24">
@@ -714,104 +1013,244 @@
     <h2 class="section-title">Scientific Writing &amp; Field Perspectives</h2>
     <span class="section-subtitle-italics">Global health discourse — essays, analyses, and commentary.</span>
     
-    <div class="blog-grid">
+    <!-- Semantic HTML5: blog posts are marked up as <article> elements inside an ordered list for correct document hierarchy and SEO -->
+    <ol class="blog-grid" aria-label="Blog articles">
+
       <!-- 1. AMR Post -->
-      <a href="Can-We-Address-the-Antimicrobial-Resistance-Challenge-by-2036-Analysis-of-AMR-Global-Policy-Documents.html" class="blog-card featured" title="Read Full Article">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" width="72" height="72" aria-label="Antibiotic pill capsule">
-            <defs>
-              <linearGradient id="capLeft" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#f5a623"/>
-                <stop offset="100%" stop-color="#e07830"/>
-              </linearGradient>
-              <linearGradient id="capRight" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#f0356a"/>
-                <stop offset="100%" stop-color="#be1558"/>
-              </linearGradient>
-              <clipPath id="leftClip">
-                <rect x="0" y="0" width="50" height="100"/>
-              </clipPath>
-              <clipPath id="rightClip">
-                <rect x="50" y="0" width="50" height="100"/>
-              </clipPath>
-            </defs>
-            <g transform="rotate(-35 50 50)">
-              <rect x="15" y="36" width="35" height="28" rx="0" fill="url(#capLeft)" clip-path="url(#leftClip)"/>
-              <ellipse cx="15" cy="50" rx="14" ry="14" fill="url(#capLeft)"/>
-              <rect x="50" y="36" width="35" height="28" rx="0" fill="url(#capRight)" clip-path="url(#rightClip)"/>
-              <ellipse cx="85" cy="50" rx="14" ry="14" fill="url(#capRight)"/>
-              <line x1="50" y1="36" x2="50" y2="64" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
-              <ellipse cx="72" cy="41" rx="8" ry="4" fill="white" opacity="0.45" transform="rotate(-10 72 41)"/>
-            </g>
-            <ellipse cx="52" cy="88" rx="22" ry="4" fill="rgba(0,0,0,0.15)"/>
-          </svg>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-card-title">Can We Address the Antimicrobial Resistance Challenge by 2036?</div>
-          <div style="font-weight: 600; font-size: 0.9rem; color: var(--g-accent); margin-bottom: 0.6rem;">Analysis of AMR Global Policy Documents</div>
-          <p class="blog-card-excerpt">With 39 million projected deaths by 2050, AMR is the silent pandemic hiding in plain sight. This policy analysis examines the newly adopted GAP-AMR 2026–2036, lessons from Switzerland and the EU, and asks the urgent question: are we finally ready to act?</p>
-          <div class="blog-read-more">READ FULL ARTICLE &rarr;</div>
-        </div>
-      </a>
+      <li>
+        <article class="blog-card featured" aria-label="Featured article: Can We Address the Antimicrobial Resistance Challenge by 2036?">
+          <a href="Can-We-Address-the-Antimicrobial-Resistance-Challenge-by-2036-Analysis-of-AMR-Global-Policy-Documents.html" title="Read Full Article" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;height:100%;">
+            <div class="blog-card-img">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" width="72" height="72" aria-label="Antibiotic pill capsule">
+                <defs>
+                  <linearGradient id="capLeft" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#f5a623"/>
+                    <stop offset="100%" stop-color="#e07830"/>
+                  </linearGradient>
+                  <linearGradient id="capRight" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#f0356a"/>
+                    <stop offset="100%" stop-color="#be1558"/>
+                  </linearGradient>
+                  <clipPath id="leftClip">
+                    <rect x="0" y="0" width="50" height="100"/>
+                  </clipPath>
+                  <clipPath id="rightClip">
+                    <rect x="50" y="0" width="50" height="100"/>
+                  </clipPath>
+                </defs>
+                <g transform="rotate(-35 50 50)">
+                  <rect x="15" y="36" width="35" height="28" rx="0" fill="url(#capLeft)" clip-path="url(#leftClip)"/>
+                  <ellipse cx="15" cy="50" rx="14" ry="14" fill="url(#capLeft)"/>
+                  <rect x="50" y="36" width="35" height="28" rx="0" fill="url(#capRight)" clip-path="url(#rightClip)"/>
+                  <ellipse cx="85" cy="50" rx="14" ry="14" fill="url(#capRight)"/>
+                  <line x1="50" y1="36" x2="50" y2="64" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+                  <ellipse cx="72" cy="41" rx="8" ry="4" fill="white" opacity="0.45" transform="rotate(-10 72 41)"/>
+                </g>
+                <ellipse cx="52" cy="88" rx="22" ry="4" fill="rgba(0,0,0,0.15)"/>
+              </svg>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-latest-badge">Latest</span>
+              <h3 class="blog-card-title">Can We Address the Antimicrobial Resistance Challenge by 2036?</h3>
+              <div style="font-weight: 600; font-size: 0.9rem; color: var(--g-accent); margin-bottom: 0.4rem;">Analysis of AMR Global Policy Documents</div>
+              <time datetime="2026-05-26" style="font-size:0.75rem;color:var(--muted);display:block;margin-bottom:0.7rem;letter-spacing:0.04em;">26 May 2026</time>
+              <p class="blog-card-excerpt">With 39 million projected deaths by 2050, AMR is the silent pandemic hiding in plain sight. This policy analysis examines the newly adopted GAP-AMR 2026–2036, lessons from Switzerland and the EU, and asks the urgent question: are we finally ready to act?</p>
+              <div class="blog-read-more">READ FULL ARTICLE &rarr;</div>
+            </div>
+          </a>
+        </article>
+      </li>
       
       <!-- 2. Ebola Post -->
-      <div class="blog-card">
-        <a href="Ebola_Bundibugyo_EpiReport_May2026.html" style="text-decoration: none; color: inherit; display: block;">
-          <div class="blog-card-img">🦠</div>
-        </a>
-        <div class="blog-card-body">
-          <a href="Ebola_Bundibugyo_EpiReport_May2026.html" style="text-decoration: none; color: inherit;">
-            <div class="blog-card-title">Ebola Strain "Bundibugyo" Outbreak In The Democratic Republic Of The Congo &amp; Uganda</div>
-            <div style="font-weight: 600; font-size: 0.95rem; color: var(--g-accent); margin-bottom: 0.5rem;">Outbreak in DRC &amp; Uganda</div>
-            <p class="blog-card-excerpt" style="margin-bottom: 1rem;">Documenting the Bundibugyo Outbreak — For Science, For Communities, For the World.</p>
+      <li>
+        <article class="blog-card" aria-label="Ebola Strain Bundibugyo Outbreak In The Democratic Republic Of The Congo and Uganda">
+          <a href="Ebola_Bundibugyo_EpiReport_May2026.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="blog-card-img">🦠</div>
           </a>
-          
-          <div class="blog-card-excerpt" style="font-size: 0.9rem; margin-bottom: 0.5rem; border-left: 2px solid var(--border); padding-left: 10px;">
-            <a href="https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern" target="_blank" class="gjs-t-link" title="Read full statement"><em>Read full PHEIC statement by Director General of the World Health Organisation (WHO).</em></a>
-            <div style="height: 8px;"></div>
-            <a href="https://apps.who.int/gb/bd/pdf_files/IHR_2014-2022-2024-en.pdf" target="_blank" class="gjs-t-link" title="Access Document"><em>Access the IHR 2005 as amended in 2014, 2022 and 2024 here.</em></a>
+          <div class="blog-card-body">
+            <a href="Ebola_Bundibugyo_EpiReport_May2026.html" style="text-decoration: none; color: inherit;">
+              <h3 class="blog-card-title">Ebola Strain "Bundibugyo" Outbreak In The Democratic Republic Of The Congo &amp; Uganda</h3>
+              <div style="font-weight: 600; font-size: 0.95rem; color: var(--g-accent); margin-bottom: 0.3rem;">Outbreak in DRC &amp; Uganda</div>
+              <time datetime="2026-05-19" style="font-size:0.75rem;color:var(--muted);display:block;margin-bottom:0.7rem;letter-spacing:0.04em;">19 May 2026</time>
+              <p class="blog-card-excerpt" style="margin-bottom: 1rem;">Documenting the Bundibugyo Outbreak — For Science, For Communities, For the World.</p>
+            </a>
+            
+            <div class="blog-card-excerpt" style="font-size: 0.9rem; margin-bottom: 0.5rem; border-left: 2px solid var(--border); padding-left: 10px;">
+              <a href="https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern" target="_blank" class="gjs-t-link" title="Read full statement"><em>Read full PHEIC statement by Director General of the World Health Organisation (WHO).</em></a>
+              <div style="height: 8px;"></div>
+              <a href="https://apps.who.int/gb/bd/pdf_files/IHR_2014-2022-2024-en.pdf" target="_blank" class="gjs-t-link" title="Access Document"><em>Access the IHR 2005 as amended in 2014, 2022 and 2024 here.</em></a>
+            </div>
+            
+            <a href="Ebola_Bundibugyo_EpiReport_May2026.html" class="blog-read-more" style="text-decoration: none;">READ FULL ARTICLE &rarr;</a>
           </div>
-          
-          <a href="Ebola_Bundibugyo_EpiReport_May2026.html" class="blog-read-more" style="text-decoration: none;">READ FULL ARTICLE &rarr;</a>
-        </div>
-      </div>
+        </article>
+      </li>
       
       <!-- 3. Malaria & Diarrhoea Post -->
-      <a href="malaria-diarrhoea-analysis.html" class="blog-card" title="Read Full Article">
-        <div class="blog-card-img">🦟</div>
-        <div class="blog-card-body">
-          <div class="blog-card-title">Malaria &amp; Diarrhoea in Under five: Patterns, Burden, and Pathways to Interventions</div>
-          <p class="blog-card-excerpt">A comprehensive, data-driven analysis exploring the epidemiological trends, health impacts, and strategic interventions essential for combating these intersecting public health threats.</p>
-          <div class="blog-read-more">READ FULL ARTICLE &rarr;</div>
-        </div>
-      </a>
+      <li>
+        <article class="blog-card" aria-label="Malaria and Diarrhoea in Under five: Patterns, Burden, and Pathways to Interventions">
+          <a href="malaria-diarrhoea-analysis.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;height:100%;" title="Read Full Article">
+            <div class="blog-card-img">🦟</div>
+            <div class="blog-card-body">
+              <h3 class="blog-card-title">Malaria &amp; Diarrhoea in Under five: Patterns, Burden, and Pathways to Interventions</h3>
+              <time datetime="2026-05-11" style="font-size:0.75rem;color:var(--muted);display:block;margin-bottom:0.7rem;letter-spacing:0.04em;">11 May 2026</time>
+              <p class="blog-card-excerpt">A comprehensive, data-driven analysis exploring the epidemiological trends, health impacts, and strategic interventions essential for combating these intersecting public health threats.</p>
+              <div class="blog-read-more">READ FULL ARTICLE &rarr;</div>
+            </div>
+          </a>
+        </article>
+      </li>
       
       <!-- 4. Data Analyst Post -->
-      <a href="data-analyst-job-posting-analysis.html" class="blog-card" title="Read Full Article">
-        <div class="blog-card-img">📊</div>
-        <div class="blog-card-body">
-          <div class="blog-card-title">Navigating the Data Landscape: Analysis of Global Health Job Postings</div>
-          <p class="blog-card-excerpt">A strategic deep-dive into the evolving requirements of health data analytics, identifying key trends and skills needed to bridge the gap between data and impact.</p>
-          <div class="blog-read-more">READ FULL ARTICLE &rarr;</div>
-        </div>
-      </a>
-    </div>
+      <li>
+        <article class="blog-card" aria-label="Navigating the Data Landscape: Analysis of Global Health Job Postings">
+          <a href="data-analyst-job-posting-analysis.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;height:100%;" title="Read Full Article">
+            <div class="blog-card-img">📊</div>
+            <div class="blog-card-body">
+              <h3 class="blog-card-title">Navigating the Data Landscape: Analysis of Global Health Job Postings</h3>
+              <time datetime="2026-05-12" style="font-size:0.75rem;color:var(--muted);display:block;margin-bottom:0.7rem;letter-spacing:0.04em;">12 May 2026</time>
+              <p class="blog-card-excerpt">A strategic deep-dive into the evolving requirements of health data analytics, identifying key trends and skills needed to bridge the gap between data and impact.</p>
+              <div class="blog-read-more">READ FULL ARTICLE &rarr;</div>
+            </div>
+          </a>
+        </article>
+      </li>
+
+    </ol>
   </section>
+
+  <!-- ── Disclaimer ── -->
+  <aside id="disclaimer" aria-label="Editorial disclaimer">
+    <div class="disclaimer-inner">
+      <div class="disclaimer-icon" aria-hidden="true">
+        <!-- Info / notice icon -->
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <p class="disclaimer-text"><strong>Note:</strong> All analytical pieces published on my portfolio are independent, evidence-based works grounded in peer-reviewed literature and official policy documents. They are not peer-reviewed publications but reflect my commitment to contributing to global public health discourse.</p>
+    </div>
+  </aside>
   
   <section id="projects">
-    <div class="section-label">Projects</div>
-    <h2 class="section-title">Strategic Initiatives</h2>
-    <span class="section-subtitle-italics">Evidence translated into action.</span>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3 id="ii0iql">Coming Soon</h3>
-        <p id="iblw84">To be announced soon.</p>
+    <div class="section-label">Field Experience &amp; Projects</div>
+    <h2 class="section-title">From the Field to<br/><em>Geneva — and Beyond</em></h2>
+    <span class="section-subtitle-italics">A living record of work done, work ongoing, and work coming.</span>
+
+    <div class="timeline" role="list">
+
+      <!-- ── UPCOMING ── -->
+      <div class="timeline-item upcoming" role="listitem">
+        <div class="timeline-marker upcoming-marker" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <span class="timeline-tag upcoming-tag">Upcoming · 2026–2027</span>
+            <span class="timeline-location">📍 Geneva, Switzerland</span>
+          </div>
+          <h3 class="timeline-title">MScGH Capstone &amp; Research Projects — University of Geneva</h3>
+          <p class="timeline-desc">Applied research and practicum projects in global health policy, health systems, and epidemiology conducted as part of the Master of Science in Global Health programme. Outputs will include policy briefs, epidemiological analyses, and field placements. Details will be published here as they are completed.</p>
+          <div class="timeline-tags-row">
+            <span class="t-tag">Health Systems</span>
+            <span class="t-tag">Policy Research</span>
+            <span class="t-tag">Epidemiology</span>
+            <span class="t-tag">Geneva</span>
+          </div>
+        </div>
       </div>
-      <div id="ik4aic" class="project-card">
-        <h3 id="igk1mz">Coming Soon</h3>
-        <p id="ifh3mx">More initiatives to be announced.</p>
+
+      <!-- ── CURRENT ── -->
+      <div class="timeline-item current" role="listitem">
+        <div class="timeline-marker current-marker" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <span class="timeline-tag current-tag">In Progress · 2024–Present</span>
+            <span class="timeline-location">📍 Geneva, Switzerland</span>
+          </div>
+          <h3 class="timeline-title">EquiHealth Academy — Founder &amp; Executive Director</h3>
+          <p class="timeline-desc">Founded and leading EquiHealth Academy, a leadership development platform that mentors and equips students and early-career professionals from underserved communities with the tools, networks, and opportunities to contribute meaningfully to global public health. Developing curriculum, partnerships, and capacity-building initiatives that address structural barriers in the global health workforce pipeline.</p>
+          <a href="https://equihealthacademy.org/" target="_blank" rel="noopener" class="timeline-link">Visit EquiHealth Academy →</a>
+          <div class="timeline-tags-row">
+            <span class="t-tag">Leadership Development</span>
+            <span class="t-tag">Health Equity</span>
+            <span class="t-tag">Mentorship</span>
+            <span class="t-tag">Capacity Building</span>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <!-- ── COMPLETED 1 ── -->
+      <div class="timeline-item" role="listitem">
+        <div class="timeline-marker done-marker" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <span class="timeline-tag done-tag">Completed · 2021–2024</span>
+            <span class="timeline-location">📍 Ghana Health Service, Ghana</span>
+          </div>
+          <h3 class="timeline-title">Immunisation Systems Strengthening &amp; Disease Surveillance</h3>
+          <p class="timeline-desc">Served as a frontline Public Health Officer supporting the Ghana Health Service in strengthening routine immunisation delivery and vaccine-preventable disease surveillance across districts and regions. Contributed to achieving <strong>95% coverage across all routine vaccines</strong> — meeting WHO and Gavi benchmarks for high-performing immunisation systems. Designed and executed outreach strategies for hard-to-reach and underserved populations.</p>
+          <div class="timeline-tags-row">
+            <span class="t-tag">Immunisation</span>
+            <span class="t-tag">95% Coverage Achieved</span>
+            <span class="t-tag">VPD Surveillance</span>
+            <span class="t-tag">Last-Mile Delivery</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── COMPLETED 2 ── -->
+      <div class="timeline-item" role="listitem">
+        <div class="timeline-marker done-marker" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <span class="timeline-tag done-tag">Completed · 2020–2023</span>
+            <span class="timeline-location">📍 Multi-District, Ghana</span>
+          </div>
+          <h3 class="timeline-title">COVID-19, Polio &amp; Measles-Rubella Campaign Technical Support</h3>
+          <p class="timeline-desc">Provided technical support to districts and regions during three high-priority mass vaccination campaigns: the national COVID-19 response, the Polio eradication campaign, and the Measles-Rubella campaign. Responsibilities included microplanning, cold chain monitoring, adverse event reporting, and real-time data quality assurance. Worked in close coordination with GHS, WHO country office, UNICEF, and NGO field teams.</p>
+          <div class="timeline-tags-row">
+            <span class="t-tag">COVID-19 Response</span>
+            <span class="t-tag">Polio Campaign</span>
+            <span class="t-tag">Measles-Rubella</span>
+            <span class="t-tag">WHO · UNICEF</span>
+            <span class="t-tag">Cold Chain</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── COMPLETED 3 ── -->
+      <div class="timeline-item" role="listitem">
+        <div class="timeline-marker done-marker" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <span class="timeline-tag done-tag">Completed · 2020–2022</span>
+            <span class="timeline-location">📍 Ghana Public Health Association</span>
+          </div>
+          <h3 class="timeline-title">SSB Excise Tax Advocacy — Deputy General Secretary, GHPA</h3>
+          <p class="timeline-desc">As Deputy General Secretary of the Ghana Public Health Association, contributed to the multi-stakeholder advocacy campaign that resulted in Ghana's Parliament passing an excise tax policy on Sugar-Sweetened Beverages (SSBs) — a landmark nutrition policy victory. Served on national public health project committees and internationally sponsored programme working groups, gaining experience in evidence-based policy translation and multi-sector negotiation.</p>
+          <div class="timeline-tags-row">
+            <span class="t-tag">Health Policy</span>
+            <span class="t-tag">Advocacy</span>
+            <span class="t-tag">NCD Prevention</span>
+            <span class="t-tag">Parliamentary Engagement</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+
+    <p style="margin-top:2.5rem;font-size:0.9rem;color:var(--muted);font-style:italic;">This timeline is updated as new projects, research outputs, and field engagements are completed. Check back regularly.</p>
   </section>
   
   <section id="contact">
@@ -836,6 +1275,8 @@
           </path>
         </svg></a></div>
   </section>
+
+  </main><!-- /main -->
   
   <footer>
     <p>© 2026 Simon Boakye. MScGH (C), BPH. Geneva, Switzerland.</p>
