@@ -862,7 +862,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Field Work</a></li>
-      <li><a href="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/PDF%20files/Simon_Boakye_CV.pdf" download="Simon_Boakye_CV.pdf">CV</a></li>
+      <li><a href="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/PDF%20files/Simon_Boakye_CV.pdf" download="Simon_Boakye_CV.pdf" class="force-download-cv">CV</a></li>
       <li><a href="#contact" class="nav-cta">Connect</a></li>
     </ul>
   </nav>
@@ -981,7 +981,7 @@
         <p>Simon brings rare depth — field experience, quantitative skills, policy exposure, and Geneva-based global health training to any team working on immunisation, epidemic response, health systems strengthening, or data-for-health programmes. He is available for collaborations, junior professional officer positions, consultancies, and fellowship programmes aligned with his mission.</p>
 
         <div class="cv-social-row">
-          <a href="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/PDF%20files/Simon_Boakye_CV.pdf" download="Simon_Boakye_CV.pdf" class="btn-cv-full">
+          <a href="https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/PDF%20files/Simon_Boakye_CV.pdf" download="Simon_Boakye_CV.pdf" class="btn-cv-full force-download-cv">
             <svg viewBox="0 0 24 24">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
@@ -1277,5 +1277,38 @@
   <footer>
     <p>© 2026 Simon Boakye. MScGH (C), BPH. Geneva, Switzerland.</p>
   </footer>
+
+  <!-- ✅ Force-download for the CV: browsers ignore the `download` attribute on
+       cross-origin links (our CV is hosted on raw.githubusercontent.com, not
+       simonboakye.com), so clicking would sometimes just open/preview the PDF
+       instead of saving it. This fetches the file and triggers a same-origin
+       blob download instead, guaranteeing a real download on click. -->
+  <script>
+    (function () {
+      var CV_URL = "https://raw.githubusercontent.com/Simon-Boakye/SimonBoakye/main/PDF%20files/Simon_Boakye_CV.pdf";
+      var CV_FILENAME = "Simon_Boakye_CV.pdf";
+      document.querySelectorAll(".force-download-cv").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          fetch(CV_URL)
+            .then(function (res) { return res.blob(); })
+            .then(function (blob) {
+              var blobUrl = URL.createObjectURL(blob);
+              var a = document.createElement("a");
+              a.href = blobUrl;
+              a.download = CV_FILENAME;
+              document.body.appendChild(a);
+              a.click();
+              a.remove();
+              setTimeout(function () { URL.revokeObjectURL(blobUrl); }, 1000);
+            })
+            .catch(function () {
+              // Fallback if fetch fails (e.g. offline): navigate directly to the file
+              window.location.href = CV_URL;
+            });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
